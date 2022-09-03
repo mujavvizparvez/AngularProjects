@@ -1,0 +1,24 @@
+/* cart item */
+.card-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: none;
+  word-wrap: break-word;
+  background: #fff;
+  background-clip: border-box;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+.item {
+  margin: 0 15px;
+  text-align: center;
+  padding: 0.5rem;
+}
+.item img {
+  width: 60px;
+}
+.item h6{
+  font-size: small;
+  padding-top: .5em;
+}

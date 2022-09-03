@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Add Category</h3>
+      <form [formGroup]="categoryForm" (ngSubmit)="onUpdateCategory()">
+        <div>
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+         <div>
+          <label>Type</label>
+          <select class="form-select" formControlName="type">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+          <div>
+          <label>Photo Url</label>
+         <input type="text" class="form-control" formControlName="photoUrl" />
+        </div>
+         <div>
+          <label>Description</label>
+         <input type="text" class="form-control" formControlName="description" />
+        </div>
+       
+        <button class="btn btn-primary my-2" type="submit"> Add category
+        </button>
+      </form>
+      <div>
+         
+      </div>
+    </div>
+  </div>
+</div>
