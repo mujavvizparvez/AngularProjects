@@ -16,8 +16,14 @@
   padding: 0.5rem;
 }
 .item img {
+    border: 1px solid #ddd;
   width: 70px;
-  height: 17vh;
+  height: 70px;
+  
+}
+.item img:hover{
+
+   box-shadow: 0 0 2px 1px rgba(0, 186, 9, 0.5);
 }
 .item h6 {
   font-size: small;
