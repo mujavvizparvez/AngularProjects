@@ -1,0 +1,82 @@
+<!-- <p>sidebar works!</p>
+<div>
+  <a [routerLink]="['/admin']">Dashboard</a>
+</div>
+<div>
+  <a [routerLink]="['category/details']">Categories</a>
+</div>
+<div>
+  <a [routerLink]="['product/details']">Product</a>
+</div> -->
+
+<div class="sidebar">
+  <!-- <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold">
+    <i class="fas fa-user-secret me-2"></i>CODERSBITE
+  </div> -->
+
+  <div class="list-group list-group-flush my-3">
+    <div class="p-2">
+      <a
+        [routerLink]="['/admin']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fa-solid fa-tachometer me-2"></i> Dashboard
+      </a>
+    </div>
+    <div class="p-2">
+      <a
+        [routerLink]="['category/details']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fa-solid fa-sitemap me-2"></i> Category
+      </a>
+    </div>
+
+    <div class="p-2">
+      <a
+        [routerLink]="['product/details']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fas fa-cogs me-2"></i>Product
+      </a>
+    </div>
+    <div class="p-2">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fas fa-users me-2"></i>Users
+      </a>
+    </div>
+
+    <div class="p-2">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fas fa-credit-card me-2"></i>Payment
+      </a>
+    </div>
+
+    <div class="p-2">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fas fa-diamond me-2"></i>Orders
+      </a>
+    </div>
+
+    <div class="p-2">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fas fa-comment-dots me-2"></i>Chat
+      </a>
+    </div>
+    <div class="p-2">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent text-danger fw-bold"
+      >
+        <i class="fas fa-sign-out-alt me-2"></i>Logout
+      </a>
+    </div>
+  </div>
+</div>

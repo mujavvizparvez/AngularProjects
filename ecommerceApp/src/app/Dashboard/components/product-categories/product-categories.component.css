@@ -16,9 +16,20 @@
   padding: 0.5rem;
 }
 .item img {
-  width: 60px;
+  width: 70px;
+  height: 17vh;
 }
-.item h6{
+.item h6 {
   font-size: small;
-  padding-top: .5em;
+  padding-top: 0.5em;
+}
+.categ-link {
+  cursor: pointer;
+  padding: 6px;
+  color: lightslategray;
+}
+.categ-link:hover {
+  text-underline-position: above;
+  color: black;
+  border-bottom: 1px solid red;
 }

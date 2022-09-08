@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CategoryService } from 'src/app/Admin/services/category.service';
+import { CategoryService } from 'src/app/Admin/categories/services/category.service';
 
 @Component({
   selector: 'app-add-category',
@@ -21,7 +21,7 @@ export class AddCategoryComponent implements OnInit {
   onAddCategory() {
     let category = this.categoryForm.value;
     this.categoryService.addCategory(category).subscribe((data) => {
-      this.router.navigate(['category/details']);
+      this.router.navigate(['admin/category/details']);
       console.log(data);
     });
     console.log(this.categoryForm.value);

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Add Category</h3>
+      <h3>Edit Category</h3>
       <form [formGroup]="categoryForm" (ngSubmit)="onUpdateCategory()">
         <div>
           <label>Name</label>
@@ -12,6 +12,7 @@
           <select class="form-select" formControlName="type">
             <option value="male">Male</option>
             <option value="female">Female</option>
+            <option value="kids">Kids</option>
           </select>
         </div>
           <div>
@@ -23,7 +24,7 @@
          <input type="text" class="form-control" formControlName="description" />
         </div>
        
-        <button class="btn btn-primary my-2" type="submit"> Add category
+        <button class="btn btn-primary my-2" type="submit"> Update category
         </button>
       </form>
       <div>

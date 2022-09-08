@@ -1,27 +1,26 @@
 <div class="container text-end my-3">
   <div class="row">
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <input
         type="search"
         class="form-control search"
         placeholder="Search title ......"
-       
       />
-    </div>
+    </div> -->
   </div>
 
-  <a class="btn btn-primary" [routerLink]="['/category','add']">
+  <a class="btn btn-primary" [routerLink]="['/admin', 'category', 'add']">
     Add Category
   </a>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-11">
       <table class="table table-bordered table-striped table-hover">
         <thead class="thead">
           <tr class="text-center">
-            <th>Id</th>
+            <!-- <th>Id</th> -->
             <th>Name</th>
             <th>Type</th>
             <th>Photo Url</th>
@@ -30,22 +29,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let category of categories"
-            class="text-center"
-          >
-            <td>{{category.id}}</td>
-            <td>{{category.name}}</td>
-            <td>{{category.type}}</td>
-            <td>{{category.photoUrl}}</td>
-            <!-- <td><img src="" alt=""></td> -->
-            <td>{{category.description}}</td>
+          <tr *ngFor="let category of categories" class="text-center">
+            <!-- <td>{{ category.id }}</td> -->
+            <td>{{ category.name }}</td>
+            <td>{{ category.type }}</td>
+            <!-- <td>{{category.photoUrl}}</td> -->
+            <td>
+              <img
+                [src]="category.photoUrl"
+                alt=""
+                style="width: 70px; height: 70px"
+              />
+            </td>
+            <td>{{ category.description }}</td>
             <td>
               <a
                 class="btn btn-sm btn-warning"
+                [routerLink]="['/admin/category', category.id, 'edit']"
                 >Edit</a
               >
               <button
                 class="btn btn-sm btn-danger mx-2"
+                (click)="onDeleteCategory(category.id)"
               >
                 Delete
               </button>

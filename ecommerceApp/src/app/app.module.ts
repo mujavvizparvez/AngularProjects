@@ -13,6 +13,13 @@ import { AddCategoryComponent } from './Admin/categories/components/add-category
 import { CategoryDetailsComponent } from './Admin/categories/components/category-details/category-details.component';
 import { EditCategoryComponent } from './Admin/categories/components/edit-category/edit-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddProductComponent } from './Admin/product/components/add-product/add-product.component';
+import { ProductDetailsComponent } from './Admin/product/components/product-details/product-details.component';
+import { EditProductComponent } from './Admin/product/components/edit-product/edit-product.component';
+import { AdminHomeComponent } from './Admin/Dashboard/components/admin-home/admin-home.component';
+import { HomePageComponent } from './Dashboard/components/home-page/home-page.component';
+import { SidebarComponent } from './Admin/Dashboard/components/sidebar/sidebar.component';
+import { LandingComponent } from './Admin/Dashboard/components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +33,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddCategoryComponent,
     CategoryDetailsComponent,
     EditCategoryComponent,
+    AddProductComponent,
+    ProductDetailsComponent,
+    EditProductComponent,
+    AdminHomeComponent,
+    HomePageComponent,
+    SidebarComponent,
+    LandingComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { ICategory } from 'src/app/Admin/categories/models/ICategory';
+import { CategoryService } from 'src/app/Admin/categories/services/category.service';
 
 @Component({
   selector: 'app-product-categories',
   templateUrl: './product-categories.component.html',
-  styleUrls: ['./product-categories.component.css']
+  styleUrls: ['./product-categories.component.css'],
 })
 export class ProductCategoriesComponent implements OnInit {
-
-  constructor() { }
+  categories: ICategory[] = [];
+  constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
+    this.getCategoryByType('male');
   }
 
+  getCategoryByType(type:string) {
+    this.categoryService
+      .getCategories()
+      .subscribe((categories: ICategory[]) => {
+        this.categories = categories.filter((f) => f.type == type);
+      });
+  }
 }

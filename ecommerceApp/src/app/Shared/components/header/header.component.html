@@ -11,26 +11,45 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mynavbar">
-      <ul class="navbar-nav me-auto ">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link " href="javascript:void(0)">Men</a>
+          <a class="nav-link" href="javascript:void(0)">Men</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="javascript:void(0)">Women</a>
+          <a class="nav-link" href="javascript:void(0)">Women</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)">Kids</a>
         </li>
-           <form class="d-flex">
-        <input class="form-control prod-search" type="text" placeholder="Search products & brands"/>
-      </form>
+        <form class="d-flex">
+          <input
+            class="form-control prod-search"
+            type="text"
+            placeholder="Search products & brands"
+          />
+        </form>
       </ul>
-   <div class="nav-border">
-      <a class="nav-link cart-btn" type="button">Cart <i class="fa-solid fa-cart-shopping"></i></a>
+      <!-- <div class="px-3">
+        <a class="nav-link" [routerLink]="['category/details']">Categories</a>
+      </div> -->
+
+      <div class="nav-border">
+        <a class="nav-link cart-btn" type="button"
+          >Cart <i class="fa-solid fa-cart-shopping"></i
+        ></a>
       </div>
       <div class="nav-border">
-      <a class="nav-link user-btn" type="button">Sign in <i class="fa-solid fa-user"></i></a>
+        <a class="nav-link user-btn" type="button"
+          >Sign in <i class="fa-solid fa-user"></i
+        ></a>
       </div>
+
+      <!-- <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul> -->
+  
     </div>
   </div>
 </nav>

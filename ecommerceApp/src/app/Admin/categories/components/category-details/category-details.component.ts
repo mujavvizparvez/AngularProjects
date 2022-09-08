@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory } from 'src/app/Admin/models/ICategory';
-import { CategoryService } from 'src/app/Admin/services/category.service';
+import { ICategory } from 'src/app/Admin/categories/models/ICategory';
+import { CategoryService } from 'src/app/Admin/categories/services/category.service';
 
 @Component({
   selector: 'app-category-details',
@@ -8,7 +8,7 @@ import { CategoryService } from 'src/app/Admin/services/category.service';
   styleUrls: ['./category-details.component.css'],
 })
 export class CategoryDetailsComponent implements OnInit {
-  categories:ICategory[]=[]
+  categories: ICategory[] = [];
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
@@ -18,5 +18,14 @@ export class CategoryDetailsComponent implements OnInit {
         this.categories = categories;
         console.log(categories);
       });
+  }
+  onDeleteCategory(id: any) {
+    this.categoryService.deleteCategory(id).subscribe((data) => {
+      this.categoryService
+        .getCategories()
+        .subscribe((category: ICategory[]) => {
+          this.categories = category;
+        });
+    });
   }
 }

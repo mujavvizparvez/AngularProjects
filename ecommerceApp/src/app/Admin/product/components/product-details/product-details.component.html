@@ -1,0 +1,68 @@
+<!-- <div class="row">
+  <div class="col-md-9">
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Search here...."
+      [(ngModel)]="postSearch"
+    />
+  </div>
+</div> -->
+<div>
+
+
+<div class="text-end p-3">
+  <a class="btn btn-outline-dark" [routerLink]="['/admin', 'product', 'add']">
+   <i class="fa-solid fa-plus"></i> Add New
+  </a>
+</div>
+
+<div class="row bg-light p-3">
+ <h3 class="pb-2">Category Details</h3>
+  <div class="col-md-12 table-responsive" id="no-more-tables ">
+    <table class="table table-bordered table-striped table-hover table-dark">
+      <thead class="text-light">
+        <tr class="text-center">
+          <th>Brand</th>
+           <th>Category</th>
+           <th>PhotoUrl</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Rating</th>
+          <th>Description</th>
+          <th>Color</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products" class="text-center">
+          <td data-title="Brand">{{ product.brand }}</td>
+           <td data-title="Category">{{ product.categoryName }}</td>
+            <td data-title="PhotoUrl"><img [src]="product.photoUrl" alt="" class="rounded-circle"/></td>
+          <td data-title="Name">{{ product.name }}</td>
+          <td data-title="Price">{{ product.price }}</td>
+          <td data-title="Rating">{{ product.rating }}</td>
+          <td data-title="Description">{{ product.description }}</td>
+          <td data-title="Color">{{ product.color }}</td>
+          <td data-title="Size">{{ product.size }}</td>
+          <td data-title="Quantity">{{ product.quantity }}</td>
+          <td data-title="Actions">
+            <a
+              class="btn btn-sm text-warning"
+              [routerLink]="['/admin/product', product.id, 'edit']"
+              ><i class="fa-solid fa-pen-to-square"></i></a
+            >
+            <button  class="btn btn-sm text-danger btn-outline"
+y              (click)="onDeleteProduct(product.id)"
+            >
+             <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
