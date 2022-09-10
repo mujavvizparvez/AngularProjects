@@ -24,19 +24,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onDeleteProduct(id: any) {
-    // this.productService.deleteProduct(id).subscribe((data) => {
-    //   this.productService.getProducts().subscribe((product: IProduct[]) => {
-    //     this.products = product;
-    //   });
-    // });
-    // this.productService.deleteProduct(id).subscribe((data) => {
-    //   this.getProduct();
-    // this.productService.getProducts().subscribe((product: IProduct[]) => {
-    //   this.products = product;
-    //   this.getProduct();
-    // })
-
-    //  });
     if (confirm('Are you sure you want to delete product')) {
       this.productService.deleteProduct(id).subscribe((data) => {
         this.getProduct();

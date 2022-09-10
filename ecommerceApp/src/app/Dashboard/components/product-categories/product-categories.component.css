@@ -22,8 +22,8 @@
   
 }
 .item img:hover{
-
-   box-shadow: 0 0 2px 1px rgba(0, 186, 9, 0.5);
+ /* border: 2px solid rgb(28, 62, 125); */
+   box-shadow: 0 0 6px 3px rgba(0, 186, 9, 0.5);
 }
 .item h6 {
   font-size: small;
@@ -39,3 +39,4 @@
   color: black;
   border-bottom: 1px solid red;
 }
+

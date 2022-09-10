@@ -18,7 +18,7 @@
 </div>
 
 <div class="row bg-light p-3">
- <h3 class="pb-2">Category Details</h3>
+ <h3 class="pb-2">Product Details</h3>
   <div class="col-md-12 table-responsive" id="no-more-tables ">
     <table class="table table-bordered table-striped table-hover table-dark">
       <thead class="text-light">
@@ -27,6 +27,7 @@
            <th>Category</th>
            <th>PhotoUrl</th>
           <th>Name</th>
+          <th>Exclusive For</th>
           <th>Price</th>
           <th>Rating</th>
           <th>Description</th>
@@ -42,6 +43,7 @@
            <td data-title="Category">{{ product.categoryName }}</td>
             <td data-title="PhotoUrl"><img [src]="product.photoUrl" alt="" class="rounded-circle"/></td>
           <td data-title="Name">{{ product.name }}</td>
+           <td  data-title="Exclusive For"> {{product.exclusiveFor}}</td>
           <td data-title="Price">{{ product.price }}</td>
           <td data-title="Rating">{{ product.rating }}</td>
           <td data-title="Description">{{ product.description }}</td>

@@ -1,6 +1,18 @@
 <nav class="navbar navbar-expand-sm sticky-top navbar-dark p-3">
   <div class="container-fluid">
     <img src="../../assets/Images/logo.png" alt="logoy" />
+    <!-- <input type="search" class="hidden-icon search-box" placeholder="Search.."> -->
+    <i class="fa-solid fa-magnifying-glass hidden-icon"></i>
+    <i class="fa-solid fa-cart-shopping hidden-icon"></i>
+    <i class="fa-solid fa-user hidden-icon"></i
+        >
+        <!-- <div class="search-box bg-dark">
+  <input type="text" class="search-text" placeholder="Search here...">
+  <a class="search-btn">
+     <i class="
+     fa-solid fa-magnifying-glass"></i>
+  </a>
+</div> -->
     <button
       class="navbar-toggler"
       type="button"
@@ -13,33 +25,40 @@
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Men</a>
+          <a
+            class="nav-link"
+            href="javascript:void(0)"
+            [routerLink]="['/admin']"
+           
+            >Men</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)">Women</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Kids</a>
+          <a class="nav-link" href="javascript:void(0)" [routerLink]="['/']"
+            >Kids</a
+          >
         </li>
-        <form class="d-flex">
+        <div class="mx-sm-0 sm-hidden">
           <input
             class="form-control prod-search"
             type="text"
             placeholder="Search products & brands"
           />
-        </form>
+        </div>
       </ul>
-      <!-- <div class="px-3">
-        <a class="nav-link" [routerLink]="['category/details']">Categories</a>
-      </div> -->
-
-      <div class="nav-border">
+       <div>
+        <a class="nav-link" (click)="onLogout()">logout</a>
+       </div>
+      <div class="nav-border sm-hidden">
         <a class="nav-link cart-btn" type="button"
           >Cart <i class="fa-solid fa-cart-shopping"></i
         ></a>
       </div>
-      <div class="nav-border">
-        <a class="nav-link user-btn" type="button"
+      <div class="nav-border sm-hidden">
+        <a class="nav-link user-btn" type="button" [routerLink]="['/login']"
           >Sign in <i class="fa-solid fa-user"></i
         ></a>
       </div>
@@ -49,7 +68,8 @@
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
   </ul> -->
-  
     </div>
   </div>
 </nav>
+
+

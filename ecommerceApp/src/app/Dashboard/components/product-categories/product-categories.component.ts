@@ -9,17 +9,18 @@ import { CategoryService } from 'src/app/Admin/categories/services/category.serv
 })
 export class ProductCategoriesComponent implements OnInit {
   categories: ICategory[] = [];
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.getCategoryByType('male');
   }
 
-  getCategoryByType(type:string) {
+  getCategoryByType(type: string) {
     this.categoryService
       .getCategories()
       .subscribe((categories: ICategory[]) => {
         this.categories = categories.filter((f) => f.type == type);
       });
   }
+
 }

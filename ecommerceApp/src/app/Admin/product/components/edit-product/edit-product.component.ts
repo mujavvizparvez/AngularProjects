@@ -19,6 +19,7 @@ export class EditProductComponent implements OnInit {
     brand: new FormControl(''),
     name: new FormControl(''),
     categoryId: new FormControl(''),
+    exclusiveFor: new FormControl(''),
     price: new FormControl(''),
     rating: new FormControl(''),
     description: new FormControl(''),
@@ -35,24 +36,28 @@ export class EditProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    debugger;
     this.categoryService.getCategories().subscribe((data) => {
       this.categories = data;
     });
     this.productId = this.route.snapshot.params['name'];
-    this.productService.getProductById(this.productId).subscribe((data) => {
-      this.productForm.setValue({
-        brand: data.brand,
-        name: data.name,
-        categoryId: data.categoryId,
-        price: data.price,
-        rating: data.rating,
-        description: data.description,
-        photoUrl: data.photoUrl,
-        color: data.color,
-        size: data.size,
-        quantity: data.quantity,
+    this.productService
+      .getProductById(this.productId)
+      .subscribe((data: IProduct) => {
+        this.productForm.setValue({
+          brand: data.brand,
+          categoryId: data.categoryId,
+          name: data.name,
+          photoUrl: data.photoUrl,
+          exclusiveFor: data.exclusiveFor,
+          price: data.price,
+          rating: data.rating,
+          description: data.description,
+          color: data.color,
+          size: data.size,
+          quantity: data.quantity,
+        });
       });
-    })
   }
   onUpdateProduct() {
     this.productService

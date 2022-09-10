@@ -8,14 +8,19 @@ import { LandingComponent } from './Admin/Dashboard/components/landing/landing.c
 import { AddProductComponent } from './Admin/product/components/add-product/add-product.component';
 import { EditProductComponent } from './Admin/product/components/edit-product/edit-product.component';
 import { ProductDetailsComponent } from './Admin/product/components/product-details/product-details.component';
+import { LoginComponent } from './Auth/components/login/login.component';
+import { RegisterComponent } from './Auth/components/register/register.component';
+import { AuthGuard } from './Auth/Guards/auth.guard';
 import { DashboardComponent } from './Dashboard/components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  // {path:'',redirectTo:'login',pathMatch:'full'},
 
   {
     path: 'admin',
     component: AdminHomeComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: LandingComponent },
       { path: 'category/add', component: AddCategoryComponent },
@@ -26,6 +31,8 @@ const routes: Routes = [
       { path: 'product/:name/edit', component: EditProductComponent },
     ],
   },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

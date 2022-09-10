@@ -20,6 +20,9 @@ import { AdminHomeComponent } from './Admin/Dashboard/components/admin-home/admi
 import { HomePageComponent } from './Dashboard/components/home-page/home-page.component';
 import { SidebarComponent } from './Admin/Dashboard/components/sidebar/sidebar.component';
 import { LandingComponent } from './Admin/Dashboard/components/landing/landing.component';
+import { LoginComponent } from './Auth/components/login/login.component';
+import { RegisterComponent } from './Auth/components/register/register.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { LandingComponent } from './Admin/Dashboard/components/landing/landing.c
     HomePageComponent,
     SidebarComponent,
     LandingComponent,
-    
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { LandingComponent } from './Admin/Dashboard/components/landing/landing.c
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

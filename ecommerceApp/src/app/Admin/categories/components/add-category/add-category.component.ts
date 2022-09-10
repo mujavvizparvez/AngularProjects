@@ -15,7 +15,10 @@ export class AddCategoryComponent implements OnInit {
     photoUrl: new FormControl(''),
     description: new FormControl(''),
   });
-  constructor(private categoryService: CategoryService,private router:Router) {}
+  constructor(
+    private categoryService: CategoryService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
   onAddCategory() {

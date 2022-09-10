@@ -15,12 +15,13 @@
   </div> -->
 
   <div class="list-group list-group-flush my-3">
-    <div class="p-2">
+    <div class="p-2 dash-board">
       <a
         [routerLink]="['/admin']"
         class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
       >
-        <i class="fa-solid fa-tachometer me-2"></i> Dashboard
+        <!-- <i class="fa-solid fa-tachometer me-2"></i> -->
+        <i class="fa-solid fa-house-user"></i> Dashboard
       </a>
     </div>
     <div class="p-2">
@@ -72,10 +73,11 @@
       </a>
     </div>
     <div class="p-2">
-      <a
+      <a (click)="onLogout()"
         class="list-group-item listgroup-item-action bg-transparent text-danger fw-bold"
+        [routerLink]="['/']"
       >
-        <i class="fas fa-sign-out-alt me-2"></i>Logout
+        <i class="fas fa-sign-out-alt me-2" ></i>Logout
       </a>
     </div>
   </div>

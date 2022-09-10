@@ -1,59 +1,72 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-9">
       <h3>Edit Product</h3>
-      <form [formGroup]="productForm"  (ngSubmit)="onUpdateProduct()">
+      <form [formGroup]="productForm" (ngSubmit)="onUpdateProduct()">
         <div>
           <label>Brand</label>
           <input type="text" class="form-control" formControlName="brand" />
         </div>
-         <div>
-          <label>Name</label>
-            <input type="text" class="form-control" formControlName="name" />
-        </div>
-          <div>
+        <div>
           <label>Category Id</label>
-            <select  class="form-select"  formControlName="categoryId" >
-              <option *ngFor="let category of categories" [value]="category.id">  {{category.name}}</option>
-            
-           </select>
+          <select class="form-select" formControlName="categoryId">
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
         </div>
-          <div>
+        <div>
+          <label>Photo Url</label>
+          <input type="text" class="form-control" formControlName="photoUrl" />
+        </div>
+        <div>
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+
+        <div>
+          <label>Exclusive For</label>
+          <select class="form-select" formControlName="exclusiveFor">
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Kids">Kids</option>
+          </select>
+        </div>
+        <div>
           <label>Price</label>
-         <input type="text" class="form-control" formControlName="price" />
+          <input type="text" class="form-control" formControlName="price" />
         </div>
-         <div>
+        <div>
           <label>Rating</label>
-         <input type="text" class="form-control" formControlName="rating" />
+          <input type="text" class="form-control" formControlName="rating" />
         </div>
-             <div>
+        <div>
           <label>Description</label>
-         <input type="text" class="form-control" formControlName="description" />
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+          />
         </div>
-             <div>
-          <label>Photo</label>
-         <input type="text" class="form-control" formControlName="photoUrl" />
-        </div>
-             <div>
+
+        <div>
           <label>Color</label>
-         <input type="text" class="form-control" formControlName="color" />
+          <input type="text" class="form-control" formControlName="color" />
         </div>
-            <div>
+        <div>
           <label>Size</label>
-         <input type="text" class="form-control" formControlName="size" />
+          <input type="text" class="form-control" formControlName="size" />
         </div>
-            <div>
+        <div>
           <label>Quantity</label>
-         <input type="text" class="form-control" formControlName="quantity" />
+          <input type="text" class="form-control" formControlName="quantity" />
         </div>
-       
-        <button class="btn btn-primary my-2" type="submit"> Update product
+
+        <button class="btn btn-primary my-2" type="submit">
+          Update product
         </button>
       </form>
-      <div>
-         
-      </div>
+      <div></div>
     </div>
   </div>
 </div>

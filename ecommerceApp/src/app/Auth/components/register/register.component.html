@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mt-3">
+        <div class="text-center">
+          <h1>Sign Up</h1>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <div>
+            <label for="exampleInputPassword1" class="form-label"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="fullName"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div>
+            <label for="exampleInputPassword1" class="form-label"
+              >Mobile Number</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              formControlName="mobileNumber"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div>
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <!-- <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div> -->
+          </div>
+          <div>
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              id="exampleInputPassword1"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+        </form>
+        <div class="mt-2">
+          <a class="text-white" [routerLink]="['/login']"
+            >Already registered? Click to login</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
