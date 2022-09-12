@@ -1,6 +1,6 @@
 .card{
     border: none;
-    width: 400px;
+    width: 350px;
     margin: 0 350px;
     padding: 30px;
     /* position: absolute;
@@ -16,4 +16,17 @@
 label{
     color: #fff;
     padding: 2px;
+}
+@media (max-width: 576px) {
+  .card {
+    margin: 0 10px;
+   
+    
+  }
+  .container {
+    width: 100%;
+  }
+  .form-log {
+    margin-bottom: -10px;
+  }
 }

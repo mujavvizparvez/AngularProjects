@@ -7,7 +7,7 @@
   word-wrap: break-word;
   background: #fff;
   background-clip: border-box;
-  border: 1px solid black;
+ 
   border-radius: 0.25rem;
 }
 .item {
@@ -23,7 +23,7 @@
 }
 .item img:hover{
  /* border: 2px solid rgb(28, 62, 125); */
-   box-shadow: 0 0 6px 3px rgba(0, 186, 9, 0.5);
+   box-shadow: 0 0 6px 3px rgba(84, 55, 214, 0.5);
 }
 .item h6 {
   font-size: small;
@@ -37,6 +37,8 @@
 .categ-link:hover {
   text-underline-position: above;
   color: black;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgba(84, 55, 214, 0.5)
 }
-
+@media (max-width:576px){
+  
+}

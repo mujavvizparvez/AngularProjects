@@ -20,7 +20,7 @@
 <div class="row bg-light p-3">
  <h3 class="pb-2">Product Details</h3>
   <div class="col-md-12 table-responsive" id="no-more-tables ">
-    <table class="table table-bordered table-striped table-hover table-dark">
+    <table class="table table-bordered table-striped table-hoverk">
       <thead class="text-light">
         <tr class="text-center">
           <th>Brand</th>
@@ -39,18 +39,18 @@
       </thead>
       <tbody>
         <tr *ngFor="let product of products" class="text-center">
-          <td data-title="Brand">{{ product.brand }}</td>
-           <td data-title="Category">{{ product.categoryName }}</td>
-            <td data-title="PhotoUrl"><img [src]="product.photoUrl" alt="" class="rounded-circle"/></td>
-          <td data-title="Name">{{ product.name }}</td>
-           <td  data-title="Exclusive For"> {{product.exclusiveFor}}</td>
-          <td data-title="Price">{{ product.price }}</td>
-          <td data-title="Rating">{{ product.rating }}</td>
-          <td data-title="Description">{{ product.description }}</td>
-          <td data-title="Color">{{ product.color }}</td>
-          <td data-title="Size">{{ product.size }}</td>
-          <td data-title="Quantity">{{ product.quantity }}</td>
-          <td data-title="Actions">
+          <td data-label="Brand">{{ product.brand }}</td>
+           <td data-label="Category">{{ product.categoryName }}</td>
+            <td data-label="PhotoUrl"><img [src]="product.photoUrl" alt="" class="rounded-circle"/></td>
+          <td data-label="Name">{{ product.name }}</td>
+           <td  data-label="Exclusive For"> {{product.exclusiveFor}}</td>
+          <td data-label="Price">{{ product.price }}</td>
+          <td data-label="Rating">{{ product.rating }}</td>
+          <td data-label="Description">{{ product.description }}</td>
+          <td data-label="Color">{{ product.color }}</td>
+          <td data-label="Size">{{ product.size }}</td>
+          <td data-label="Quantity">{{ product.quantity }}</td>
+          <td data-label="Actions">
             <a
               class="btn btn-sm text-warning"
               [routerLink]="['/admin/product', product.id, 'edit']"

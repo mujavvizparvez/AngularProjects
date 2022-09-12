@@ -23,6 +23,10 @@ import { LandingComponent } from './Admin/Dashboard/components/landing/landing.c
 import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SubCategoryDetailsComponent } from './Admin/sub-category/components/sub-category-details/sub-category-details.component';
+import { EditSubCategoryComponent } from './Admin/sub-category/components/edit-sub-category/edit-sub-category.component';
+import { AddSubCategoryComponent } from './Admin/sub-category/components/add-sub-category/add-sub-category.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     LandingComponent,
     LoginComponent,
     RegisterComponent,
+    AddSubCategoryComponent,
+    SubCategoryDetailsComponent,
+    EditSubCategoryComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

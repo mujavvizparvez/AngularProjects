@@ -8,6 +8,9 @@ import { LandingComponent } from './Admin/Dashboard/components/landing/landing.c
 import { AddProductComponent } from './Admin/product/components/add-product/add-product.component';
 import { EditProductComponent } from './Admin/product/components/edit-product/edit-product.component';
 import { ProductDetailsComponent } from './Admin/product/components/product-details/product-details.component';
+import { AddSubCategoryComponent } from './Admin/sub-category/components/add-sub-category/add-sub-category.component';
+import { EditSubCategoryComponent } from './Admin/sub-category/components/edit-sub-category/edit-sub-category.component';
+import { SubCategoryDetailsComponent } from './Admin/sub-category/components/sub-category-details/sub-category-details.component';
 import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 import { AuthGuard } from './Auth/Guards/auth.guard';
@@ -29,6 +32,9 @@ const routes: Routes = [
       { path: 'product/add', component: AddProductComponent },
       { path: 'product/details', component: ProductDetailsComponent },
       { path: 'product/:name/edit', component: EditProductComponent },
+      { path: 'subcategory/add', component: AddSubCategoryComponent },
+      { path: 'subcategory/details', component: SubCategoryDetailsComponent },
+      { path: 'subcategory/:name/edit', component: EditSubCategoryComponent },
     ],
   },
   { path: 'login', component: LoginComponent },

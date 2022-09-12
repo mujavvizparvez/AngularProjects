@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h3 class="text-center">Add SubCategory</h3>
+      <form [formGroup]="subCategoryForm" (ngSubmit)="onAddSubCategory()">
+        <div class="row">
+        <div class="col-md-6">
+          <label>SubCategory</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+        <div class="col-md-6">
+          <label>Category</label>
+          <select class="form-select" formControlName="categoryId">
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+        </div>
+          <div>
+          <label>Type</label>
+          <select class="form-select" formControlName="type">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="kids">Kids</option>
+          </select>
+        </div>
+</div>
+    <div class="row">
+        <div class="col-md-6">
+          <label>Photo Url</label>
+          <input type="text" class="form-control" formControlName="photoUrl" />
+        </div>
+         <div class="col-md-6">
+          <label>Description</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+          />
+        </div>
+        
+</div>
+<!-- <div class="row">
+           <div class="col-md-6">
+          <label>Exclusive For</label>
+          <select class="form-select" formControlName="exclusiveFor">
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Kids">Kids</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label>Price</label>
+          <input type="text" class="form-control" formControlName="price" />
+        </div>
+</div> -->
+<!-- <div class="row">
+        <div class="col-md-6">
+          <label>Rating</label>
+          <input type="text" class="form-control" formControlName="rating" />
+        </div>
+        <div class="col-md-6">
+          <label>Description</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+          />
+        </div>
+</div> -->
+<!-- <div class="row">
+        <div class="col-md-6">
+          <label>Color</label>
+          <input type="text" class="form-control" formControlName="color" />
+        </div>
+        <div class="col-md-6">
+          <label>Size</label>
+          <input type="text" class="form-control" formControlName="size" />
+        </div>
+</div>
+        <div>
+          <label>Quantity</label>
+          <input type="text" class="form-control" formControlName="quantity" />
+        </div> -->
+
+        <button class="btn my-2 btn-submit" type="submit">Add SubCategory</button>
+      </form>
+     
+    </div>
+  </div>
+</div>
+

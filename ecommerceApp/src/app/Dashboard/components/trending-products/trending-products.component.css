@@ -6,6 +6,10 @@
   margin-left: 1em;
 } */
 
+.trend-prod{
+  width: 90%;
+  margin: auto;
+}
 .carosl-men{
   padding: 1rem;
 }
@@ -17,7 +21,7 @@
   /* border: none; */
   border-radius: 0;
   box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-  height: 70vh;
+  height: 60vh;
 }
 
   .image-wrapper {
@@ -34,6 +38,7 @@
 .car-body {
   border: 1px solid black;
   background-color: rgb(254, 253, 252);
+ 
 }
 .rating-star{
   font-size: 10px;
@@ -57,5 +62,9 @@ body .slick-next {
 @media screen and (max-width: 576px){
   .card{
     height: 40vh;
+  }
+  .image-wrapper{
+    height: 180px;
+    width: 180px;
   }
 }

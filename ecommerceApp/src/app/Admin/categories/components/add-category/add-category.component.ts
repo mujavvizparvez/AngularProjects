@@ -23,6 +23,8 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {}
   onAddCategory() {
     let category = this.categoryForm.value;
+    category.createdBy = 1;
+    category.createdDate = new Date();
     this.categoryService.addCategory(category).subscribe((data) => {
       this.router.navigate(['admin/category/details']);
       console.log(data);

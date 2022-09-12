@@ -1,18 +1,36 @@
-.card{
-    border: none;
-    width: 400px;
-    padding: 30px;
- margin:0 60%;
-     /* position: absolute; 
+.card {
+  border: none;
+  width: 350px;
+  padding: 30px;
+  margin:0 65%;
+  /* position: absolute; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
-    background: hsla(205, 46%, 30%, 1);
-    background: linear-gradient(90deg, hsla(205,46%,30%,1)0%,hsla(260,29%,36%,1)100%);
+  background: hsla(205, 46%, 30%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(205, 46%, 30%, 1) 0%,
+    hsla(260, 29%, 36%, 1) 100%
+  );
 }
-.card h1,h6{
-    color: #fff;
+.card h1,
+h6 {
+  color: #fff;
 }
-label{
-    color: #fff;
+label {
+  color: #fff;
+}
+@media (max-width: 576px) {
+  .card {
+    margin: 0 10px;
+   
+    
+  }
+  .container {
+    width: 100%;
+  }
+  .form-log {
+    margin-bottom: -10px;
+  }
 }

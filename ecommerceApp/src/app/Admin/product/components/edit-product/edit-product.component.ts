@@ -36,7 +36,7 @@ export class EditProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+
     this.categoryService.getCategories().subscribe((data) => {
       this.categories = data;
     });

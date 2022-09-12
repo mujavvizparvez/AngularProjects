@@ -32,7 +32,14 @@
         <i class="fa-solid fa-sitemap me-2"></i> Category
       </a>
     </div>
-
+    <div class="p-2">
+      <a
+        [routerLink]="['subcategory/details']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fa-solid fa-sitemap me-2"></i> SubCategory
+      </a>
+    </div>
     <div class="p-2">
       <a
         [routerLink]="['product/details']"
@@ -73,11 +80,12 @@
       </a>
     </div>
     <div class="p-2">
-      <a (click)="onLogout()"
+      <a
+        (click)="onLogout()"
         class="list-group-item listgroup-item-action bg-transparent text-danger fw-bold"
         [routerLink]="['/']"
       >
-        <i class="fas fa-sign-out-alt me-2" ></i>Logout
+        <i class="fas fa-sign-out-alt me-2"></i>Logout
       </a>
     </div>
   </div>

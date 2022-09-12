@@ -2,11 +2,10 @@
   <div class="container-fluid">
     <img src="../../assets/Images/logo.png" alt="logoy" />
     <!-- <input type="search" class="hidden-icon search-box" placeholder="Search.."> -->
-    <i class="fa-solid fa-magnifying-glass hidden-icon"></i>
-    <i class="fa-solid fa-cart-shopping hidden-icon"></i>
-    <i class="fa-solid fa-user hidden-icon"></i
-        >
-        <!-- <div class="search-box bg-dark">
+   <a href="" class="text-white hidden-icon"> <i class="fa-solid fa-magnifying-glass"></i></a>
+    <a href="" class="text-white hidden-icon"><i class="fa-solid fa-cart-shopping hidden-icon"></i></a>
+   <a href="" class="text-white hidden-icon" [routerLink]="['/login']"> <i class="fa-solid fa-user hidden-icon"></i></a>
+    <!-- <div class="search-box bg-dark">
   <input type="text" class="search-text" placeholder="Search here...">
   <a class="search-btn">
      <i class="
@@ -29,7 +28,6 @@
             class="nav-link"
             href="javascript:void(0)"
             [routerLink]="['/admin']"
-           
             >Men</a
           >
         </li>
@@ -49,16 +47,16 @@
           />
         </div>
       </ul>
-       <div>
+      <div>
         <a class="nav-link" (click)="onLogout()">logout</a>
-       </div>
+      </div>
       <div class="nav-border sm-hidden">
-        <a class="nav-link cart-btn" type="button"
+        <a class="nav-link cart-btn text-decoration-none" type="button"
           >Cart <i class="fa-solid fa-cart-shopping"></i
         ></a>
       </div>
-      <div class="nav-border sm-hidden">
-        <a class="nav-link user-btn" type="button" [routerLink]="['/login']"
+      <div class="sm-hidden ">
+        <a class="nav-link user-btn text-decoration-none" type="button" [routerLink]="['/login']"
           >Sign in <i class="fa-solid fa-user"></i
         ></a>
       </div>
@@ -71,5 +69,9 @@
     </div>
   </div>
 </nav>
-
-
+  <!-- <div class="wrapper text-center">
+  <input type="text" class="input" placeholder="Search here...">
+ 
+  <button type="button" class="trigger-search bg-primary"> <i class="
+     fa-solid fa-magnifying-glass"></i></button>
+</div> -->
