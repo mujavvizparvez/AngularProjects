@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
+import { ISubCategory } from 'src/app/Admin/sub-category/models/ISubCatetogory';
+import { SubCategoryService } from 'src/app/Admin/sub-category/services/sub-category.service';
 import { IProduct } from '../../models/IProduct';
 import { ProductService } from '../../services/product.service';
 
@@ -12,15 +14,20 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
   categories: ICategory[] = [];
+  subCategories: ISubCategory[] = [];
   products: IProduct[] = [];
+  totalLength!: number;
+  page: number = 1;
   constructor(
     private productService: ProductService,
     private router: Router,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private subCategoryService: SubCategoryService
   ) {}
 
   ngOnInit(): void {
     this.getProduct();
+    this.totalLength = this.products.length;
   }
 
   onDeleteProduct(id: any) {
@@ -37,15 +44,47 @@ export class ProductDetailsComponent implements OnInit {
     this.categoryService
       .getCategories()
       .subscribe((categories: ICategory[]) => {
-        this.productService.getProducts().subscribe((products: IProduct[]) => {
-          for (let category of categories) {
-            for (let product of products) {
-              if (category.id === product.categoryId) {
-                this.products.push({ ...product, categoryName: category.name });
-              }
-            }
-          }
-        });
+        this.subCategoryService
+          .getSubCategories()
+          .subscribe((subCategories: ISubCategory[]) => {
+            this.productService
+              .getProducts()
+              .subscribe((products: IProduct[]) => {
+                for (let product of products) {
+                        let category = categories.find(
+                          (s) => s.id == product.categoryId
+                        );
+                        let subCategory = subCategories.find(
+                          (s) => s.id == product.subCategoryId
+                        );
+                        this.products.push({
+                          ...product,
+                          categoryName: category?.name ?? '',
+                          subCategoryName: subCategory?.name ?? '',
+                        });
+
+                        
+                      }
+
+console.log(this.products);
+                // for (let category of categories) {
+                //   for (let subCategory of subCategories) {
+                //     for (let product of products) {
+                //       if (
+                //         category.id == product.categoryId &&
+                //         subCategory.id === product.subCategoryId
+                //       ) {
+                //         this.products.push({
+                //           ...product,
+                //           categoryName: category.name,
+                //           subCategoryName: subCategory.name,
+                //         });
+                //       }
+                //     }
+                //   }
+                // }
+              });
+          });
       });
   }
 }

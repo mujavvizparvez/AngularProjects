@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
@@ -13,6 +14,8 @@ import { SubCategoryService } from '../../services/sub-category.service';
 export class SubCategoryDetailsComponent implements OnInit {
   categories: ICategory[] = [];
   subCategories: ISubCategory[] = [];
+  totalLength!: number;
+  page: number = 1;
   constructor(
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService,
@@ -21,6 +24,7 @@ export class SubCategoryDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSubCategory();
+    this.totalLength = this.subCategories.length;
   }
 
   getSubCategory() {
@@ -29,7 +33,7 @@ export class SubCategoryDetailsComponent implements OnInit {
       .getCategories()
       .subscribe((categories: ICategory[]) => {
         this.subCategoryService
-          .getSubCategory()
+          .getSubCategories()
           .subscribe((subCategories: ISubCategory[]) => {
             for (let category of categories) {
               for (let SubCategory of subCategories) {

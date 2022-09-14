@@ -10,7 +10,7 @@ export class SubCategoryService {
   baseUrl = `https://e-commerceapp-fb599-default-rtdb.firebaseio.com/`;
   constructor(private http: HttpClient) {}
 
-  getSubCategory(): Observable<ISubCategory[]> {
+  getSubCategories(): Observable<ISubCategory[]> {
     return this.http
       .get<{ [id: string]: ISubCategory }[]>(
         `${this.baseUrl}subCategories.json`

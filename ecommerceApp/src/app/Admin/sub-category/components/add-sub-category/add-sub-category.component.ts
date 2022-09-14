@@ -18,6 +18,7 @@ export class AddSubCategoryComponent implements OnInit {
   subCategoryForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     category: new FormControl(''),
+  
     type: new FormControl(''),
     description: new FormControl(''),
     photoUrl: new FormControl(''),

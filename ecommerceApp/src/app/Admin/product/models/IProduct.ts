@@ -4,6 +4,8 @@ export interface IProduct {
   name: string;
   categoryId: string;
   categoryName: string;
+  subCategoryId: string;
+  subCategoryName: string;
   exclusiveFor: string;
   price: number;
   rating: string;

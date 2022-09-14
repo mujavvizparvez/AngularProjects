@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-sm-12">
@@ -18,6 +17,16 @@
               formControlName="fullName"
               id="exampleInputPassword1"
             />
+             <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['fullName'].dirty &&
+                  registerForm.hasError('required', 'fullName')
+                "
+                >*Full name is required</span
+              >
+            </div>
           </div>
           <div>
             <label for="exampleInputPassword1" class="form-label"
@@ -29,6 +38,16 @@
               formControlName="mobileNumber"
               id="exampleInputPassword1"
             />
+             <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['mobileNumber'].dirty &&
+                  registerForm.hasError('required', 'mobileNumber')
+                "
+                >*Mobile number is required</span
+              >
+            </div>
           </div>
           <div>
             <label for="exampleInputEmail1" class="form-label"
@@ -44,6 +63,16 @@
             <!-- <div id="emailHelp" class="form-text">
               We'll never share your email with anyone else.
             </div> -->
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['email'].dirty &&
+                  registerForm.hasError('required', 'email')
+                "
+                >*Email is required</span
+              >
+            </div>
           </div>
           <div>
             <label for="exampleInputPassword1" class="form-label"
@@ -55,9 +84,19 @@
               formControlName="password"
               id="exampleInputPassword1"
             />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  registerForm.controls['password'].dirty &&
+                  registerForm.hasError('required', 'password')
+                "
+                >*Password is required</span
+              >
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+          <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary mt-3">Sign Up</button>
         </form>
         <div class="mt-2">
           <a class="text-white" [routerLink]="['/login']"

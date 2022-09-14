@@ -17,10 +17,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-11">
-      <table class="table table-bordered table-striped table-hover">
+      <table class="table table-bordered table-striped table-hover align-items-center">
         <thead class="thead">
           <tr class="text-center">
             <!-- <th>Id</th> -->
+            
             <th>Name</th>
             <th>Type</th>
             <th>Photo Url</th>
@@ -29,7 +30,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let category of categories" class="text-center">
+          <tr *ngFor="let category of categories | paginate: { itemsPerPage: 10, currentPage: page,
+              totalItems:totalLength
+          }" class="text-center">
             <!-- <td>{{ category.id }}</td> -->
             <td>{{ category.name }}</td>
             <td>{{ category.type }}</td>
@@ -38,21 +41,22 @@
               <img
                 [src]="category.photoUrl"
                 alt=""
-                style="width: 70px; height: 70px"
+                class="rounded-circle"
+                style="width: 60px; height: 60px"
               />
             </td>
             <td>{{ category.description }}</td>
-            <td>
+            <td >
               <a
-                class="btn btn-sm btn-warning"
+                class="btn btn-sm btn-outline-primary"
                 [routerLink]="['/admin/category', category.id, 'edit']"
-                >Edit</a
+                ><i class="fa-solid fa-pen-to-square"></i></a
               >
               <button
-                class="btn btn-sm btn-danger mx-2"
+                class="btn btn-sm btn-outline-danger mx-2 "
                 (click)="onDeleteCategory(category.id)"
               >
-                Delete
+                <i class="fa-solid fa-trash-can"></i>
               </button>
             </td>
           </tr>
@@ -60,4 +64,8 @@
       </table>
     </div>
   </div>
+  <div class="text-center fs-5 my-pagination my-3">
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+    
 </div>

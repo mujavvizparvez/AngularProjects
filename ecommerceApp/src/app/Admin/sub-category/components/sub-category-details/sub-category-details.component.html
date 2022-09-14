@@ -1,4 +1,4 @@
-<p>sub-category-details works!</p>
+
 <div>
 
 
@@ -23,7 +23,8 @@
         </thead>
      
       <tbody>
-        <tr *ngFor="let subCategory of subCategories" class="text-center">
+        <tr *ngFor="let subCategory of subCategories | paginate: { itemsPerPage: 8, currentPage: page,
+              totalItems:totalLength}" class="text-center">
           <td>{{ subCategory.name }}</td>
            <td>{{ subCategory.categoryName }}</td>
            <td> {{subCategory.type}}</td>
@@ -45,6 +46,9 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="text-center fs-5 my-pagination my-3">
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 </div>
 </div>

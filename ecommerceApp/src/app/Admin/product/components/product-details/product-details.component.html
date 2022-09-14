@@ -25,12 +25,13 @@
         <tr class="text-center">
           <th>Brand</th>
            <th>Category</th>
+           <th>SubCategory</th>
            <th>PhotoUrl</th>
           <th>Name</th>
           <th>Exclusive For</th>
           <th>Price</th>
           <th>Rating</th>
-          <th>Description</th>
+          <!-- <th>Description</th> -->
           <th>Color</th>
           <th>Size</th>
           <th>Quantity</th>
@@ -38,23 +39,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products" class="text-center">
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page,
+              totalItems:totalLength
+          }" class="text-center">
           <td data-label="Brand">{{ product.brand }}</td>
            <td data-label="Category">{{ product.categoryName }}</td>
+           <td data-label="SubCategory">{{product.subCategoryName}}</td>
             <td data-label="PhotoUrl"><img [src]="product.photoUrl" alt="" class="rounded-circle"/></td>
           <td data-label="Name">{{ product.name }}</td>
            <td  data-label="Exclusive For"> {{product.exclusiveFor}}</td>
           <td data-label="Price">{{ product.price }}</td>
           <td data-label="Rating">{{ product.rating }}</td>
-          <td data-label="Description">{{ product.description }}</td>
+          <!-- <td data-label="Description">{{ product.description }}</td> -->
           <td data-label="Color">{{ product.color }}</td>
           <td data-label="Size">{{ product.size }}</td>
           <td data-label="Quantity">{{ product.quantity }}</td>
           <td data-label="Actions">
-            <a
+            <button
               class="btn btn-sm text-warning"
               [routerLink]="['/admin/product', product.id, 'edit']"
-              ><i class="fa-solid fa-pen-to-square"></i></a
+              ><i class="fa-solid fa-pen-to-square"></i></button
             >
             <button  class="btn btn-sm text-danger btn-outline"
 y              (click)="onDeleteProduct(product.id)"
@@ -65,6 +69,9 @@ y              (click)="onDeleteProduct(product.id)"
         </tr>
       </tbody>
     </table>
+  </div>
+   <div class="text-center fs-5 my-pagination my-3">
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 </div>
 </div>

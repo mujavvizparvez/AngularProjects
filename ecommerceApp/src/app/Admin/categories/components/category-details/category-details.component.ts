@@ -9,6 +9,8 @@ import { CategoryService } from 'src/app/Admin/categories/services/category.serv
 })
 export class CategoryDetailsComponent implements OnInit {
   categories: ICategory[] = [];
+  totalLength!: number;
+  page: number = 1;
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
@@ -16,6 +18,7 @@ export class CategoryDetailsComponent implements OnInit {
       .getCategories()
       .subscribe((categories: ICategory[]) => {
         this.categories = categories;
+        this.totalLength = categories.length;
         console.log(categories);
       });
   }

@@ -20,3 +20,6 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.item{
+  cursor: pointer;
+}

@@ -35,6 +35,9 @@
   color: lightslategray;
 }
 .categ-link:hover {
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(230, 218, 231);
   text-underline-position: above;
   color: black;
   border-bottom: 1px solid rgba(84, 55, 214, 0.5)

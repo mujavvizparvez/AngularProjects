@@ -1,78 +1,105 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-9">
+  <div class="row add-prod">
+    <div class="col-md-12">
       <h3 class="text-center">Add Product</h3>
       <form [formGroup]="productForm" (ngSubmit)="onAddProduct()">
         <div class="row">
-        <div class="col-md-6">
-          <label>Brand</label>
-          <input type="text" class="form-control" formControlName="brand" />
+          <div class="col-md-6">
+            <label>Brand</label>
+            <input type="text" class="form-control" formControlName="brand" />
+          </div>
+          <div class="col-md-6">
+            <label>Category</label>
+            <select
+              class="form-select"
+              formControlName="categoryId"
+              #category
+              (change)="OnCategoryChange(category.value)"
+            >
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
         </div>
-        <div class="col-md-6">
-          <label>Category</label>
-          <select class="form-select" formControlName="categoryId">
-            <option *ngFor="let category of categories" [value]="category.id">
-              {{ category.name }}
-            </option>
-          </select>
+        <div class="row">
+          <div class="col-md-6">
+            <label>SubCategory</label>
+            <select class="form-select" formControlName="subCategoryId">
+              <option
+                *ngFor="let subCategory of subCategories"
+                [value]="subCategory.id"
+              >
+                {{ subCategory.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label>Photo Url</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="photoUrl"
+            />
+          </div>
         </div>
-</div>
-    <div class="row">
-        <div class="col-md-6">
-          <label>Photo Url</label>
-          <input type="text" class="form-control" formControlName="photoUrl" />
+        <div class="row">
+          <div class="col-md-6">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name" />
+          </div>
+          <div class="col-md-6">
+            <label>Exclusive For</label>
+            <select class="form-select" formControlName="exclusiveFor">
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
+              <option value="Kids">Kids</option>
+            </select>
+          </div>
         </div>
-        <div class="col-md-6">
-          <label>Name</label>
-          <input type="text" class="form-control" formControlName="name" />
+        <div class="row">
+          <div class="col-md-6">
+            <label>Price</label>
+            <input type="text" class="form-control" formControlName="price" />
+          </div>
+          <div class="col-md-6">
+            <label>Rating</label>
+            <input type="text" class="form-control" formControlName="rating" />
+          </div>
         </div>
-</div>
-<div class="row">
-           <div class="col-md-6">
-          <label>Exclusive For</label>
-          <select class="form-select" formControlName="exclusiveFor">
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
-          </select>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Description</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="description"
+            />
+          </div>
+          <div class="col-md-6">
+            <label>Color</label>
+            <input type="text" class="form-control" formControlName="color" />
+          </div>
         </div>
-        <div class="col-md-6">
-          <label>Price</label>
-          <input type="text" class="form-control" formControlName="price" />
+        <div class="row">
+          <div class="col-md-6">
+            <label>Size</label>
+            <input type="text" class="form-control" formControlName="size" />
+          </div>
+          <div class="col-md-6">
+            <label>Quantity</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="quantity"
+            />
+          </div>
         </div>
-</div>
-<div class="row">
-        <div class="col-md-6">
-          <label>Rating</label>
-          <input type="text" class="form-control" formControlName="rating" />
+        <div class="my-3">
+          <button class="btn my-2 btn-submit" type="submit">Add product</button>
+           <a class="btn my-2 mx-2 btn-exit" type="submit" [routerLink]="['/admin/product/details']">Cancel</a>
         </div>
-        <div class="col-md-6">
-          <label>Description</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="description"
-          />
-        </div>
-</div>
-<div class="row">
-        <div class="col-md-6">
-          <label>Color</label>
-          <input type="text" class="form-control" formControlName="color" />
-        </div>
-        <div class="col-md-6">
-          <label>Size</label>
-          <input type="text" class="form-control" formControlName="size" />
-        </div>
-</div>
-        <div>
-          <label>Quantity</label>
-          <input type="text" class="form-control" formControlName="quantity" />
-        </div>
-
-        <button class="btn my-2 btn-submit" type="submit">Add product</button>
       </form>
-     
     </div>
   </div>
 </div>
