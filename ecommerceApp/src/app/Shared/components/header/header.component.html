@@ -23,7 +23,7 @@
     </button>
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a
             class="nav-link"
             href="javascript:void(0)"
@@ -46,17 +46,21 @@
             placeholder="Search products & brands"
           />
         </div>
+        <!-- <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form> -->
       </ul>
       <div>
         <a class="nav-link" (click)="onLogout()">logout</a>
       </div>
-      <div class="nav-border sm-hidden">
-        <a class="nav-link cart-btn text-decoration-none" type="button"
+      <div class="nav-border sm-hidden px-3">
+        <a class="nav-link cart-btn text-decoration-none text-white" type="button"
           >Cart <i class="fa-solid fa-cart-shopping"></i
         ></a>
       </div>
-      <div class="sm-hidden ">
-        <a class="nav-link user-btn text-decoration-none" type="button" [routerLink]="['/login']"
+      <div class="sm-hidden">
+        <a class="nav-link user-btn text-decoration-none text-white sm-hidden-link" type="button" [routerLink]="['/login']"
           >Sign in <i class="fa-solid fa-user"></i
         ></a>
       </div>
@@ -75,3 +79,4 @@
   <button type="button" class="trigger-search bg-primary"> <i class="
      fa-solid fa-magnifying-glass"></i></button>
 </div> -->
+

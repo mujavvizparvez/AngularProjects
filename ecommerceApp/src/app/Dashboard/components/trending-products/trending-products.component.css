@@ -42,7 +42,7 @@
   background-color: rgb(254, 253, 252);
 }
 .card-body p{
-  font-size: large;
+  font-size: 14px;
 }
 .card-body h5{
   font-size: medium;
@@ -71,9 +71,15 @@ body .slick-next {
     height: 35vh;
   }
   .image-wrapper {
-    height: 180px;
+    height: 18vh;
     width: 180px;
   }
+  .card-body p{
+  font-size: 12px;
+}
+.rating-star {
+  font-size: 8px;
+}
 }
 
   

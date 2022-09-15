@@ -3,11 +3,17 @@
   background-color: #6351ce;
 }
 .nav-item {
-  font-weight: bold;
+  font-weight: 400;
   font-size: large;
 }
 .nav-item a {
-  color: black;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.nav-item a:hover
+{
+  color: #33bab1;
   text-decoration: none;
 }
 .prod-search {
@@ -23,6 +29,16 @@
 }
 .nav-border {
   padding: 5px;
+}
+.sm-hidden{
+  padding: 12px;
+}
+.sm-hidden a{
+  font-weight: 400;
+}
+
+.sm-hidden i{
+  font-size: 16px;
 }
 @media screen and (min-width: 576px) {
   .hidden-icon {
@@ -44,42 +60,11 @@
     padding: 2px;
   } */
 }
-/* .search-box{
-  position: relative;
-  text-align: center;
-}
-.search-text{
-  width: 0rem;
-  border-radius: 5rem;
-  border: none;
-  outline: none;
- 
-  transition: all 0.2s linear;
-}
-.search-text:focus{
-  outline: none;
-}
-.search-btn{
-  width: 1rem;
-  height: 1rem;
-  background-color: #192a56; 
-  color: #fff;
-  position: absolute;
-  top: 7px;
-  right: 7rem;
-}
-.search-box:hover > .search-text{
-   width: 10rem;
-   padding: 5px;
-   box-shadow: 0 2rem 2rem --1.5rem rgba(0,0,0,0.5);
-} */
+
 .trigger-search {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   color: white;
   outline: none;
   cursor: pointer;
@@ -94,3 +79,35 @@
   margin-right: -25px;
   height: 40px;
 }
+
+/* SEARCH BOX */
+/* form.example input[type=text] {
+  padding: 6px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 6px;
+  background: #0f6dbb;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+} */

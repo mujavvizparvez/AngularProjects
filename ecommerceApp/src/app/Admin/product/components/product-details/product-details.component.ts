@@ -56,6 +56,7 @@ export class ProductDetailsComponent implements OnInit {
                         );
                         let subCategory = subCategories.find(
                           (s) => s.id == product.subCategoryId
+                            && s.categoryId == product.categoryId
                         );
                         this.products.push({
                           ...product,

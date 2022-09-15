@@ -27,6 +27,7 @@ import { SubCategoryDetailsComponent } from './Admin/sub-category/components/sub
 import { EditSubCategoryComponent } from './Admin/sub-category/components/edit-sub-category/edit-sub-category.component';
 import { AddSubCategoryComponent } from './Admin/sub-category/components/add-sub-category/add-sub-category.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     SlickCarouselModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

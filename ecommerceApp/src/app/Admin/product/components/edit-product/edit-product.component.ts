@@ -22,7 +22,7 @@ export class EditProductComponent implements OnInit {
     brand: new FormControl(''),
     name: new FormControl(''),
     categoryId: new FormControl(''),
-    subCategoryId: new FormControl({value:'',disabled:true}),
+    subCategoryId: new FormControl({ value: '', disabled: true }),
     exclusiveFor: new FormControl(''),
     price: new FormControl(''),
     rating: new FormControl(''),
@@ -49,6 +49,7 @@ export class EditProductComponent implements OnInit {
     this.productService
       .getProductById(this.productId)
       .subscribe((data: IProduct) => {
+        this.onCategoryChange(data.categoryId);
         this.productForm.setValue({
           brand: data.brand,
           categoryId: data.categoryId,
@@ -72,6 +73,7 @@ export class EditProductComponent implements OnInit {
     this.productForm.enable();
   }
   onUpdateProduct() {
+    debugger;
     this.productService
       .updateProduct(this.productForm.value, this.productId)
       .subscribe((data) => {
