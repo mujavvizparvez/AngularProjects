@@ -38,13 +38,13 @@
 }
 .categ-link {
   cursor: pointer;
-  padding: 6px;
-  color: lightslategray;
+  /* padding: 6px; */
+  color: black;
 }
 .categ-link:hover {
   border: none;
-  border-radius: 50%;
-  background-color: rgb(230, 218, 231);
+  /* border-radius: 50%; */
+  background-color: lightslategray;
   text-underline-position: above;
   color: black;
   border-bottom: 1px solid rgba(84, 55, 214, 0.5)

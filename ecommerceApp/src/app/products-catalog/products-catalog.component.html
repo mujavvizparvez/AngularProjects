@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-2">
+    <app-products-filter></app-products-filter>
+  </div>
+  <div class="col-md-10">
+    <div class="card-container">
+      <div class="card" *ngFor="let product of products">
+        <div class="image-wrapper">
+          <div class="wishlist text-right">
+            <a class="heart-icon text-secondary">
+              <i class="fa fa-heart"></i>
+            </a>
+          </div>
+          <img [src]="product.photoUrl" alt="..." />
+        </div>
+
+        <div class="card-body text-center">
+          <p class="text-left">
+            {{ product.name }}
+          </p>
+
+          <!-- <div class="rating-star text-left">
+        <i class="fa-solid fa-star text-warning"></i
+        ><i class="fa-solid fa-star text-warning"></i
+        ><i class="fa-solid fa-star text-warning"></i
+        ><i class="fa-solid fa-star text-warning"></i
+        ><i class="fa-solid fa-star text-secondary"></i>
+      </div> -->
+          <!-- <h5>Rs 500 <span>50% OFF</span></h5> -->
+          <h5 class="text-left">&#8377; {{ product.price }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

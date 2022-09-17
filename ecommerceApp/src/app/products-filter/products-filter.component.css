@@ -1,0 +1,35 @@
+.accordion a {
+  cursor: pointer;
+}
+.accordion button {
+  text-transform: uppercase;
+}
+/* input[type="checkbox"]{
+    font-size: 5px;
+} */
+.lbl-gender {
+  padding: 5px;
+}
+#white {
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+#blue {
+  color: blue;
+}
+#red {
+  color: red;
+}
+#yellow {
+  color: yellow;
+}
+#green {
+  color: green;
+}
+.rating label {
+  color: grey;
+  font-size: 9px;
+}
+.rating i {
+  font-size: 8px;
+}

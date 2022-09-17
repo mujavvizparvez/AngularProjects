@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm sticky-top navbar-dark p-3">
   <div class="container-fluid">
-    <img src="../../assets/Images/logo.png" alt="logoy" />
+    <img src="../../assets/Images/logo.png" alt="logoy" [routerLink]="['/']"/>
     <!-- <input type="search" class="hidden-icon search-box" placeholder="Search.."> -->
    <a href="" class="text-white hidden-icon"> <i class="fa-solid fa-magnifying-glass"></i></a>
     <a href="" class="text-white hidden-icon"><i class="fa-solid fa-cart-shopping hidden-icon"></i></a>
@@ -35,7 +35,7 @@
           <a class="nav-link" href="javascript:void(0)">Women</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" [routerLink]="['/']"
+          <a class="nav-link" href="javascript:void(0)" 
             >Kids</a
           >
         </li>

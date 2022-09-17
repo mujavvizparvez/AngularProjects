@@ -1,0 +1,515 @@
+<!-- <div class="filter">
+  <div class="list-group list-group-flush my-3">
+    <div class="dash-board">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        
+        <i class="fa-solid fa-filter"></i> Filters
+      </a>
+    </div>
+    <div class="">
+      <a
+        [routerLink]="['category/details']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Categories
+      </a>
+    </div>
+    <div class="">
+      <a
+        [routerLink]="['subcategory/details']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        SubCategory
+      </a>
+    </div>
+    <div class="">
+      <a
+        [routerLink]="['product/details']"
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Gender
+      </a>
+    </div>
+    <div class="">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Price
+      </a>
+    </div>
+
+    <div class="">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Brand
+      </a>
+    </div>
+
+    <div class="">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Discount
+      </a>
+    </div>
+
+    <div class="">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Customer Ratings
+      </a>
+    </div>
+    <div class="">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Offers
+      </a>
+    </div>
+    <div class="">
+      <a
+        class="list-group-item listgroup-item-action bg-transparent second-text fw-bold"
+      >
+        Availability
+      </a>
+    </div>
+  </div>
+</div> -->
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        Categories
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse show"
+      aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <div>
+          <button class="btn mx-2">Men</button> <button class="btn">Women</button>
+        </div>
+        <form action="">
+          <div >
+        <div *ngFor="let category of categories">
+          <input type="checkbox" id="shirt" name="shirt" value="shirt" />
+          <label for="shirt">{{category.name}}</label>
+        </div> 
+        </div>   
+         <!-- <div>
+          <input type="checkbox" id="t-shirt" name="t-shirt" value="t-shirt" />
+          <label for="t-shirt">T-shirts</label>
+        </div>
+         <div>
+          <input type="checkbox" id="ethnic" name="eyhnic" value="ethnic" />
+          <label for="ethnic">Ethnic Wear</label>
+        </div> -->
+        </form>
+        <!-- <div><a class="nav-link">T-shirts</a></div>
+        <div><a class="nav-link">Ethnic Wear</a></div>
+        <div><a class="nav-link">Suits & Blazers</a></div>
+        <div><a class="nav-link">Trousers</a></div>
+        <div><a class="nav-link">Jeans</a></div>
+        <div><a class="nav-link">Sports Wear</a></div>
+        <div><h5>Women</h5></div>
+        <div><a class="nav-link">Saree</a></div>
+        <div><a class="nav-link">Kurta Kurtis</a></div>
+        <div><a class="nav-link">Ethnic Sets</a></div> -->
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseTwo"
+        aria-expanded="false"
+        aria-controls="collapseTwo"
+      >
+        SubCategories
+      </button>
+    </h2>
+    <div
+      id="collapseTwo"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingTwo"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+       
+        <form action="">
+        <div>
+          <input type="checkbox" id="checks" name="checks" value="checks" />
+          <label for="checks">Checks Shirt</label>
+        </div>  
+        <div>
+          <input type="checkbox" id="formal" name="formal" value="formal" />
+          <label for="formal">Formal Shirt</label>
+        </div> 
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseThree"
+        aria-expanded="false"
+        aria-controls="collapseThree"
+      >
+        Gender
+      </button>
+    </h2>
+    <div
+      id="collapseThree"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingThree"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <form action="/action_page.php">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="check1"
+              name="men"
+              value="men"
+              checked
+            />
+            <label class="form-check-label" for="check1">Men</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="check2"
+              name="women"
+              value="women"
+            />
+            <label class="form-check-label" for="check2">Women</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="check3"
+              name="kids"
+              value="kids"
+            />
+            <label class="form-check-label" for="check3">Kids</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseFour"
+        aria-expanded="false"
+        aria-controls="collapseFour"
+      >
+        Price
+      </button>
+    </h2>
+    <div
+      id="collapseFour"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingFour"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <div data-role="page">
+          <div data-role="header"></div>
+
+          <div data-role="main" class="ui-content">
+            <form method="post" action="/action_page_post.php">
+              <div data-role="rangeslider">
+                <label for="price-min">Price:</label>
+                <input
+                  type="range"
+                  name="price-min"
+                  id="price-min"
+                  value="200"
+                  min="0"
+                  max="1000"
+                />
+                <label for="price-max">Price:</label>
+                <input
+                  type="range"
+                  name="price-max"
+                  id="price-max"
+                  value="800"
+                  min="0"
+                  max="1000"
+                />
+              </div>
+              <input type="submit" data-inline="true" value="Submit" />
+              <p>
+                The range slider can be useful for allowing users to select a
+                specific price range when browsing products.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseFive"
+        aria-expanded="false"
+        aria-controls="collapseFive"
+      >
+        Brand
+      </button>
+    </h2>
+    <div
+      id="collapseFive"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingFive"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body"></div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSix">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseSix"
+        aria-expanded="false"
+        aria-controls="collapseSix"
+      >
+        Color
+      </button>
+    </h2>
+    <div
+      id="collapseSix"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingSix"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <div>
+          <a><i class="fa-solid fa-circle"></i> Black</a>
+        </div>
+        <div>
+          <a><i class="fa-solid fa-circle text-white" id="white"></i> White</a>
+        </div>
+        <div>
+          <a><i class="fa-solid fa-circle" id="blue"></i> Blue</a>
+        </div>
+        <div>
+          <a><i class="fa-solid fa-circle" id="red"></i> Red</a>
+        </div>
+        <div>
+          <a><i class="fa-solid fa-circle" id="yellow"></i> Yellow</a>
+        </div>
+        <div>
+          <a><i class="fa-solid fa-circle" id="green"></i> Green</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSeven">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseSeven"
+        aria-expanded="false"
+        aria-controls="collapseSeven"
+      >
+        Customer Ratings
+      </button>
+    </h2>
+    <div
+      id="collapseSeven"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingSeven"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body rating">
+        <form>
+          <div>
+            <input type="checkbox" id="star2" name="star2" value="Bike" />
+            <label for="star2">
+              2 <i class="fa-solid fa-star"></i> & Above</label
+            >
+          </div>
+          <div>
+            <input type="checkbox" id="star3" name="star3" value="Car" />
+            <label for="star3">
+              3 <i class="fa-solid fa-star"></i> & Above</label
+            >
+          </div>
+          <div>
+            <input type="checkbox" id="star4" name="star4" value="Boat" />
+            <label for="star4">
+              4 <i class="fa-solid fa-star"></i> & Above</label
+            >
+          </div>
+        </form>
+        <!-- <form action="/action_page.php">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="check1"
+              name="check1"
+              value="something"
+              checked
+            />
+            <label class="form-check-label " for="check1">2 <i class="fa-solid fa-star"></i> & Above</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="check2"
+              name="3&Above"
+              value="something"
+            />
+            <label class="form-check-label" for="check2">3  <i class="fa-solid fa-star"></i> & Above</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="check2"
+              name="kids"
+              value="something"
+            />
+            <label class="form-check-label" for="check3">4  <i class="fa-solid fa-star"></i> & Above</label>
+          </div>
+        </form> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingEight">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseEight"
+        aria-expanded="false"
+        aria-controls="collapseEight"
+      >
+        Size
+      </button>
+    </h2>
+    <div
+      id="collapseEight"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingEight"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="defaultInline1"
+          />
+          <label class="custom-control-label px-2" for="defaultInline1"
+            >M</label
+          >
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="defaultInline2"
+          />
+          <label class="custom-control-label px-2" for="defaultInline2"
+            >L</label
+          >
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="defaultInline3"
+          />
+          <label class="custom-control-label px-2" for="defaultInline3"
+            >XL</label
+          >
+        </div>
+
+        <div class="custom-control custom-checkbox custom-control-inline">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="defaultInline4"
+          />
+          <label class="custom-control-label px-2" for="defaultInline4"
+            >XXL</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="accordion-item">
+    <h2 class="accordion-header" id="headingNine">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseNine"
+        aria-expanded="false"
+        aria-controls="collapseNine"
+      >
+        Availability
+      </button>
+    </h2>
+    <div
+      id="collapseNine"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingNine"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body"></div>
+    </div>
+  </div> -->
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
 
@@ -9,7 +10,7 @@ import { CategoryService } from 'src/app/Admin/categories/services/category.serv
 })
 export class ProductCategoriesComponent implements OnInit {
   categories: ICategory[] = [];
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService,private routr:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getCategoryByType('male');
