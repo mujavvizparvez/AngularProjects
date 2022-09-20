@@ -39,7 +39,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page,
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: page,
               totalItems:totalLength
           }" class="text-center">
           <td data-label="Brand">{{ product.brand }}</td>

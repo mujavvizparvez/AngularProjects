@@ -10,10 +10,10 @@ import { CategoryService } from 'src/app/Admin/categories/services/category.serv
 })
 export class AddCategoryComponent implements OnInit {
   categoryForm: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    type: new FormControl(''),
-    photoUrl: new FormControl(''),
-    description: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    type: new FormControl('', Validators.required),
+    photoUrl: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
   });
   constructor(
     private categoryService: CategoryService,

@@ -6,6 +6,16 @@
         <div>
           <label>Name</label>
           <input type="text" class="form-control" formControlName="name" />
+          <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  categoryForm.controls['name'].dirty &&
+                  categoryForm.hasError('required', 'name')
+                "
+                >*Category name is required</span
+              >
+            </div>
         </div>
          <div>
           <label>Type</label>
@@ -14,18 +24,48 @@
             <option value="female">Female</option>
             <option value="kids">Kids</option>
           </select>
+           <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  categoryForm.controls['type'].dirty &&
+                  categoryForm.hasError('required', 'type')
+                "
+                >*Category type is required</span
+              >
+            </div>
         </div>
           <div>
           <label>Photo Url</label>
          <input type="text" class="form-control" formControlName="photoUrl" />
+          <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  categoryForm.controls['photoUrl'].dirty &&
+                  categoryForm.hasError('required', 'photoUrl')
+                "
+                >*Photo url is required</span
+              >
+            </div>
         </div>
          <div>
           <label>Description</label>
          <input type="text" class="form-control" formControlName="description" />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  categoryForm.controls['description'].dirty &&
+                  categoryForm.hasError('required', 'description')
+                "
+                >*Category description is required</span
+              >
+            </div>
         </div>
        
        <div class="my-3">
-         <button class="btn btn-primary btn-add my-2" type="submit"> Add category  </button>
+         <button class="btn btn-primary btn-add my-2" type="submit" [disabled]="!categoryForm.valid"> Add category  </button>
            <a class="btn my-2 mx-2 btn-exit" type="submit" [routerLink]="['/admin/category/details']">Cancel</a>
        </div>
       

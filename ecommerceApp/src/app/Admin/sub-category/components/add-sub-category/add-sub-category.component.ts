@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
@@ -16,13 +16,13 @@ export class AddSubCategoryComponent implements OnInit {
   subCategories: ISubCategory[] = [];
 
   subCategoryForm: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    category: new FormControl(''),
-  
-    type: new FormControl(''),
-    description: new FormControl(''),
-    photoUrl: new FormControl(''),
-    categoryId: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
+
+    type: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    photoUrl: new FormControl('', Validators.required),
+    categoryId: new FormControl('', Validators.required),
   });
   constructor(
     private subCategoryService: SubCategoryService,
@@ -36,14 +36,13 @@ export class AddSubCategoryComponent implements OnInit {
       this.categories = data;
       console.log(data);
     });
-    
   }
 
   onAddSubCategory() {
     let subCategory = this.subCategoryForm.value;
-    console.log(this.subCategoryForm.value)
+    console.log(this.subCategoryForm.value);
     this.subCategoryService.addSubCategory(subCategory).subscribe((data) => {
-      this.router.navigate(['admin/subcategory/details'])
-    })
+      this.router.navigate(['admin/subcategory/details']);
+    });
   }
 }

@@ -1,6 +1,6 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
@@ -19,18 +19,21 @@ export class AddProductComponent implements OnInit {
   subCategories: ISubCategory[] = [];
   products: IProduct[] = [];
   productForm: FormGroup = new FormGroup({
-    brand: new FormControl(''),
-    name: new FormControl(''),
-    categoryId: new FormControl(''),
-    subCategoryId: new FormControl({ value: '', disabled : true }),
-    exclusiveFor: new FormControl(''),
-    price: new FormControl(''),
-    rating: new FormControl(''),
-    description: new FormControl(''),
-    photoUrl: new FormControl(''),
-    color: new FormControl(''),
-    size: new FormControl(''),
-    quantity: new FormControl(''),
+    brand: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
+    categoryId: new FormControl('', Validators.required),
+    subCategoryId: new FormControl(
+      { value: '', disabled: true },
+      Validators.required
+    ),
+    exclusiveFor: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    rating: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    photoUrl: new FormControl('', Validators.required),
+    color: new FormControl('', Validators.required),
+    size: new FormControl('', Validators.required),
+    quantity: new FormControl('', Validators.required),
   });
   constructor(
     private productService: ProductService,

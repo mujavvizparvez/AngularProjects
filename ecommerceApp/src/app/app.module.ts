@@ -28,8 +28,9 @@ import { EditSubCategoryComponent } from './Admin/sub-category/components/edit-s
 import { AddSubCategoryComponent } from './Admin/sub-category/components/add-sub-category/add-sub-category.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { ProductsFilterComponent } from './products-filter/products-filter.component';
-import { ProductsCatalogComponent } from './products-catalog/products-catalog.component';
+import { ProductsFilterComponent } from './Dashboard/components/products-filter/products-filter.component';
+import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
+import { ProductViewComponent } from './product-view/product-view.component';
 //import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ProductsCatalogComponent } from './products-catalog/products-catalog.co
     EditSubCategoryComponent,
     ProductsFilterComponent,
     ProductsCatalogComponent,
+    ProductViewComponent,
     //MatExpansionModule,
   ],
   imports: [

@@ -81,6 +81,7 @@
 </div> -->
 
 <div class="accordion" id="accordionExample">
+  <h4 class="px-3">Filters</h4>
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button
@@ -102,34 +103,24 @@
     >
       <div class="accordion-body">
         <div>
-          <button class="btn mx-2">Men</button> <button class="btn">Women</button>
+          <button class="btn mx-2">Men</button>
+          <button class="btn">Women</button>
         </div>
         <form action="">
-          <div >
-        <div *ngFor="let category of categories">
-          <input type="checkbox" id="shirt" name="shirt" value="shirt" />
-          <label for="shirt">{{category.name}}</label>
-        </div> 
-        </div>   
-         <!-- <div>
-          <input type="checkbox" id="t-shirt" name="t-shirt" value="t-shirt" />
-          <label for="t-shirt">T-shirts</label>
-        </div>
-         <div>
-          <input type="checkbox" id="ethnic" name="eyhnic" value="ethnic" />
-          <label for="ethnic">Ethnic Wear</label>
-        </div> -->
+          <div>
+            <div *ngFor="let category of categories">
+              <input
+                type="checkbox"
+                [id]="category.id"
+                name="category"
+                [value]="category.id"
+                [checked]="category.checked"
+                (change)="filterByCategory($event)"
+              />
+              <label [for]="category.id">{{ category.name }}</label>
+            </div>
+          </div>
         </form>
-        <!-- <div><a class="nav-link">T-shirts</a></div>
-        <div><a class="nav-link">Ethnic Wear</a></div>
-        <div><a class="nav-link">Suits & Blazers</a></div>
-        <div><a class="nav-link">Trousers</a></div>
-        <div><a class="nav-link">Jeans</a></div>
-        <div><a class="nav-link">Sports Wear</a></div>
-        <div><h5>Women</h5></div>
-        <div><a class="nav-link">Saree</a></div>
-        <div><a class="nav-link">Kurta Kurtis</a></div>
-        <div><a class="nav-link">Ethnic Sets</a></div> -->
       </div>
     </div>
   </div>
@@ -153,17 +144,17 @@
       data-bs-parent="#accordionExample"
     >
       <div class="accordion-body">
-       
-        <form action="">
-        <div>
-          <input type="checkbox" id="checks" name="checks" value="checks" />
-          <label for="checks">Checks Shirt</label>
-        </div>  
-        <div>
-          <input type="checkbox" id="formal" name="formal" value="formal" />
-          <label for="formal">Formal Shirt</label>
-        </div> 
+        <form action="" *ngIf="subCategories">
+          <div *ngFor="let subCategory of subCategories">
+            <input type="checkbox" id="checks" name="subCategory" value="subCategory" 
+                (change)="filterByCategory($event)"
+            />
+            <label for="checks">{{ subCategory.name }}</label>
+          </div>
         </form>
+        <div *ngIf="subCategories.length == 0">
+          *Please first select the category to see subCategories.
+        </div>
       </div>
     </div>
   </div>
@@ -193,9 +184,9 @@
               type="checkbox"
               class="form-check-input"
               id="check1"
-              name="men"
+              name="gender"
               value="men"
-              checked
+                (change)="filterByCategory($event)"
             />
             <label class="form-check-label" for="check1">Men</label>
           </div>
@@ -204,8 +195,10 @@
               type="checkbox"
               class="form-check-input"
               id="check2"
-              name="women"
+              name="gender"
               value="women"
+                              (change)="filterByCategory($event)"
+
             />
             <label class="form-check-label" for="check2">Women</label>
           </div>
@@ -214,8 +207,10 @@
               type="checkbox"
               class="form-check-input"
               id="check3"
-              name="kids"
+              name="gender"
               value="kids"
+                             (change)="filterByCategory($event)"
+
             />
             <label class="form-check-label" for="check3">Kids</label>
           </div>
@@ -244,39 +239,59 @@
       data-bs-parent="#accordionExample"
     >
       <div class="accordion-body">
-        <div data-role="page">
-          <div data-role="header"></div>
+        <form>
+          <div>
+            <input
+              type="checkbox"
+              id="price1"
+              name="price"
+              value="0-500"
+                             (change)="filterByCategory($event)"
 
-          <div data-role="main" class="ui-content">
-            <form method="post" action="/action_page_post.php">
-              <div data-role="rangeslider">
-                <label for="price-min">Price:</label>
-                <input
-                  type="range"
-                  name="price-min"
-                  id="price-min"
-                  value="200"
-                  min="0"
-                  max="1000"
-                />
-                <label for="price-max">Price:</label>
-                <input
-                  type="range"
-                  name="price-max"
-                  id="price-max"
-                  value="800"
-                  min="0"
-                  max="1000"
-                />
-              </div>
-              <input type="submit" data-inline="true" value="Submit" />
-              <p>
-                The range slider can be useful for allowing users to select a
-                specific price range when browsing products.
-              </p>
-            </form>
+            />
+            <label for="price1"> Below Rs.500 </label>
           </div>
-        </div>
+          <div>
+            <input
+              type="checkbox"
+              id="price2"
+              name="price"
+              value="501-1000"                (change)="filterByCategory($event)"
+
+            />
+            <label for="price2"> Rs.501-1000 </label>
+          </div>
+          <div>
+            <input type="checkbox" id="price3" name="price3"  value="1001-1500"
+                           (change)="filterByCategory($event)"
+/>
+            <label for="price"> Rs.1001-1500</label>
+          </div>
+          <div>
+            <input type="checkbox" id="price4" name="price4" value="1501-2000"
+                            (change)="filterByCategory($event)"
+/>
+            <label for="price"> Rs.1501-2000</label>
+          </div>
+          <div>
+            <input type="checkbox" id="price5" name="price5" value="2001-2500"
+                          (change)="filterByCategory($event)"
+/>
+            <label for="price"> Rs.2001-2500</label>
+          </div>
+          <div>
+            <input type="checkbox" id="price6" name="price6" value="2501-3000"
+                (change)="filterByCategory($event)"
+            />
+            <label for="price"> Rs.2501-3000</label>
+          </div>
+          <div>
+            <input type="checkbox" id="price7" name="price7" value=">3001"
+                (change)="filterByCategory($event)"
+            />
+            <label for="price"> Above Rs.3001</label>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -300,7 +315,23 @@
       aria-labelledby="headingFive"
       data-bs-parent="#accordionExample"
     >
-      <div class="accordion-body"></div>
+      <div class="accordion-body">
+        <form action="">
+          <div>
+            <div *ngFor="let product of products">
+              <input
+                type="checkbox"
+                [id]="product.brand"
+                name="brand"
+                [value]="product.brand"
+                                (change)="filterByCategory($event)"
+
+              />
+              <label [for]="product.brand">{{ product.brand }}</label>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -325,22 +356,83 @@
     >
       <div class="accordion-body">
         <div>
-          <a><i class="fa-solid fa-circle"></i> Black</a>
+          <input
+            type="checkbox"
+            id="black"
+            name="color"
+            value="black"
+                           (change)="filterByCategory($event)"
+
+          />
+          <label for="black"
+            ><i class="fa-solid fa-circle" id="black"></i> Black</label
+          >
         </div>
         <div>
-          <a><i class="fa-solid fa-circle text-white" id="white"></i> White</a>
+          <input
+            type="checkbox"
+            id="white"
+            name="color"
+            value="white"
+                           (change)="filterByCategory($event)"
+
+          />
+          <label for="white"
+            ><i class="fa-solid fa-circle text-white" id="white"></i>
+            White</label
+          >
         </div>
         <div>
-          <a><i class="fa-solid fa-circle" id="blue"></i> Blue</a>
+          <input
+            type="checkbox"
+            id="blue"
+            name="color"
+            value="blue"
+                           (change)="filterByCategory($event)"
+
+          />
+          <label for="blue"
+            ><i class="fa-solid fa-circle" id="blue"></i> Blue</label
+          >
         </div>
         <div>
-          <a><i class="fa-solid fa-circle" id="red"></i> Red</a>
+          <input
+            type="checkbox"
+            id="red"
+            name="color"
+            value="red"
+                            (change)="filterByCategory($event)"
+
+          />
+          <label for="red"
+            ><i class="fa-solid fa-circle" id="red"></i> Red</label
+          >
         </div>
         <div>
-          <a><i class="fa-solid fa-circle" id="yellow"></i> Yellow</a>
+          <input
+            type="checkbox"
+            id="yellow"
+            name="color"
+            value="yellow"
+                           (change)="filterByCategory($event)"
+
+          />
+          <label for="yellow"
+            ><i class="fa-solid fa-circle" id="yellow"></i> Green</label
+          >
         </div>
         <div>
-          <a><i class="fa-solid fa-circle" id="green"></i> Green</a>
+          <input
+            type="checkbox"
+            id="green"
+            name="color"
+            value="green"
+                          (change)="filterByCategory($event)"
+
+          />
+          <label for="green"
+            ><i class="fa-solid fa-circle" id="green"></i> Yellow</label
+          >
         </div>
       </div>
     </div>
@@ -368,19 +460,40 @@
       <div class="accordion-body rating">
         <form>
           <div>
-            <input type="checkbox" id="star2" name="star2" value="Bike" />
+            <input
+              type="checkbox"
+              id="star2"
+              name="rating"
+              value="2"
+                           (change)="filterByCategory($event)"
+
+            />
             <label for="star2">
               2 <i class="fa-solid fa-star"></i> & Above</label
             >
           </div>
           <div>
-            <input type="checkbox" id="star3" name="star3" value="Car" />
+            <input
+              type="checkbox"
+              id="star3"
+              name="rating"
+              value="3"
+                             (change)="filterByCategory($event)"
+
+            />
             <label for="star3">
               3 <i class="fa-solid fa-star"></i> & Above</label
             >
           </div>
           <div>
-            <input type="checkbox" id="star4" name="star4" value="Boat" />
+            <input
+              type="checkbox"
+              id="star4"
+              name="rating"
+              value="4"
+                            (change)="filterByCategory($event)"
+
+            />
             <label for="star4">
               4 <i class="fa-solid fa-star"></i> & Above</label
             >
@@ -447,44 +560,52 @@
           <input
             type="checkbox"
             class="custom-control-input"
-            id="defaultInline1"
+            name="size"
+            id="m"
+            value="M"
+                           (change)="filterByCategory($event)"
+
           />
-          <label class="custom-control-label px-2" for="defaultInline1"
-            >M</label
-          >
+          <label class="custom-control-label px-2" for="m">M</label>
         </div>
 
         <div class="custom-control custom-checkbox custom-control-inline">
           <input
             type="checkbox"
             class="custom-control-input"
-            id="defaultInline2"
+            id="l"
+            name="size"
+            value="L"
+                (change)="filterByCategory($event)"
+           
           />
-          <label class="custom-control-label px-2" for="defaultInline2"
-            >L</label
-          >
+          <label class="custom-control-label px-2" for="l">L</label>
         </div>
 
         <div class="custom-control custom-checkbox custom-control-inline">
           <input
             type="checkbox"
             class="custom-control-input"
-            id="defaultInline3"
+            id="xl"
+            name="size"
+            value="XL"
+                           (change)="filterByCategory($event)"
+
           />
-          <label class="custom-control-label px-2" for="defaultInline3"
-            >XL</label
-          >
+          <label class="custom-control-label px-2" for="xl">XL</label>
         </div>
 
         <div class="custom-control custom-checkbox custom-control-inline">
           <input
             type="checkbox"
             class="custom-control-input"
-            id="defaultInline4"
+            id="xxl"
+            name="size"
+            value="XXL"
+                        (change)="filterByCategory($event)"
+
           />
-          <label class="custom-control-label px-2" for="defaultInline4"
-            >XXL</label
-          >
+          <label class="custom-control-label px-2" for="xxl">XXL</label>
         </div>
       </div>
     </div>

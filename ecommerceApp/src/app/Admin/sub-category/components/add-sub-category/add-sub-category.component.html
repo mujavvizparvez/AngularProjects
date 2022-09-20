@@ -7,6 +7,16 @@
         <div class="col-md-6">
           <label>SubCategory</label>
           <input type="text" class="form-control" formControlName="name" />
+          <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  subCategoryForm.controls['name'].dirty &&
+                  subCategoryForm.hasError('required', 'name')
+                "
+                >*Subcategory name is required</span
+              >
+            </div>
         </div>
         <div class="col-md-6">
           <label>Category</label>
@@ -15,6 +25,16 @@
               {{ category.name }}
             </option>
           </select>
+           <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  subCategoryForm.controls['categoryId'].dirty &&
+                  subCategoryForm.hasError('required', 'categoryId')
+                "
+                >*Category name is required</span
+              >
+            </div>
         </div>
        
           <div class="col-md-6">
@@ -24,10 +44,30 @@
             <option value="female">Female</option>
             <option value="kids">Kids</option>
           </select>
+          <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  subCategoryForm.controls['type'].dirty &&
+                  subCategoryForm.hasError('required', 'type')
+                "
+                >*Subcategory type is required</span
+              >
+            </div>
         </div>
           <div class="col-md-6">
           <label>Photo Url</label>
           <input type="text" class="form-control" formControlName="photoUrl" />
+             <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  subCategoryForm.controls['photoUrl'].dirty &&
+                  subCategoryForm.hasError('required', 'photoUrl')
+                "
+                >*Photo url is required</span
+              >
+            </div>
         </div>
 </div>
     <div class="row">
@@ -39,11 +79,22 @@
             class="form-control"
             formControlName="description"
           />
+          <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  subCategoryForm.controls['description'].dirty &&
+                  subCategoryForm.hasError('required', 'description')
+                "
+                >*Subcategory description is required</span
+              >
+            </div>
         </div>
         
 </div>
 <div class="my-4 text-center">
-   <button class="btn my-2 btn-submit" type="submit">Add SubCategory</button>
+   <button class="btn my-2 btn-submit" type="submit" [disabled]="!subCategoryForm.valid">Add SubCategory</button>
+    <a class="btn my-2 mx-2 btn-exit" type="submit" [routerLink]="['/admin/subcategory/details']">Cancel</a>
 </div>
        
       </form>

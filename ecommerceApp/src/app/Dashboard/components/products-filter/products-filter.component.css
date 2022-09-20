@@ -1,3 +1,6 @@
+.accordion-body label{
+  margin-left: 4px;
+}
 .accordion a {
   cursor: pointer;
 }

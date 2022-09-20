@@ -51,23 +51,22 @@ export class ProductDetailsComponent implements OnInit {
               .getProducts()
               .subscribe((products: IProduct[]) => {
                 for (let product of products) {
-                        let category = categories.find(
-                          (s) => s.id == product.categoryId
-                        );
-                        let subCategory = subCategories.find(
-                          (s) => s.id == product.subCategoryId
-                            && s.categoryId == product.categoryId
-                        );
-                        this.products.push({
-                          ...product,
-                          categoryName: category?.name ?? '',
-                          subCategoryName: subCategory?.name ?? '',
-                        });
+                  let category = categories.find(
+                    (s) => s.id == product.categoryId
+                  );
+                  let subCategory = subCategories.find(
+                    (s) =>
+                      s.id == product.subCategoryId &&
+                      s.categoryId == product.categoryId
+                  );
+                  this.products.push({
+                    ...product,
+                    categoryName: category?.name ?? '',
+                    subCategoryName: subCategory?.name ?? '',
+                  });
+                }
 
-                        
-                      }
-
-console.log(this.products);
+                console.log(this.products);
                 // for (let category of categories) {
                 //   for (let subCategory of subCategories) {
                 //     for (let product of products) {

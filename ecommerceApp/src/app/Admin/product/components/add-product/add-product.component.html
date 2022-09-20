@@ -7,6 +7,16 @@
           <div class="col-md-6">
             <label>Brand</label>
             <input type="text" class="form-control" formControlName="brand" />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['brand'].dirty &&
+                  productForm.hasError('required', 'brand')
+                "
+                >*Brand name is required</span
+              >
+            </div>
           </div>
           <div class="col-md-6">
             <label>Category</label>
@@ -20,6 +30,16 @@
                 {{ category.name }}
               </option>
             </select>
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['categoryId'].dirty &&
+                  productForm.hasError('required', 'categoryId')
+                "
+                >*Category name is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="row">
@@ -33,6 +53,16 @@
                 {{ subCategory.name }}
               </option>
             </select>
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['subCategoryId'].dirty &&
+                  productForm.hasError('required', 'subCategoryId')
+                "
+                >*Subcategory name is required</span
+              >
+            </div>
           </div>
           <div class="col-md-6">
             <label>Photo Url</label>
@@ -41,6 +71,16 @@
               class="form-control"
               formControlName="photoUrl"
             />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['photoUrl'].dirty &&
+                  productForm.hasError('required', 'photoUrl')
+                "
+                >*Phot url is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="row">
@@ -55,16 +95,46 @@
               <option value="Women">Women</option>
               <option value="Kids">Kids</option>
             </select>
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['exclusiveFor'].dirty &&
+                  productForm.hasError('required', 'exclusiveFor')
+                "
+                >*Product type is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label>Price</label>
             <input type="text" class="form-control" formControlName="price" />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['price'].dirty &&
+                  productForm.hasError('required', 'price')
+                "
+                >*Product price is required</span
+              >
+            </div>
           </div>
           <div class="col-md-6">
             <label>Rating</label>
             <input type="text" class="form-control" formControlName="rating" />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['rating'].dirty &&
+                  productForm.hasError('required', 'rating')
+                "
+                >*Product rating is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="row">
@@ -75,16 +145,46 @@
               class="form-control"
               formControlName="description"
             />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['description'].dirty &&
+                  productForm.hasError('required', 'description')
+                "
+                >*Product description is required</span
+              >
+            </div>
           </div>
           <div class="col-md-6">
             <label>Color</label>
             <input type="text" class="form-control" formControlName="color" />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['color'].dirty &&
+                  productForm.hasError('required', 'color')
+                "
+                >*Product color is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label>Size</label>
             <input type="text" class="form-control" formControlName="size" />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['size'].dirty &&
+                  productForm.hasError('required', 'size')
+                "
+                >*Product size is required</span
+              >
+            </div>
           </div>
           <div class="col-md-6">
             <label>Quantity</label>
@@ -93,10 +193,26 @@
               class="form-control"
               formControlName="quantity"
             />
+            <div>
+              <span
+                class="text-danger"
+                *ngIf="
+                  productForm.controls['quantity'].dirty &&
+                  productForm.hasError('required', 'quantity')
+                "
+                >*Product quantity is required</span
+              >
+            </div>
           </div>
         </div>
         <div class="my-3">
-          <button class="btn my-2 btn-submit" type="submit">Add product</button>
+          <button
+            class="btn my-2 btn-submit"
+            type="submit"
+            [disabled]="!productForm.valid"
+          >
+            Add product
+          </button>
           <a
             class="btn my-2 mx-2 btn-exit"
             type="submit"
@@ -108,3 +224,4 @@
     </div>
   </div>
 </div>
+<!-- *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" -->

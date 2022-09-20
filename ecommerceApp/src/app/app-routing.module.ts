@@ -15,7 +15,8 @@ import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 import { AuthGuard } from './Auth/Guards/auth.guard';
 import { DashboardComponent } from './Dashboard/components/dashboard/dashboard.component';
-import { ProductsCatalogComponent } from './products-catalog/products-catalog.component';
+import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
+import { ProductViewComponent } from './product-view/product-view.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'products/filter', component: ProductsCatalogComponent },
   { path: 'products/catalog', component: ProductsCatalogComponent },
+  { path: 'products/view', component: ProductViewComponent },
 ];
 
 @NgModule({
