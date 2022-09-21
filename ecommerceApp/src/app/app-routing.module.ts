@@ -11,9 +11,11 @@ import { ProductDetailsComponent } from './Admin/product/components/product-deta
 import { AddSubCategoryComponent } from './Admin/sub-category/components/add-sub-category/add-sub-category.component';
 import { EditSubCategoryComponent } from './Admin/sub-category/components/edit-sub-category/edit-sub-category.component';
 import { SubCategoryDetailsComponent } from './Admin/sub-category/components/sub-category-details/sub-category-details.component';
+import { AppComponent } from './app.component';
 import { LoginComponent } from './Auth/components/login/login.component';
 import { RegisterComponent } from './Auth/components/register/register.component';
 import { AuthGuard } from './Auth/Guards/auth.guard';
+import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items.component';
 import { DashboardComponent } from './Dashboard/components/dashboard/dashboard.component';
 import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
 import { ProductViewComponent } from './product-view/product-view.component';
@@ -39,11 +41,13 @@ const routes: Routes = [
       { path: 'subcategory/:name/edit', component: EditSubCategoryComponent },
     ],
   },
+ // {path:'homepage',component:AppComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'products/filter', component: ProductsCatalogComponent },
   { path: 'products/catalog', component: ProductsCatalogComponent },
-  { path: 'products/view', component: ProductViewComponent },
+  { path: 'products/:id/view', component: ProductViewComponent },
+  { path: 'products/cartItems', component: CartItemsComponent },
 ];
 
 @NgModule({

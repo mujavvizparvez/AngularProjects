@@ -1,53 +1,85 @@
-
-.single-product{
-    margin-top: 80px;
+/* .single-product {
+  margin-top: 80px;
 }
-.single-product .prod-img img{
-padding: 0;
+.single-product .prod-img img {
+  padding: 0;
 }
 .single-product .prod-img {
-
-    padding: 20px;
+  padding: 20px;
 }
-.single-product h4{
-    margin: 20px 0;
-    font-size: 20px;
-    font-weight: bold;
+.single-product h4 {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
 }
-.single-product select{
-    display: block;
-    padding: 6px;
-    margin-top: 20px;
+.single-product select {
+  display: block;
+  padding: 6px;
+  margin-top: 20px;
 }
-.single-product input{
-   width: 40px;
-   height: 30px;
-   padding-left: 10px;
-   font-size: 12px;
-   margin-right: 10px;
-   border: 1px solid #ff523b ;
+.single-product input {
+  width: 40px;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 12px;
+  margin-right: 10px;
+  border: 1px solid #ff523b;
 }
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
 }
-.small-img-row{
-    display: flex;
-    justify-content: space-between;
+.small-img-row {
+  display: flex;
+  justify-content: space-between;
 }
-.small-img-col{
-   flex-basis: 23%;
-   cursor: pointer;
-}
+.small-img-col {
+  flex-basis: 23%;
+  cursor: pointer;
+} */
 
 /* CARD2 */
 
-.btn-cart{
-    background-color: rgb(64, 43, 28);
-    color: white;
-    font-weight: 500;
+.prod-text{
+    padding-left: 40px;
 }
-.btn-buy{
-    background-color: rgb(182, 70, 42);
-    color: white;
-    font-weight: 500;
+.qtity input{
+  width: 20%;
+  margin-left: 10px;
+  padding: 7px ;
 }
+label.radio {
+  cursor: pointer;
+}
+label.radio input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+label.radio span {
+  padding: 2px 9px;
+  border: 2px solid #ff0000;
+  display: inline-block;
+  color: #ff0000;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+label.radio input:checked + span {
+  border-color: #ff0000;
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.btn-cart {
+  background-color: rgb(64, 43, 28);
+  color: white;
+  font-weight: 500;
+}
+.btn-buy {
+  background-color: rgb(182, 70, 42);
+  color: white;
+  font-weight: 500;
+}
+
+

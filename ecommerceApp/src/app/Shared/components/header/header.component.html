@@ -55,9 +55,9 @@
         <a class="nav-link" (click)="onLogout()">logout</a>
       </div>
       <div class="nav-border sm-hidden px-3">
-        <a class="nav-link cart-btn text-decoration-none text-white" type="button"
+        <a class="nav-link cart-btn text-decoration-none text-white" type="button"  [routerLink]="['/products/cartItems']"
           >Cart <i class="fa-solid fa-cart-shopping"></i
-        ></a>
+        ><span class="badge bg-danger">{{totalItem}}</span></a>
       </div>
       <div class="sm-hidden">
         <a class="nav-link user-btn text-decoration-none text-white sm-hidden-link" type="button" [routerLink]="['/login']"

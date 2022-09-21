@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from '../../../Admin/product/models/IProduct';
 import { ProductService } from '../../../Admin/product/services/product.service';
 import { MessageService } from '../../../Auth/services/message.service';
@@ -11,11 +11,15 @@ import { MessageService } from '../../../Auth/services/message.service';
 })
 export class ProductsCatalogComponent implements OnInit {
   products: IProduct[] = [];
+
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute // private messageService: MessageService
+    private route: ActivatedRoute,
+    private router: Router // private messageService: MessageService
   ) {}
   categoryId: string = '';
+  productId: string = '';
+  id: string = '';
   ngOnInit(): void {
     this.categoryId = this.route.snapshot.queryParams['catogoryId'];
     // this.route.queryParams.subscribe((params) => {
@@ -25,6 +29,12 @@ export class ProductsCatalogComponent implements OnInit {
     // this.productService.getProducts().subscribe((products: IProduct[]) => {
     //   this.products = products;
     // });
+  }
+
+  onProductView(id: string) {
+    console.log(id);
+    this.router.navigate(['/products', id, 'view']);
+
   }
   getProductByCategoryId(categoryId: string) {
     this.productService.getProducts().subscribe((products: IProduct[]) => {
@@ -60,7 +70,7 @@ export class ProductsCatalogComponent implements OnInit {
             .getProducts()
             .subscribe((products: IProduct[]) => {
               let newProducts: IProduct[] = products.filter(
-                (p) => p.subCategoryId.toLocaleLowerCase() == value
+                (p) => p.subCategoryId.toLowerCase() == value
               );
               this.products = this.products.concat(newProducts);
             });
@@ -69,7 +79,7 @@ export class ProductsCatalogComponent implements OnInit {
             (p) => p.subCategoryId.toLowerCase() != value
           );
         }
-
+        break;
       case 'gender':
         if (isCheckboxChekced) {
           this.productService
@@ -85,7 +95,7 @@ export class ProductsCatalogComponent implements OnInit {
             (p) => p.exclusiveFor.toLowerCase() != value
           );
         }
-
+        break;
       case 'price':
         let price = value.split('-');
         if (isCheckboxChekced) {
@@ -103,7 +113,7 @@ export class ProductsCatalogComponent implements OnInit {
             (p) => parseInt(price[0]) && p.price <= parseInt(price[1])
           );
         }
-
+        break;
       case 'brand':
         if (isCheckboxChekced) {
           this.productService
@@ -119,7 +129,7 @@ export class ProductsCatalogComponent implements OnInit {
             (f) => f.brand.toLowerCase() != value.toLowerCase()
           );
         }
-
+        break;
       case 'color':
         if (isCheckboxChekced) {
           this.productService
@@ -135,23 +145,24 @@ export class ProductsCatalogComponent implements OnInit {
             (f) => f.color.toLowerCase() != value.toLowerCase()
           );
         }
-
+        break;
       case 'rating':
         if (isCheckboxChekced) {
+          // this.products = this.products.filter((f) => f.rating <= value);
+
           this.productService
             .getProducts()
             .subscribe((products: IProduct[]) => {
               let newProducts: IProduct[] = products.filter(
-                (f) => f.color.toLowerCase() == value.toLowerCase()
+                (f) => f.rating <= value
               );
               this.products = this.products.concat(newProducts);
             });
         } else {
-          this.products = this.products.filter(
-            (f) => f.color.toLowerCase() != value.toLowerCase()
-          );
+          this.products = this.products.filter((f) => f.rating != value);
         }
-
+        break;
+      default:
       case 'size':
         if (isCheckboxChekced) {
           this.productService
@@ -167,6 +178,7 @@ export class ProductsCatalogComponent implements OnInit {
             (f) => f.size.toLowerCase() != value.toLowerCase()
           );
         }
+        break;
     }
 
     // filterProductsByGender(event: any) {

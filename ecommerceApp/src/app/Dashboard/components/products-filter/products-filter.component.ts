@@ -18,12 +18,12 @@ export class ProductsFilterComponent implements OnInit {
   products: IProduct[] = [];
   @Input() categoryId: string = '';
   @Output() filterProducts = new EventEmitter<any>();
-  @Output() filterProductsByGender = new EventEmitter<any>();
-  @Output() filterProductsByPrice = new EventEmitter<any>();
-  @Output() filterProductsByBrand = new EventEmitter<any>();
-  @Output() filterProductsByColor = new EventEmitter<any>();
-  @Output() filterProductsByRating = new EventEmitter<any>();
-  @Output() filterProductsBySize = new EventEmitter<any>();
+  // @Output() filterProductsByGender = new EventEmitter<any>();
+  // @Output() filterProductsByPrice = new EventEmitter<any>();
+  // @Output() filterProductsByBrand = new EventEmitter<any>();
+  // @Output() filterProductsByColor = new EventEmitter<any>();
+  // @Output() filterProductsByRating = new EventEmitter<any>();
+  // @Output() filterProductsBySize = new EventEmitter<any>();
   subCategoryId: string = '';
 
   constructor(
@@ -80,7 +80,7 @@ export class ProductsFilterComponent implements OnInit {
 
   filterByCategory(event: any) {
     this.getSubCategoryOnCheckboxAction(event);
-    this.filterProducts.emit(event);
+   // this.filterProducts.emit(event);
   }
   // filterByGender(event: any) {
   //   this.filterProductsByGender.emit(event);

@@ -12,7 +12,7 @@ export class ProductCategoriesComponent implements OnInit {
   categories: ICategory[] = [];
   constructor(
     private categoryService: CategoryService,
-    private routr: ActivatedRoute
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

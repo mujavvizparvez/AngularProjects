@@ -1,5 +1,5 @@
 export interface IProduct {
-  id?: string;
+  id: string;
   brand: string;
   name: string;
   categoryId: string;
@@ -14,4 +14,5 @@ export interface IProduct {
   color: string;
   size: string;
   quantity: number;
+  total: any;
 }

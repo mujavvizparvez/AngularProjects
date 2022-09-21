@@ -9,7 +9,9 @@
   </div>
   <div class="col-md-10">
     <div class="card-container">
-      <div class="card" *ngFor="let product of products">
+      <div   class="card" *ngFor="let product of products" 
+      (click)="onProductView(product.id)"
+  >
         <div class="image-wrapper">
           <div class="wishlist text-right">
             <a class="heart-icon text-secondary">
