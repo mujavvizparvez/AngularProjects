@@ -30,8 +30,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ProductsFilterComponent } from './Dashboard/components/products-filter/products-filter.component';
 import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
-import { ProductViewComponent } from './product-view/product-view.component';
+import { ProductViewComponent } from './Dashboard/components/product-view/product-view.component';
 import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 //import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
@@ -62,6 +64,7 @@ import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items
     ProductsCatalogComponent,
     ProductViewComponent,
     CartItemsComponent,
+    UserProfileComponent,
     //MatExpansionModule,
   ],
   imports: [
@@ -74,6 +77,9 @@ import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items
     ReactiveFormsModule,
     NgxPaginationModule,
     NgImageSliderModule,
+  Ng2SearchPipeModule,
+    
+   
   ],
   providers: [],
   bootstrap: [AppComponent],

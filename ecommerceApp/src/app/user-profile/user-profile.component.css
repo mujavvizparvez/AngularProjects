@@ -1,0 +1,21 @@
+.user-img{
+    background-color: rgb(236, 241, 246);
+    padding: 10px;
+}
+.user-details{
+    background-color: rgb(236, 241, 246);
+    padding: 10px; 
+}
+.user-details p{
+    padding:3px 16px ;
+}
+
+.user-form{
+   background-color: rgb(236, 241, 246);
+}
+.radio-btn{
+    padding: 5px;
+}
+.account-info{
+    margin-top: 30px;
+}

@@ -23,12 +23,17 @@ export class CategoryDetailsComponent implements OnInit {
       });
   }
   onDeleteCategory(id: any) {
-    this.categoryService.deleteCategory(id).subscribe((data) => {
-      this.categoryService
-        .getCategories()
-        .subscribe((category: ICategory[]) => {
-          this.categories = category;
-        });
-    });
+    if (confirm('Are you sure you want to delete category')) {
+     this.categoryService.deleteCategory(id).subscribe((data) => {
+       this.categoryService
+         .getCategories()
+         .subscribe((category: ICategory[]) => {
+           this.categories = category;
+         });
+     });
+    } else {
+      return;
+   }
+    
   }
 }

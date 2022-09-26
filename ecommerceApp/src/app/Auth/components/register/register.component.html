@@ -8,14 +8,14 @@
 
         <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
           <div>
-            <label for="exampleInputPassword1" class="form-label"
+            <label for="fullName" class="form-label"
               >Full Name</label
             >
             <input
               type="text"
               class="form-control"
               formControlName="fullName"
-              id="exampleInputPassword1"
+              id="fullName"
             />
              <div>
               <span
@@ -29,14 +29,14 @@
             </div>
           </div>
           <div>
-            <label for="exampleInputPassword1" class="form-label"
+            <label for="mobileNumber" class="form-label"
               >Mobile Number</label
             >
             <input
               type="number"
               class="form-control"
               formControlName="mobileNumber"
-              id="exampleInputPassword1"
+              id="mobileNumber"
             />
              <div>
               <span
@@ -50,14 +50,14 @@
             </div>
           </div>
           <div>
-            <label for="exampleInputEmail1" class="form-label"
+            <label for="email" class="form-label"
               >Email address</label
             >
             <input
               type="email"
               class="form-control"
               formControlName="email"
-              id="exampleInputEmail1"
+              id="email"
               aria-describedby="emailHelp"
             />
             <!-- <div id="emailHelp" class="form-text">
@@ -75,14 +75,14 @@
             </div>
           </div>
           <div>
-            <label for="exampleInputPassword1" class="form-label"
+            <label for="password" class="form-label"
               >Password</label
             >
             <input
               type="password"
               class="form-control"
+              id="password"
               formControlName="password"
-              id="exampleInputPassword1"
             />
             <div>
               <span

@@ -40,36 +40,6 @@
 
 <div class="container">
   <div class="row">
-    <!-- <div class="col-md-2 mini-img-row">
-      <div class="mini-img my-2">
-        <img
-          src="https://images.meesho.com/images/products/50754822/2wwt1_64.webp"
-          width="30%"
-          alt=""
-        />
-      </div>
-      <div class="mini-img my-2">
-        <img
-          src="https://images.meesho.com/images/products/50754822/gnnzq_64.webp"
-          width="30%"
-          alt=""
-        />
-      </div>
-      <div class="mini-img my-2">
-        <img
-          src="https://images.meesho.com/images/products/50754822/lzfsn_64.webp"
-          width="30%"
-          alt=""
-        />
-      </div>
-      <div class="mini-img my-2">
-        <img
-          src="https://images.meesho.com/images/products/50754822/vjbhq_64.webp"
-          width="30%"
-          alt=""
-        />
-      </div>
-    </div> -->
     <div class="col-md-4 large-img-row border border-black">
       <img [src]="product.photoUrl" width="100%" alt="" />
     </div>
@@ -90,49 +60,77 @@
           <img [src]="product.photoUrl" width="20%" alt="" />
         </div>
       </div>
-        <div class="row">
+
+      <div class="row">
         <div for="" class="col-md-1 my-3">Quantity</div>
         <div class="col-md-6 my-3 qtity">
-         <input type="number" value="1">
+          <input type="number" min="1" value="1" [(ngModel)]="quantity" />
         </div>
       </div>
+
       <div class="row">
         <div for="" class="col-md-1 my-4">Size</div>
         <div class="col-md-9 my-3 d-flex">
-          <div style="margin-left: 10px;">
+          <div style="margin-left: 10px">
             <label class="radio">
-              <input type="radio" name="size" value="S" checked />
+              <input
+                type="radio"
+                name="size"
+                value="S"
+                checked
+                (change)="onSizeChange($event)"
+              />
               <span>S</span>
             </label>
           </div>
 
-          <div  class="mx-2">
+          <div class="mx-2">
             <label class="radio">
-              <input type="radio" name="size" value="M" /> <span>M</span>
+              <input
+                type="radio"
+                name="size"
+                value="M"
+                (change)="onSizeChange($event)"
+              />
+              <span>M</span>
             </label>
           </div>
           <div>
             <label class="radio">
-              <input type="radio" name="size" value="L" /> <span>L</span>
+              <input
+                type="radio"
+                name="size"
+                value="L"
+                (change)="onSizeChange($event)"
+              />
+              <span>L</span>
             </label>
           </div>
-          <div   class="mx-2">
+          <div class="mx-2">
             <label class="radio">
-              <input type="radio" name="size" value="XL" /> <span>XL</span>
+              <input
+                type="radio"
+                name="size"
+                value="XL"
+                (change)="onSizeChange($event)"
+              />
+              <span>XL</span>
             </label>
           </div>
           <div>
             <label class="radio">
-              <input type="radio" name="size" value="XXL" /> <span>XXL</span>
+              <input
+                type="radio"
+                name="size"
+                value="XXL"
+                (change)="onSizeChange($event)"
+              />
+              <span>XXL</span>
             </label>
           </div>
-          <!-- <button class="btn border border-grey">S</button>
-          <button class="btn border border-grey mx-3">M</button>
-          <button class="btn border border-grey">L</button>
-          <button class="btn border border-grey mx-3">XL</button>
-          <button class="btn border border-grey">XXL</button> -->
         </div>
       </div>
+
       <div>
         <h3>Product Details</h3>
         <p>
@@ -140,7 +138,9 @@
         </p>
       </div>
       <div class="my-5">
-        <button class="btn btn-cart p-3" (click)="addToCart(product)">ADD TO CART</button>
+        <button class="btn btn-cart p-3" (click)="onAddToCart()">
+          ADD TO CART
+        </button>
         <button class="btn btn-buy p-3 mx-3">BUY NOW</button>
       </div>
     </div>

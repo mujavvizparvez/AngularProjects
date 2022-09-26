@@ -1,9 +1,7 @@
 .mt-100{
-   margin-top:100px;
+   margin-top:40px;
 
 }
-
-
 .card {
     margin-bottom: 30px;
     border: 0;
@@ -51,4 +49,37 @@
     border: 1px solid rgba(0,0,0,.0.2);
     border-radius: 4px;
 } */
+/* CART 1 */
+.gradient-custom {
+/* fallback for old browsers */
+background: #6a11cb;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+/* CART2 */
+
+/* .img-cart {
+    display: block;
+    max-width: 50px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+table tr td{
+    border:1px solid #FFFFFF;    
+}
+
+table tr th {
+    background:#eee;    
+}
+
+.panel-shadow {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+} */
+
+/* CART3 */
 

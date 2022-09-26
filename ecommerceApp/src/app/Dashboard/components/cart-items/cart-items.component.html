@@ -1,61 +1,319 @@
-<ng-container *ngIf="products.length ==0">
-<div class="container-fluid  mt-100">
-				 <div class="row">
-				 
-					<div class="col-md-12">
-					
-							<div class="card">
-						<div class="card-header">
-						<h5>Cart</h5>
-						</div>
-						<div class="card-body cart">
-								<div class="col-sm-12 empty-cart-cls text-center">
-									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
-									<h3><strong>Your Cart is Empty</strong></h3>
-									<h4>Add something to make me happy :)</h4>
-									<a class="btn btn-primary cart-btn-transform m-3" data-abc="true" [routerLink]="['/']">continue shopping</a>
-									
-								
-								</div>
-						</div>
-				</div>
-						
-					
-					</div>
-				 
-				 </div>
-				
-				</div>
+<ng-container *ngIf="carts.length == 0">
+  <div class="container-fluid mt-100">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Cart</h5>
+          </div>
+          <div class="card-body cart">
+            <div class="col-sm-12 empty-cart-cls text-center">
+              <img
+                src="https://i.imgur.com/dCdflKN.png"
+                width="130"
+                height="130"
+                class="img-fluid mb-4 mr-3"
+              />
+              <h3><strong>Your Cart is Empty</strong></h3>
+              <h4>Add something to make me happy :)</h4>
+              <a
+                class="btn btn-primary cart-btn-transform m-3"
+                data-abc="true"
+                [routerLink]="['/']"
+                >continue shopping</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-container>
-<ng-container *ngIf="products.length != 0">
-    <div class="container cart-table">
-        <div class="cart-product">
-            <div class="table table-responsive">
-       <thead>
-        <tr>
+<!-- <ng-container *ngIf="carts.length != 0">
+  <div class="container cart-table">
+    <div class="cart-product">
+      <div class="table table-responsive">
+        <thead>
+          <tr>
             <th>Sr.No</th>
             <th>Product Name</th>
             <th>Product Image</th>
-            <th>Description</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
             <th>Action</th>
-        </tr>
-       </thead>
-       <tbody>
-        <tr *ngFor="let product of products; let i=index">
-            <td>{{i+1}}</td>
-            <td>{{product.name}}</td>
-            <td><img [src]="product.photoUrl" width="10%" alt=""></td>
-            <td>{{product.description}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.quantity}}</td>
-            <td>{{product.total}}</td>
-            <td><button (click)="removeItem(product)" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button></td>
-        </tr>
-       </tbody>
-            </div>
-        </div>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cart of carts; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ cart.brand }}</td>
+            <td><img [src]="cart.photoUrl" width="10%" alt="" /></td>
+            <td>{{ cart.price }}</td>
+            <td>{{ cart.quantity }}</td>
+            <td>{{ cart.quantity * cart.price }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button class="btn btn-sm btn-danger">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </div>
     </div>
-</ng-container>
+  </div>
+</ng-container> -->
+
+<!-- CART1 -->
+
+<!-- <section class="h-100" style="background-color: #eee">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-start align-items-center h-100">
+      <div class="col-8">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+        </div>
+
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div
+              class="row d-flex justify-content-between align-items-center my-3"
+              *ngFor="let cart of carts"
+            >
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  [src]="cart.photoUrl"
+                  width="50px"
+                  class="img-fluid rounded-3"
+                  alt="Cotton T-shirt"
+                />
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">Basic T-shirt</p>
+                <p>
+                  <span class="text-muted">Size: </span>M
+                  <span class="text-muted">Color: </span>Grey
+                </p>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <button
+                  class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+
+                <input
+                  id="form1"
+                  min="0"
+                  name="quantity"
+                  value="2"
+                  type="number"
+                  class="form-control form-control-sm"
+                />
+
+                <button
+                  class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">$499.00</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Summary</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
+              >
+                Products
+                <span>$53.98</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center px-0"
+              >
+                Shipping
+                <span>Gratis</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
+              >
+                <div>
+                  <strong>Total amount</strong>
+                  <strong>
+                    <p class="mb-0">(including VAT)</p>
+                  </strong>
+                </div>
+                <span><strong>$53.98</strong></span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-primary btn-lg btn-block">
+              Go to checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- CART2 -->
+<div class="container">
+  <div class="contentbar">
+    <!-- Start row -->
+    <div class="row">
+      <!-- Start col -->
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card m-b-30">
+          <div class="card-header">
+            <h5 class="card-title">Cart</h5>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-center">
+              <div class="col-lg-10 col-xl-8">
+                <div class="cart-container">
+                  <div class="cart-head">
+                    <div class="table-responsive">
+                      <table class="table table-borderless">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Product</th>
+                            <th>Color</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Price</th>
+                            <th scope="col" class="text-right">Total</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let cart of carts; let i = index">
+                            <th scope="row">{{ i + 1 }}</th>
+
+                            <td>
+                              <img
+                                [src]="cart.photoUrl"
+                                class="img-fluid"
+                                width="35"
+                                alt="product"
+                              />
+                            </td>
+                            <td>{{ cart.name }}</td>
+                            <td>{{ cart.color }}</td>
+                            <td>
+                              <div class="form-group mb-0">
+                                <!-- <button
+                                  class="btn btn-link"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                >
+                                  <i class="fas fa-minus"></i>
+                                </button> -->
+
+                                <input
+                                  id="form1"
+                                  min="1"
+                                  name="quantity"
+                                  value="1"
+                                  type="number"
+                                  class="form-control-sm cart-qty"
+                                  [(ngModel)]="cart.quantity"
+                                  (change)="onUpdateCart(cart)"
+                                />
+
+                                <!-- <button
+                                  class="btn btn-link"
+                                  onclick="this.parentNode.querySelector('input[type=number]').stepUp() "
+                                  
+                                >
+                                  <i class="fas fa-plus"></i>
+                                </button> -->
+                              </div>
+                            </td>
+                            <td>${{ cart.price }}</td>
+                            <td class="text-right">
+                              {{ cart.quantity * cart.price }}
+                            </td>
+                            <td>
+                              <a
+                                class="text-danger"
+                                (click)="onDeleteCart(cart.id)"
+                                ><i class="fas fa-trash fa-lg"></i
+                              ></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="cart-body">
+                    <div class="row">
+                      <div
+                        class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6"
+                      ></div>
+                      <div
+                        class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6"
+                      >
+                        <div class="order-total table-responsive">
+                          <table class="table table-borderless text-right">
+                            <tbody>
+                              <!-- <tr>
+                                <td>Sub Total :</td>
+                                <td>$1000.00</td>
+                              </tr>
+                              <tr>
+                                <td>Shipping :</td>
+                                <td>$0.00</td>
+                              </tr>
+                              <tr>
+                                <td>Tax(18%) :</td>
+                                <td>$180.00</td>
+                              </tr> -->
+                              <tr>
+                                <td class="f-w-7 font-18"><h4>Amount :</h4></td>
+                                <td class="f-w-7 font-18"><h4>$1180.00</h4></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cart-footer text-right">
+                    <button type="button" class="btn btn-info my-1">
+                      <i class="ri-save-line mr-2"></i>Update Cart
+                    </button>
+                    <a href="page-checkout.html" class="btn btn-success my-1"
+                      >Proceed to Checkout<i
+                        class="ri-arrow-right-line ml-2"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End col -->
+    </div>
+    <!-- End row -->
+  </div>
+</div>

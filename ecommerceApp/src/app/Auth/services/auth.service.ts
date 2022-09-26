@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { IUser } from 'src/app/Dashboard/models/IUser';
+import { UserService } from 'src/app/Dashboard/services/users.service';
 import { IUserDetais } from '../models/IUserDeatails';
 
 @Injectable({
@@ -14,9 +16,13 @@ export class AuthService {
   loggedInEvent = new EventEmitter<boolean>();
   apiKey = `AIzaSyAwqNYRnLOnXbLXrOjRwtnSXYS9C4VvedY`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   login(email: string, password: string): Observable<IUserDetais> {
+    let userId: string = '';
+    this.userService.getUser().subscribe((data: IUser[]) => {
+      userId = data.find((s) => s.email == email)?.userId ?? '';
+    });
     return this.http
       .post<IUserDetais>(
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`,
@@ -25,6 +31,8 @@ export class AuthService {
       .pipe(
         tap((data) => {
           this.userDetails = data;
+          debugger;
+          this.userDetails.userId = userId;
           this.saveDataInLocalStorage();
           if (email == this.adminEmail && password == this.adminPassword) {
             this.isAdmin = true;
@@ -34,6 +42,7 @@ export class AuthService {
   }
 
   register(email: string, password: string) {
+    //add user service
     return this.http.post(
       `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`,
       { email, password, returnSecureToken: true }
@@ -55,6 +64,4 @@ export class AuthService {
     this.userDetails = null;
     this.loggedInEvent.emit(false);
   }
-
-
 }

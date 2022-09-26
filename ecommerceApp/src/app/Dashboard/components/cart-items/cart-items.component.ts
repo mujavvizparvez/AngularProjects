@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/Admin/product/models/IProduct';
+import { ProductService } from 'src/app/Admin/product/services/product.service';
+import { IUserDetais } from 'src/app/Auth/models/IUserDeatails';
+import { ICartDetails } from '../../models/ICartDetails';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -8,21 +11,62 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart-items.component.css'],
 })
 export class CartItemsComponent implements OnInit {
-  products: IProduct[] = [];
   grandTotal: number = 0;
-  constructor(private cartService: CartService) {}
+  carts: ICartDetails[] = [];
+  id: string = '';
+  userId: string = '';
+
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {}
+
+  // ngOnInit(): void {
+  //   this.cartService.getProducts().subscribe((data) => {
+  //     this.products = data;
+  //     this.grandTotal = this.cartService.getTotalPrice();
+  //   });
+  // }
+  // removeItem(product: any) {
+  //   this.cartService.removeCartItem(product);
+
+  // }
+  // emptyCart() {
+  //   this.cartService.removeAllCart()
+  // }
 
   ngOnInit(): void {
-    this.cartService.getProducts().subscribe((data) => {
-      this.products = data;
-      this.grandTotal = this.cartService.getTotalPrice();
-    });
+    let userDetailsJson = localStorage.getItem('userDetails');
+    let userDetails!: IUserDetais;
+    if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
+    this.userId = userDetails.userId;
+    this.getCarts();
   }
-  removeItem(product: any) {
-    this.cartService.removeCartItem(product);
 
+  getCarts() {
+    this.cartService
+      .getCarts(this.userId)
+      .subscribe((carts: ICartDetails[]) => {
+        this.carts = carts;
+      });
   }
-  emptyCart() {
-    this.cartService.removeAllCart()
+
+  onUpdateCart(cart: ICartDetails) {
+    debugger
+    this.cartService
+      .updateCart(cart, cart.id ?? '', this.userId)
+      .subscribe((data) => {
+        this.getCarts();
+      });
+  }
+
+  onDeleteCart(id?: string) {
+    if (confirm('Are you sure you want to delete cart')) {
+      this.cartService.deleteCart(id ?? '', this.userId).subscribe((data) => {
+        this.getCarts();
+      });
+    } else {
+      return;
+    }
   }
 }

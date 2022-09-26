@@ -1,10 +1,16 @@
 <nav class="navbar navbar-expand-sm sticky-top navbar-dark p-3">
   <div class="container-fluid">
-    <img src="../../assets/Images/logo.png" alt="logoy" [routerLink]="['/']"/>
+    <img src="../../assets/Images/logo.png" alt="logoy" [routerLink]="['/']" />
     <!-- <input type="search" class="hidden-icon search-box" placeholder="Search.."> -->
-   <a href="" class="text-white hidden-icon"> <i class="fa-solid fa-magnifying-glass"></i></a>
-    <a href="" class="text-white hidden-icon"><i class="fa-solid fa-cart-shopping hidden-icon"></i></a>
-   <a href="" class="text-white hidden-icon" [routerLink]="['/login']"> <i class="fa-solid fa-user hidden-icon"></i></a>
+    <a href="" class="text-white hidden-icon">
+      <i class="fa-solid fa-magnifying-glass"></i
+    ></a>
+    <a href="" class="text-white hidden-icon"
+      ><i class="fa-solid fa-cart-shopping hidden-icon"></i
+    ></a>
+    <a href="" class="text-white hidden-icon" [routerLink]="['/login']">
+      <i class="fa-solid fa-user hidden-icon"></i
+    ></a>
     <!-- <div class="search-box bg-dark">
   <input type="text" class="search-text" placeholder="Search here...">
   <a class="search-btn">
@@ -35,15 +41,14 @@
           <a class="nav-link" href="javascript:void(0)">Women</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" 
-            >Kids</a
-          >
+          <a class="nav-link" href="javascript:void(0)">Kids</a>
         </li>
         <div class="mx-sm-0 sm-hidden">
           <input
             class="form-control prod-search"
-            type="text"
+            type="search"
             placeholder="Search products & brands"
+            (change)="onSearchProduct()"
           />
         </div>
         <!-- <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
@@ -55,12 +60,19 @@
         <a class="nav-link" (click)="onLogout()">logout</a>
       </div>
       <div class="nav-border sm-hidden px-3">
-        <a class="nav-link cart-btn text-decoration-none text-white" type="button"  [routerLink]="['/products/cartItems']"
+        <a
+          class="nav-link cart-btn text-decoration-none text-white"
+          type="button"
+          [routerLink]="['/products/cartItems']"
           >Cart <i class="fa-solid fa-cart-shopping"></i
-        ><span class="badge bg-danger">{{totalItem}}</span></a>
+          ><span class="badge bg-danger">{{ totalItem }}</span></a
+        >
       </div>
       <div class="sm-hidden">
-        <a class="nav-link user-btn text-decoration-none text-white sm-hidden-link" type="button" [routerLink]="['/login']"
+        <a
+          class="nav-link user-btn text-decoration-none text-white sm-hidden-link"
+          type="button"
+          [routerLink]="['/login']"
           >Sign in <i class="fa-solid fa-user"></i
         ></a>
       </div>
@@ -73,10 +85,9 @@
     </div>
   </div>
 </nav>
-  <!-- <div class="wrapper text-center">
+<!-- <div class="wrapper text-center">
   <input type="text" class="input" placeholder="Search here...">
  
   <button type="button" class="trigger-search bg-primary"> <i class="
      fa-solid fa-magnifying-glass"></i></button>
 </div> -->
-

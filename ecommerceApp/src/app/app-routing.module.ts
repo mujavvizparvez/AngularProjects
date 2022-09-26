@@ -18,7 +18,8 @@ import { AuthGuard } from './Auth/Guards/auth.guard';
 import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items.component';
 import { DashboardComponent } from './Dashboard/components/dashboard/dashboard.component';
 import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
-import { ProductViewComponent } from './product-view/product-view.component';
+import { ProductViewComponent } from './Dashboard/components/product-view/product-view.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminHomeComponent,
-    //canActivate: [AuthGuard],
+   // canActivate: [AuthGuard],
     children: [
       { path: '', component: LandingComponent },
       { path: 'category/add', component: AddCategoryComponent },
@@ -41,13 +42,13 @@ const routes: Routes = [
       { path: 'subcategory/:name/edit', component: EditSubCategoryComponent },
     ],
   },
- // {path:'homepage',component:AppComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'products/filter', component: ProductsCatalogComponent },
   { path: 'products/catalog', component: ProductsCatalogComponent },
   { path: 'products/:id/view', component: ProductViewComponent },
   { path: 'products/cartItems', component: CartItemsComponent },
+  { path: 'user/profile', component: UserProfileComponent },
 ];
 
 @NgModule({
