@@ -15,7 +15,6 @@ export class CartItemsComponent implements OnInit {
   carts: ICartDetails[] = [];
   id: string = '';
   userId: string = '';
-
   constructor(
     private cartService: CartService,
     private productService: ProductService
@@ -41,6 +40,20 @@ export class CartItemsComponent implements OnInit {
     if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
     this.userId = userDetails.userId;
     this.getCarts();
+   //this.getgrandTotal();
+  }
+  getgrandTotal() {
+    // for (let cart of this.carts) {
+    //   this.grandTotal = cart.price + this.grandTotal;
+    // }
+      for (let i = 0; i < this.carts.length; i++) {
+        this.grandTotal += Number(this.carts[i].quantity) * Number(this.carts[i].price);
+        console.log(this.grandTotal);
+      }
+
+      // if (this.cartDetails.length == 0) {
+      //   this.empty = true;
+      // }
   }
 
   getCarts() {
@@ -52,7 +65,6 @@ export class CartItemsComponent implements OnInit {
   }
 
   onUpdateCart(cart: ICartDetails) {
-    debugger
     this.cartService
       .updateCart(cart, cart.id ?? '', this.userId)
       .subscribe((data) => {

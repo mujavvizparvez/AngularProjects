@@ -103,4 +103,8 @@ export class CartService {
   deleteCart(id: string, userId: string) {
     return this.http.delete(`${this.baseUrl}carts/${userId}/${id}.json`);
   }
+
+  // getGrandTotal() {
+  //   let grandTotal=0
+  // }
 }

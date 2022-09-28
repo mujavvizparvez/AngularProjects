@@ -1,60 +1,4 @@
-<!-- <div class="row">
-    <div class="col-md-2">
-  <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        MY ORDERS
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"></div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        ACCOUNT SETTINGS
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <P>Profile Information</P>
-        <P>Manage Addresses</P>
-        <P>PAN Card Information</P>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        PAYMENTS
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <p>Gift Cards</p>
-        <p>Saved UPI</p>
-        <p>Saved Cards</p>
-      </div>
-    </div>
-  </div>
-
-    <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingFour">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-        MY STUFF
-      </button>
-    </h2>
-    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"></div>
-    </div>
-  </div>
-</div>
-    </div>
-</div> -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-3 mx-4">
       <div class="user-img my-4">
@@ -92,7 +36,7 @@
       </div>
     </div>
 
-    <!-- USER FORM -->
+  
     <div class="col-md-8 my-4 user-form">
       <form action="">
         <h5>Personal Information</h5>
@@ -116,45 +60,204 @@
         <input type="text" class="p-2" />
         <div></div>
       </form>
+    </div>
+  </div>
+</div> -->
 
-      <div class="account-info">
-        <h5>FAQs</h5>
-        <h6 class="my-3">
-          What happens when I update my email address (or mobile number)?
-        </h6>
-        <p>
-          Your login email id (or mobile number) changes, likewise. You'll
-          receive all your account related communication on your updated email
-          address (or mobile number).
-        </p>
-        <h6 class="my-3">
-          When will my Flipkart account be updated with the new email address
-          (or mobile number)?
-        </h6>
-        <p>
-          It happens as soon as you confirm the verification code sent to your
-          email (or mobile) and save the changes.
-        </p>
-        <h6 class="my-3">
-          What happens to my existing Flipkart account when I update my email
-          address (or mobile number)?
-        </h6>
-        <p>
-          Updating your email address (or mobile number) doesn't invalidate your
-          account. Your account remains fully functional. You'll continue seeing
-          your Order history, saved information and personal details.
-        </p>
-        <h6 class="my-3">
-          Does my Seller account get affected when I update my email address?
-        </h6>
-        <p>
-          Flipkart has a 'single sign-on' policy. Any changes will reflect in
-          your Seller account also.
-        </p>
+<div class="container">
+  <div class="row details-form">
+    <h2 class="act-heading py-4 px-4 mb-0">My Account</h2>
+    <div class="col-md-3 details-list">
+      <h5 class="py-2 px-3">
+        <i class="fa-regular fa-user px-2"></i> My Details
+      </h5>
+      <h5 class="py-2 px-3">
+        <i class="fa-solid fa-location-dot px-2"></i>My Address Book
+      </h5>
+      <h5 class="py-2 px-3">
+        <i class="fa-solid fa-briefcase px-2"></i> My Orders
+      </h5>
+      <h5 class="py-2 px-3">
+        <i class="fa-regular fa-credit-card px-2"></i> Payments
+      </h5>
+      <h5 class="py-2 px-3">
+        <i class="fa-solid fa-gear px-2"></i>Account Settings
+      </h5>
+    </div>
+    <div class="col-md-8 p-5">
+      <div class="border-bottom">
+        <h4 class="pb-2 my-dtl-heading">My Details</h4>
+        <p class="persnl-inf-para">Personal Information</p>
       </div>
-      <h6 class="my-4">
-        <a class="text-decoration-none">Deactivate Account</a>
-      </h6>
+      <div>
+        <form [formGroup]="userForm" (ngSubmit)="onUpdateUserDetails()">
+          <div class="row">
+            <div class="col-5">
+              <label>Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="fullName"
+              />
+            </div>
+            <div class="col-5">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <label>DOB</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="dateOfBirth"
+              />
+            </div>
+            <div class="col-5">
+              <label>Mobile Number</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="mobileNumber"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <!-- <input type="radio" id="male" name="gender" value="male" />
+              <label for="male" class="px-2">Male</label>
+              <input type="radio" id="female" name="female" value="female" />
+              <label for="female" class="px-2">Female</label> -->
+              <label class="py-3">Your Gender</label>
+              <div>
+                <input
+                  type="radio"
+                  id="huey"
+                  name="drone"
+                  value="male"
+                  formControlName="gender"
+                />
+                <label for="huey" class="my-0">Male</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="dewey"
+                  name="drone"
+                  value="female"
+                  formControlName="gender"
+                />
+                <label for="dewey" class="my-0">Female</label>
+              </div>
+            </div>
+            <div class="col-5">
+              <label>Pin Code</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="pinCode"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <label>State</label>
+              <input type="text" class="form-control" formControlName="state" />
+            </div>
+            <div class="col-5">
+              <label>Address</label>
+              <textarea
+                name=""
+                id=""
+                cols="50"
+                rows="5"
+                class="form-control"
+                formControlName="address"
+              ></textarea>
+            </div>
+            <div>
+              <button class="btn btn-info">Add Details</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-1 empty-col"></div>
+    <div class="col-md-12 empty-col p-5"></div>
+  </div>
+</div>
+
+<!-- User Payment -->
+
+<div class="container">
+  <div class="col-md-8">
+    <div class="login p-3">
+      <div class="row">
+        <div class="col-md-10">
+          <h5><span>1</span> Login</h5>
+        </div>
+        <div class="col-md-2">
+          <button
+            class="btn-change px-4 py-2 text-primary border border-grey bg-white"
+          >
+            CHANGE
+          </button>
+        </div>
+        <p>+919890123456</p>
+      </div>
+    </div>
+
+    <div class="address p-3 mt-4">
+      <div class="row">
+        <div class="col-md-10">
+          <h5><span>2</span> DELIVERY ADDRESS</h5>
+        </div>
+        <div class="col-md-2">
+          <button
+            class="btn-change px-4 py-2 text-primary border border-grey bg-white"
+          >
+            CHANGE
+          </button>
+        </div>
+        <p>Shaikh Mujavviz Opp.Police Colony,Malik Pura,Parli</p>
+      </div>
+    </div>
+
+    <div class="address p-3 mt-4">
+      <div class="row">
+        <div class="col-md-10">
+          <h5><span>3</span> ORDER SUMMARY</h5>
+        </div>
+        <div class="col-md-2">
+          <button
+            class="btn-change px-4 py-2 text-primary border border-grey bg-white"
+          >
+            CHANGE
+          </button>
+        </div>
+        <p>6 Items</p>
+      </div>
+    </div>
+
+    <div class="address p-3 mt-4">
+      <div class="row">
+        <div class="col-md-10">
+          <h5><span>4</span> PAYMENT OPTIONS</h5>
+        </div>
+        <div class="col-md-2">
+          <button
+            class="btn-change px-4 py-2 text-primary border border-grey bg-white"
+          >
+            CHANGE
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

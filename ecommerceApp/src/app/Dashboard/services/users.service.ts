@@ -22,7 +22,7 @@ export class UserService {
           let userDetail: IUser[] = [];
           for (let user in users) {
             userDetail.push({
-              user,
+              id:user,
               ...users[user],
             } as unknown as IUser);
           }
