@@ -8,6 +8,7 @@ import { ICartDetails } from '../models/ICartDetails';
   providedIn: 'root',
 })
 export class CartService {
+  public carts:ICartDetails[]=[]
   // public cartItemList: any = [];
   // public productList = new BehaviorSubject<any>([]);
 
@@ -104,7 +105,11 @@ export class CartService {
     return this.http.delete(`${this.baseUrl}carts/${userId}/${id}.json`);
   }
 
-  // getGrandTotal() {
-  //   let grandTotal=0
+  // getTotalPrice(): number {
+  //   let grandTotal = 0;
+  //   this.carts.map((a: any) => {
+  //     grandTotal += a.total;
+  //   });
+  //   return grandTotal;
   // }
 }

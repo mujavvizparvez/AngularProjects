@@ -31,7 +31,6 @@ export class AuthService {
       .pipe(
         tap((data) => {
           this.userDetails = data;
-          debugger;
           this.userDetails.userId = userId;
           this.saveDataInLocalStorage();
           if (email == this.adminEmail && password == this.adminPassword) {

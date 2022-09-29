@@ -20,6 +20,7 @@ import { DashboardComponent } from './Dashboard/components/dashboard/dashboard.c
 import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
 import { ProductViewComponent } from './Dashboard/components/product-view/product-view.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserPaymentComponent } from './user-payment/user-payment.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminHomeComponent,
-   // canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       { path: '', component: LandingComponent },
       { path: 'category/add', component: AddCategoryComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'products/:id/view', component: ProductViewComponent },
   { path: 'products/cartItems', component: CartItemsComponent },
   { path: 'user/profile', component: UserProfileComponent },
+  { path: 'user/payment', component: UserPaymentComponent },
 ];
 
 @NgModule({

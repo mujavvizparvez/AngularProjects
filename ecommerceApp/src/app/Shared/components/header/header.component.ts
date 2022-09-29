@@ -13,7 +13,6 @@ import { CartService } from 'src/app/Dashboard/services/cart.service';
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   totalItem: number = 0;
-  //carts:ICartDetails[]=[]
   products: IProduct[] = [];
   constructor(
     private authService: AuthService,
@@ -22,13 +21,22 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.authService.getUserDetailsFromLocalStorage();
-    this.isLoggedIn = this.authService.userDetails ? true : false;
+    let userDetails1 = this.authService.getUserDetailsFromLocalStorage();
+    let userDetails = this.authService.userDetails;
+    this.isLoggedIn = userDetails ? true : false;
     this.authService.loggedInEvent.subscribe((data) => {
       this.isLoggedIn = data;
     });
+    debugger
+    if (userDetails)
+      this.cartService
+        .getCarts(userDetails.userId)
+        .subscribe((data) => (this.totalItem = data.length));
   }
-
+  
+  ngOnChanges() {
+    
+  }
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/login']);

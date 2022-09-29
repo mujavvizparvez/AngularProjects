@@ -48,7 +48,6 @@ export class UserProfileComponent implements OnInit {
 
     this.userService.getUser().subscribe((data) => {
       this.user = data.find((p) => p.userId == this.userId);
-      debugger
       this.userForm.setValue({
         fullName: this.user?.fullName,
         email: this.user?.email,
@@ -65,10 +64,8 @@ export class UserProfileComponent implements OnInit {
     let user = this.userForm.value;
     user.userId = this.user?.userId;
     user.password = this.user?.password;
-    debugger
     this.userService
       .updateUser(this.user?.id ?? '', user)
       .subscribe((data) => {});
   }
 }
-

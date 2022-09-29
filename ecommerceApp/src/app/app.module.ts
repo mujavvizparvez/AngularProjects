@@ -34,6 +34,7 @@ import { ProductViewComponent } from './Dashboard/components/product-view/produc
 import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserPaymentComponent } from './user-payment/user-payment.component';
 //import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
@@ -65,6 +66,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ProductViewComponent,
     CartItemsComponent,
     UserProfileComponent,
+    UserPaymentComponent,
     //MatExpansionModule,
   ],
   imports: [

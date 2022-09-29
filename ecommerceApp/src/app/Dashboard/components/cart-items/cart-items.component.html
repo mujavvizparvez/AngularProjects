@@ -30,116 +30,113 @@
   </div>
 </ng-container>
 
-
-
-
 <!-- CART2 -->
 <ng-container *ngIf="carts.length != 0">
-<div class="container">
-  <div class="contentbar">
-    <!-- Start row -->
-    <div class="row">
-      <!-- Start col -->
-      <div class="col-md-9 col-lg-9 col-xl-9">
-        <div class="card m-b-30">
-          <div class="card-header">
-            <h3 class="card-title">Shopping Cart</h3>
-          </div>
-          <div class="card-body">
-            <div class="row justify-content-center">
-              <div class="col-lg-10 col-xl-8">
-                <div class="cart-container">
-                  <div class="cart-head">
-                    <div class="table-responsive">
-                      <table class="table table-borderless">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Photo</th>
-                            <th scope="col">Product</th>
-                            <th>Color</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Price</th>
-                            <th scope="col" class="text-right">Total</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let cart of carts; let i = index">
-                            <th scope="row">{{ i + 1 }}</th>
+  <div class="container">
+    <div class="contentbar">
+      <!-- Start row -->
+      <div class="row">
+        <!-- Start col -->
+        <div class="col-md-9 col-lg-9 col-xl-9">
+          <div class="card m-b-30">
+            <div class="card-header">
+              <h3 class="card-title">Shopping Cart</h3>
+            </div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                  <div class="cart-container">
+                    <div class="cart-head">
+                      <div class="table-responsive">
+                        <table class="table table-borderless">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Photo</th>
+                              <th scope="col">Product</th>
+                              <th>Color</th>
+                              <th scope="col">Qty</th>
+                              <th scope="col">Price</th>
+                              <th scope="col" class="text-right">Total</th>
+                              <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let cart of carts; let i = index">
+                              <th scope="row">{{ i + 1 }}</th>
 
-                            <td>
-                              <img
-                                [src]="cart.photoUrl"
-                                class="img-fluid"
-                                width="35"
-                                alt="product"
-                              />
-                            </td>
-                            <td>{{ cart.name }}</td>
-                            <td>{{ cart.color }}</td>
-                            <td>
-                              <div class="form-group mb-0">
-                                <!-- <button
+                              <td>
+                                <img
+                                  [src]="cart.photoUrl"
+                                  class="img-fluid"
+                                  width="35"
+                                  alt="product"
+                                />
+                              </td>
+                              <td>{{ cart.name }}</td>
+                              <td>{{ cart.color }}</td>
+                              <td>
+                                <div class="form-group mb-0">
+                                  <!-- <button
                                   class="btn btn-link"
                                   onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                                 >
                                   <i class="fas fa-minus"></i>
                                 </button> -->
 
-                                <input
-                                  id="form1"
-                                  min="1"
-                                  name="quantity"
-                                  value="1"
-                                  type="number"
-                                  class="form-control-sm cart-qty"
-                                  [(ngModel)]="cart.quantity"
-                                  (change)="onUpdateCart(cart)"
-                                />
+                                  <input
+                                    id="form1"
+                                    min="1"
+                                    name="quantity"
+                                    value="{{ cart.quantity }}"
+                                    type="number"
+                                    class="form-control-sm cart-qty"
+                                    [(ngModel)]="cart.quantity"
+                                    (change)="onUpdateCart(cart)"
+                                  />
 
-                                <!-- <button
+                                  <!-- <button
                                   class="btn btn-link"
                                   onclick="this.parentNode.querySelector('input[type=number]').stepUp() "
                                   
                                 >
                                   <i class="fas fa-plus"></i>
                                 </button> -->
-                              </div>
-                            </td>
-                            <td>&#8377;{{ cart.price }}</td>
-                            <td class="text-right">
-                              &#8377;{{ cart.quantity * cart.price }}
-                            </td>
-                            <td>
-                              <a
-                                class="text-danger"
-                                (click)="onDeleteCart(cart.id)"
-                                ><i class="fas fa-trash fa-lg"></i
-                              ></a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                                </div>
+                              </td>
+                              <td>&#8377;{{ cart.price }}</td>
+                              <td class="text-right">
+                                &#8377;{{ cart.quantity * cart.price }}
+                              </td>
+                              <td>
+                                <a
+                                  class="text-danger"
+                                  (click)="onDeleteCart(cart.id)"
+                                  ><i class="fas fa-trash fa-lg"></i
+                                ></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cart-body">
-                    <div class="row">
-                      <div
-                        class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6"
-                      ></div>
-                      <div
-                        class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6"
-                      >
-                        <div class="order-total table-responsive">
-                          <table class="table table-borderless text-right">
-                            
-                          </table>
+                    <div class="cart-body">
+                      <div class="row">
+                        <div
+                          class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6"
+                        ></div>
+                        <div
+                          class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6"
+                        >
+                          <div class="order-total table-responsive">
+                            <table
+                              class="table table-borderless text-right"
+                            ></table>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <!-- <div class="cart-footer text-right">
+                    <!-- <div class="cart-footer text-right">
                     <button type="button" class="btn btn-info my-1">
                       <i class="ri-save-line mr-2"></i>Update Cart
                     </button>
@@ -149,48 +146,49 @@
                       ></i
                     ></a>
                   </div> -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-       <div class="col-md-3">
-        <div class="card mb-4 ">
-          <div class="card-header summary-title">
-            <h5 class="mb-0">Summary</h5>
-          </div>
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
-              >
-                Products
-                <span>$53.98</span>
-              </li>
-           
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
-              >
-                <div>
-                  <strong>Total amount</strong>
-                  
-                </div>
-                <span><strong>$53.98{{grandTotal}}</strong></span>
-              </li>
-            </ul>
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <div class="card-header summary-title">
+              <h5 class="mb-0">Summary</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
+                >
+                  Products
+                  <span>$53.98</span>
+                </li>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-              Go to checkout
-            </button>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
+                >
+                  <div>
+                    <strong>Total amount</strong>
+                  </div>
+                  <span
+                    ><strong>{{ grandTotal }}</strong></span
+                  >
+                </li>
+              </ul>
+
+              <button type="button" class="btn btn-primary btn-lg btn-block">
+                Go to checkout
+              </button>
+            </div>
           </div>
         </div>
+        <!-- End col -->
       </div>
-      <!-- End col -->
+      <!-- End row -->
     </div>
-    <!-- End row -->
   </div>
-</div>
 </ng-container>
 
 <!-- NEW CART -->

@@ -20,40 +20,12 @@ export class CartItemsComponent implements OnInit {
     private productService: ProductService
   ) {}
 
-  // ngOnInit(): void {
-  //   this.cartService.getProducts().subscribe((data) => {
-  //     this.products = data;
-  //     this.grandTotal = this.cartService.getTotalPrice();
-  //   });
-  // }
-  // removeItem(product: any) {
-  //   this.cartService.removeCartItem(product);
-
-  // }
-  // emptyCart() {
-  //   this.cartService.removeAllCart()
-  // }
-
   ngOnInit(): void {
     let userDetailsJson = localStorage.getItem('userDetails');
     let userDetails!: IUserDetais;
     if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
     this.userId = userDetails.userId;
     this.getCarts();
-   //this.getgrandTotal();
-  }
-  getgrandTotal() {
-    // for (let cart of this.carts) {
-    //   this.grandTotal = cart.price + this.grandTotal;
-    // }
-      for (let i = 0; i < this.carts.length; i++) {
-        this.grandTotal += Number(this.carts[i].quantity) * Number(this.carts[i].price);
-        console.log(this.grandTotal);
-      }
-
-      // if (this.cartDetails.length == 0) {
-      //   this.empty = true;
-      // }
   }
 
   getCarts() {
@@ -61,6 +33,7 @@ export class CartItemsComponent implements OnInit {
       .getCarts(this.userId)
       .subscribe((carts: ICartDetails[]) => {
         this.carts = carts;
+        this.getGrandTotal(carts);
       });
   }
 
@@ -72,6 +45,7 @@ export class CartItemsComponent implements OnInit {
       });
   }
 
+  // sum: number = 0;
   onDeleteCart(id?: string) {
     if (confirm('Are you sure you want to delete cart')) {
       this.cartService.deleteCart(id ?? '', this.userId).subscribe((data) => {
@@ -80,5 +54,14 @@ export class CartItemsComponent implements OnInit {
     } else {
       return;
     }
+  }
+  getGrandTotal(carts: ICartDetails[]) {
+    debugger;
+    let finalTotal = 0;
+    carts.forEach((item) => {
+      let total = item.quantity * item.price;
+      finalTotal += total;
+    });
+    this.grandTotal = finalTotal;
   }
 }

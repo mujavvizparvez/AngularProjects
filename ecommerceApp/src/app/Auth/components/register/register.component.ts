@@ -28,14 +28,7 @@ export class RegisterComponent implements OnInit {
     state: new FormControl(''),
     address: new FormControl(''),
   });
-  //  fullName: new FormControl('', Validators.required),
-  //     email: new FormControl('', Validators.required),
-  //     dateOfBirth: new FormControl('', Validators.required),
-  //     mobileNumber: new FormControl('', Validators.required),
-  //     gender: new FormControl('', Validators.required),
-  //     pinCode: new FormControl('', Validators.required),
-  //     state: new FormControl('', Validators.required),
-  //     address: new FormControl('', Validators.required),
+
   constructor(
     private authService: AuthService,
     private userService: UserService

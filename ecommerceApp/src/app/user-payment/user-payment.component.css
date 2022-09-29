@@ -1,0 +1,41 @@
+.numbers{
+    font-size: 12px;
+}
+.numbers span {
+  font-size: 11px;
+  padding: 0px 3px;
+  background-color: rgb(255, 255, 255);
+  
+}
+.phone-no span {
+  font-size: 11px;
+  color: grey;
+}
+.logout-link {
+  font-size: 10px;
+  text-decoration: none;
+}
+.btn-checkout,
+.btn-delivery {
+  font-weight: 600;
+  width: 70%;
+  border: none;
+  background-color: #ff5800;
+  color: white;
+}
+.login-icon {
+  color: #0076ef;
+}
+.adv {
+  color: grey;
+}
+.my-add {
+  font-weight: 400;
+}
+.price-dtl  li {
+  padding: 10px;
+}
+.amt-paybl {
+  font-size: 12px;
+  font-weight: bold;
+}
