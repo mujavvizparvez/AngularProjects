@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from 'src/app/Admin/product/models/IProduct';
 import { ProductService } from 'src/app/Admin/product/services/product.service';
 import { IUserDetais } from 'src/app/Auth/models/IUserDeatails';
@@ -17,7 +18,8 @@ export class CartItemsComponent implements OnInit {
   userId: string = '';
   constructor(
     private cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,13 +57,27 @@ export class CartItemsComponent implements OnInit {
       return;
     }
   }
+  onQtyIncrease(cart: ICartDetails) {
+    cart.quantity = cart.quantity + 1;
+    this.cartService
+      .updateCart(cart, cart.id ?? '', this.userId)
+      .subscribe((data) => {});
+  }
+  onQtyDecrease(cart: ICartDetails) {
+    cart.quantity = cart.quantity > 1 ? cart.quantity - 1 : 1;
+    this.cartService
+      .updateCart(cart, cart.id ?? '', this.userId)
+      .subscribe((data) => {});
+  }
   getGrandTotal(carts: ICartDetails[]) {
-    debugger;
     let finalTotal = 0;
     carts.forEach((item) => {
       let total = item.quantity * item.price;
       finalTotal += total;
     });
-    this.grandTotal = finalTotal;
+    return finalTotal;
+  }
+  onGoToCheckout() {
+    this.router.navigate(['/user/payment']);
   }
 }

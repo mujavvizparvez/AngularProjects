@@ -1,5 +1,3 @@
-
-
 /* CART2 */
 
 /* .img-cart {
@@ -21,7 +19,13 @@ table tr th {
     box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
 } */
 
-.summary-title{
-    padding: 12px;
+.summary-title {
+  padding: 12px;
 }
-
+.cart-qty {
+  width: 50px;
+  text-align: center;
+}
+.dlt-cart {
+  cursor: pointer;
+}

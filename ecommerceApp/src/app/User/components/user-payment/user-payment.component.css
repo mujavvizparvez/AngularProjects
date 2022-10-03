@@ -1,0 +1,125 @@
+.numbers{
+    font-size: 12px;
+}
+.numbers span {
+  font-size: 11px;
+  padding: 0px 3px;
+  background-color: rgb(255, 255, 255);
+  
+}
+.phone-no span {
+  font-size: 11px;
+  color: grey;
+}
+.logout-link {
+  font-size: 10px;
+  text-decoration: none;
+}
+.btn-checkout,
+.btn-delivery {
+  font-weight: 600;
+  width: 70%;
+  border: none;
+  background-color: #ff5800;
+  color: white;
+}
+.btn-delivery{
+  width: 46%;
+}
+.login-icon {
+  color: #0076ef;
+}
+.adv {
+  color: grey;
+}
+.my-add {
+  font-weight: 400;
+}
+.price-dtl  li {
+  padding: 10px;
+}
+.amt-paybl {
+  font-size: 12px;
+  font-weight: bold;
+}
+.btn-input{
+  padding: 2px;
+}
+.cart-qty{
+  width: 35px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.image img{
+  text-align: center;
+  margin-left: 8px;
+}
+.order-dtl{
+  width: 80%;
+}
+.order-dtl .remove{
+  margin-top: 10px;
+}
+.remove{
+  cursor: pointer;
+  text-align: right;
+  font-size: 12px;
+}
+.payment-options{
+  border-bottom: 1px solid rgb(84, 82, 82);
+}
+.upi-id{
+  width: 50%;
+  padding: 6px;
+}
+.input-wallet,.btn-wallet{
+  padding: 5px;
+}
+.btn-wallet{
+  background-color: #878787;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 10px;
+}
+.rbi-guid{
+  color: grey;
+  font-size: 9px;
+}
+.input-group{
+  width: 60%;
+}
+.card-icon{
+  padding: 5.5px 3px;
+}
+/* .exp-date-input{
+  padding: 5.5px 3px;
+  margin: 0 3px;
+  border: 1px solid grey;
+
+} */
+.cvv-heading{
+ margin-top: 9px;
+ margin-bottom: 0px;
+}
+.cvv-heading,.exp-heading{
+  padding: 8px 0px;
+}
+.btn-pay{
+  background-color:#ff5800 ;
+  border: none;
+  color: white;
+   padding: 8px 10px;
+  font-size: 10px;
+}
+.btn-net-banking{
+  background-color: #878787;
+   padding: 6px 15px;
+    color: white;
+  border: none;
+  font-weight: bold;
+
+}

@@ -33,8 +33,8 @@ import { ProductsCatalogComponent } from './Dashboard/components/products-catalo
 import { ProductViewComponent } from './Dashboard/components/product-view/product-view.component';
 import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserPaymentComponent } from './user-payment/user-payment.component';
+import { UserProfileComponent } from './User/components/user-profile/user-profile.component';
+import { UserPaymentComponent } from './User/components/user-payment/user-payment.component';
 //import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({

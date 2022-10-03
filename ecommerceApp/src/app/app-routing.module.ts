@@ -19,8 +19,8 @@ import { CartItemsComponent } from './Dashboard/components/cart-items/cart-items
 import { DashboardComponent } from './Dashboard/components/dashboard/dashboard.component';
 import { ProductsCatalogComponent } from './Dashboard/components/products-catalog/products-catalog.component';
 import { ProductViewComponent } from './Dashboard/components/product-view/product-view.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserPaymentComponent } from './user-payment/user-payment.component';
+import { UserProfileComponent } from './User/components/user-profile/user-profile.component';
+import { UserPaymentComponent } from './User/components/user-payment/user-payment.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },

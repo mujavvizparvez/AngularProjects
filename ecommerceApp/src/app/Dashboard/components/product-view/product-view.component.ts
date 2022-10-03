@@ -35,21 +35,6 @@ export class ProductViewComponent implements OnInit {
     // });
   }
 
-  // addToCart(product: any) {
-  //   this.cartService.addToCart(product);
-  // }
-  // onAddToCart() {
-  //   //let cartItem = this.addToCartForm.value;
-  //   this.productService.getProductById(this.id).subscribe((data) => {
-  //     this.product = data;
-  //   })
-  // this.cartService.addCart(this.product).subscribe((data) => {
-
-  // })
-
-  // this.router.navigate(['/products/cartItems']);
-  //  };
-
   onSizeChange(event: any) {
     this.size = event.target.value;
   }

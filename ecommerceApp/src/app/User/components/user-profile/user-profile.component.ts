@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IUserDetais } from '../Auth/models/IUserDeatails';
-import { IUser } from '../Dashboard/models/IUser';
-import { UserService } from '../Dashboard/services/users.service';
+import { IUserDetais } from '../../../Auth/models/IUserDeatails';
+import { IUser } from '../../../Dashboard/models/IUser';
+import { UserService } from '../../../Dashboard/services/users.service';
 
 @Component({
   selector: 'app-user-profile',

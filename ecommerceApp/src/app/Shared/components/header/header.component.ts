@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     this.authService.loggedInEvent.subscribe((data) => {
       this.isLoggedIn = data;
     });
-    debugger
+   
     if (userDetails)
       this.cartService
         .getCarts(userDetails.userId)
