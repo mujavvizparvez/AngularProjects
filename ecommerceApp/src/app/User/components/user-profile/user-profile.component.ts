@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { OrderService } from 'src/app/Dashboard/services/order.service';
 import { IUserDetais } from '../../../Auth/models/IUserDeatails';
 import { IUser } from '../../../Dashboard/models/IUser';
 import { UserService } from '../../../Dashboard/services/users.service';
@@ -11,6 +12,7 @@ import { UserService } from '../../../Dashboard/services/users.service';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
+  
   user?: IUser = {
     fullName: '',
     email: '',
@@ -37,7 +39,8 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private orderService:OrderService
   ) {}
 
   ngOnInit(): void {

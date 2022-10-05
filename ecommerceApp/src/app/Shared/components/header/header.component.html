@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm sticky-top navbar-dark p-3">
+<nav class="navbar navbar-expand-sm sticky-top navbar-dark p-2">
   <div class="container-fluid">
     <img src="../../assets/Images/logo.png" alt="logoy" [routerLink]="['/']" />
     <!-- <input type="search" class="hidden-icon search-box" placeholder="Search.."> -->
@@ -11,13 +11,7 @@
     <a href="" class="text-white hidden-icon" [routerLink]="['/login']">
       <i class="fa-solid fa-user hidden-icon"></i
     ></a>
-    <!-- <div class="search-box bg-dark">
-  <input type="text" class="search-text" placeholder="Search here...">
-  <a class="search-btn">
-     <i class="
-     fa-solid fa-magnifying-glass"></i>
-  </a>
-</div> -->
+
     <button
       class="navbar-toggler"
       type="button"
@@ -51,14 +45,11 @@
             (change)="onSearchProduct()"
           />
         </div>
-        <!-- <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-  <input type="text" placeholder="Search.." name="search2">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form> -->
+    
       </ul>
-      <div>
+      <!-- <div>
         <a class="nav-link" (click)="onLogout()">logout</a>
-      </div>
+      </div> -->
       <div class="nav-border sm-hidden px-3">
         <a
           class="nav-link cart-btn text-decoration-none text-white"
@@ -69,12 +60,29 @@
         >
       </div>
       <div class="sm-hidden">
-        <a
+        <!-- <a
           class="nav-link user-btn text-decoration-none text-white sm-hidden-link"
           type="button"
           [routerLink]="['/login']"
           >Sign in <i class="fa-solid fa-user"></i
-        ></a>
+        ></a> -->
+        
+<div class="dropdown">
+  <a class=" dropdown-toggle nav-link user-btn text-decoration-none text-white sm-hidden-link" type="button" id="dropdownMenu4" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false"  type="button"
+          [routerLink]="['/login']">
+         
+          Sign in <i class="fa-solid fa-user"></i
+        >
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+    <a class="dropdown-item"  [routerLink]="['/user']">My Profile</a>
+    <a class="dropdown-item" [routerLink]="['/user/orders']">Orders</a>
+    <a class="dropdown-item" >Wishlist</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" >Logout</a>
+  </div>
+</div>
       </div>
 
       <!-- <ul class="dropdown-menu">
@@ -85,9 +93,3 @@
     </div>
   </div>
 </nav>
-<!-- <div class="wrapper text-center">
-  <input type="text" class="input" placeholder="Search here...">
- 
-  <button type="button" class="trigger-search bg-primary"> <i class="
-     fa-solid fa-magnifying-glass"></i></button>
-</div> -->

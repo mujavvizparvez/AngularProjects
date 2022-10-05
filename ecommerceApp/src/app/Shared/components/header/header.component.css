@@ -25,7 +25,7 @@
 .user-btn,
 .fa-user,
 .fa-cart-shopping {
-  font-size: large;
+  font-size: small;
 }
 .nav-border {
   padding: 5px;
@@ -43,6 +43,9 @@
 .badge{
   position: absolute;
   font-size: 7px;
+}
+.dropdown-item{
+  text-decoration: none;
 }
 @media screen and (min-width: 576px) {
   .hidden-icon {

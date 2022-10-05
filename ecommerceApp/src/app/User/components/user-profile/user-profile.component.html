@@ -1,90 +1,6 @@
-<!-- <div class="container">
+<div class="container profile-comp">
   <div class="row">
-    <div class="col-md-3 mx-4">
-      <div class="user-img my-4">
-        <h6 class="p-3"><i class="fa-solid fa-user-tie"></i> HELLO</h6>
-      </div>
-      <div class="user-details">
-        <div>
-          <h6 class="p-3"><i class="fa-solid fa-truck"></i> MY ORDERS</h6>
-        </div>
-        <div>
-          <h6 class="p-3"><i class="fa-solid fa-user"></i> ACCOUNT SETTINGS</h6>
-          <P>Profile Information</P>
-          <p>Manage Adresses</p>
-          <p>PAN Card Information</p>
-        </div>
-        <div>
-          <h6 class="p-3"><i class="fa-solid fa-credit-card"></i> PAYMENTS</h6>
-          <p>Gift Cards</p>
-          <p>Saved UPI</p>
-        </div>
-        <div>
-          <h6 class="p-3">
-            <i class="fa-solid fa-clipboard-user"></i> MY STUFF
-          </h6>
-          <p>My Coupons</p>
-          <p>My Reviews & Ratings</p>
-          <p>All Notifications</p>
-          <p>My Wishlist</p>
-        </div>
-        <div>
-          <h6 class="p-3">
-            <i class="fa-solid fa-right-from-bracket"></i> Logout
-          </h6>
-        </div>
-      </div>
-    </div>
-
-  
-    <div class="col-md-8 my-4 user-form">
-      <form action="">
-        <h5>Personal Information</h5>
-        <input type="text" class="p-2" /> <input type="text" class="p-2 mx-5" />
-        <p class="mb-0 mt-4">Your Gender</p>
-        <div class="d-flex">
-          <div class="radio-btn">
-            <input type="radio" id="male" name="gender" value="male" />
-            <label for="male" class="px-2">Male</label>
-          </div>
-          <div class="radio-btn">
-            <input type="radio" id="female" name="gender" value="female" />
-            <label for="female" class="px-2">Female</label>
-          </div>
-        </div>
-        <div class="my-3">
-          <h5>Email Address</h5>
-          <input type="text" class="p-2" />
-        </div>
-        <h5>Mobile Number</h5>
-        <input type="text" class="p-2" />
-        <div></div>
-      </form>
-    </div>
-  </div>
-</div> -->
-
-<div class="container">
-  <div class="row details-form">
-    <h2 class="act-heading py-4 px-4 mb-0">My Account</h2>
-    <div class="col-md-3 details-list">
-      <h5 class="py-2 px-3">
-        <i class="fa-regular fa-user px-2"></i> My Details
-      </h5>
-      <h5 class="py-2 px-3">
-        <i class="fa-solid fa-location-dot px-2"></i>My Address Book
-      </h5>
-      <h5 class="py-2 px-3">
-        <i class="fa-solid fa-briefcase px-2"></i> My Orders
-      </h5>
-      <h5 class="py-2 px-3">
-        <i class="fa-regular fa-credit-card px-2"></i> Payments
-      </h5>
-      <h5 class="py-2 px-3">
-        <i class="fa-solid fa-gear px-2"></i>Account Settings
-      </h5>
-    </div>
-    <div class="col-md-8 p-5">
+    <div class="col-md-12 p-4 mt-2">
       <div class="border-bottom">
         <h4 class="pb-2 my-dtl-heading">My Details</h4>
         <p class="persnl-inf-para">Personal Information</p>
@@ -92,16 +8,16 @@
       <div>
         <form [formGroup]="userForm" (ngSubmit)="onUpdateUserDetails()">
           <div class="row">
-            <div class="col-5">
-              <label>Full Name</label>
+            <div class="col-6">
+              <label class="my-3">Full Name</label>
               <input
                 type="text"
                 class="form-control"
                 formControlName="fullName"
               />
             </div>
-            <div class="col-5">
-              <label>Email</label>
+            <div class="col-6">
+              <label class="my-3">Email</label>
               <input
                 type="email"
                 class="form-control"
@@ -110,16 +26,16 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-5">
-              <label>DOB</label>
+            <div class="col-6">
+              <label class="my-3">DOB</label>
               <input
                 type="date"
                 class="form-control"
                 formControlName="dateOfBirth"
               />
             </div>
-            <div class="col-5">
-              <label>Mobile Number</label>
+            <div class="col-6">
+              <label class="my-3">Mobile Number</label>
               <input
                 type="number"
                 class="form-control"
@@ -128,7 +44,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-5">
+            <div class="col-6">
               <!-- <input type="radio" id="male" name="gender" value="male" />
               <label for="male" class="px-2">Male</label>
               <input type="radio" id="female" name="female" value="female" />
@@ -156,8 +72,8 @@
                 <label for="dewey" class="my-0">Female</label>
               </div>
             </div>
-            <div class="col-5">
-              <label>Pin Code</label>
+            <div class="col-6">
+              <label class="my-3">Pin Code</label>
               <input
                 type="number"
                 class="form-control"
@@ -166,12 +82,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-5">
-              <label>State</label>
+            <div class="col-6">
+              <label class="my-3">State</label>
               <input type="text" class="form-control" formControlName="state" />
             </div>
-            <div class="col-5">
-              <label>Address</label>
+            <div class="col-6">
+              <label class="my-3">Address</label>
               <textarea
                 name=""
                 id=""
@@ -192,6 +108,6 @@
     <div class="col-md-12 empty-col p-5"></div>
   </div>
 </div>
+<router-outlet></router-outlet>
 
 <!-- User Payment -->
-

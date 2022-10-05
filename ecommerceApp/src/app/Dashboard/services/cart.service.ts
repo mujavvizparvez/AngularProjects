@@ -2,14 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { IProduct } from 'src/app/Admin/product/models/IProduct';
+import { environment } from 'src/environments/environment';
 import { ICartDetails } from '../models/ICartDetails';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  public carts:ICartDetails[]=[]
-  baseUrl = `https://e-commerceapp-fb599-default-rtdb.firebaseio.com/`;
+  public carts: ICartDetails[] = [];
+  baseUrl = environment.firebaseBaseUrl;
+
   constructor(private http: HttpClient) {}
   getCarts(userId: string): Observable<ICartDetails[]> {
     return this.http
@@ -47,6 +49,11 @@ export class CartService {
 
   deleteCart(id: string, userId: string) {
     return this.http.delete(`${this.baseUrl}carts/${userId}/${id}.json`);
+  }
+
+  deleteAllCart( userId: string) {
+    this.carts = [];
+    return this.http.delete(`${this.baseUrl}carts/${userId}.json`);
   }
 
   // getTotalPrice(): number {

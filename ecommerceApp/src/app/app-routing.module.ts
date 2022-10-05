@@ -21,6 +21,8 @@ import { ProductsCatalogComponent } from './Dashboard/components/products-catalo
 import { ProductViewComponent } from './Dashboard/components/product-view/product-view.component';
 import { UserProfileComponent } from './User/components/user-profile/user-profile.component';
 import { UserPaymentComponent } from './User/components/user-payment/user-payment.component';
+import { MyOrdersComponent } from './User/components/my-orders/my-orders.component';
+import { UserHomeComponent } from './User/components/user-home/user-home.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -49,8 +51,16 @@ const routes: Routes = [
   { path: 'products/catalog', component: ProductsCatalogComponent },
   { path: 'products/:id/view', component: ProductViewComponent },
   { path: 'products/cartItems', component: CartItemsComponent },
-  { path: 'user/profile', component: UserProfileComponent },
-  { path: 'user/payment', component: UserPaymentComponent },
+  { path: 'payment', component: UserPaymentComponent },
+
+  {
+    path: 'user',
+    component: UserHomeComponent,
+    children: [
+      { path: '', component: UserProfileComponent },
+      { path: 'orders', component: MyOrdersComponent },
+    ],
+  },
 ];
 
 @NgModule({

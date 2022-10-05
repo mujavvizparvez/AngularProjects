@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IProduct } from '../models/IProduct';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  baseUrl = `https://e-commerceapp-fb599-default-rtdb.firebaseio.com/`;
+  // baseUrl = `https://e-commerceapp-fb599-default-rtdb.firebaseio.com/`;
+  baseUrl = environment.firebaseBaseUrl;
+
   constructor(private http: HttpClient) {}
   getProducts(): Observable<IProduct[]> {
     return this.http

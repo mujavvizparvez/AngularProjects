@@ -57,6 +57,15 @@ export class CartItemsComponent implements OnInit {
       return;
     }
   }
+  onDeleteAllCarts() {
+    if (confirm('Are you sure you want to delete cart')) {
+      this.cartService.deleteAllCart(this.userId).subscribe((data) => {
+        this.getCarts();
+      });
+    } else {
+      return;
+    }
+  }
   onQtyIncrease(cart: ICartDetails) {
     cart.quantity = cart.quantity + 1;
     this.cartService
@@ -78,6 +87,6 @@ export class CartItemsComponent implements OnInit {
     return finalTotal;
   }
   onGoToCheckout() {
-    this.router.navigate(['/user/payment']);
+    this.router.navigate(['/payment']);
   }
 }

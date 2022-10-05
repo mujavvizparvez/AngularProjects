@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ICategory } from '../models/ICategory';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  baseUrl = `https://e-commerceapp-fb599-default-rtdb.firebaseio.com/`;
+ // baseUrl = `https://e-commerceapp-fb599-default-rtdb.firebaseio.com/`;
+  baseUrl = environment.firebaseBaseUrl;
   constructor(private http: HttpClient) {}
   addCategory(category: ICategory): Observable<{ name: string }> {
     return this.http.post<{ name: string }>(

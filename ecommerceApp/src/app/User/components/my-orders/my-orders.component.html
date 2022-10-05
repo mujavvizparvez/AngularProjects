@@ -1,0 +1,19 @@
+<div class="order-dtl">
+  <div class="container">
+    <h4 class="my-4 order-heading mt-4 p-2">My Orders</h4>
+    <div class="row bg-white my-3" *ngFor="let order of orders">
+      <div class="col-md-2">
+        <img [src]="order.image" width="40%" class="p-2" alt="" />
+      </div>
+      <div class="col-md-4 p-2">
+        <h6 class="mt-2">{{ order.name }}</h6>
+        <p>Quantity:{{ order.quantity }} &nbsp; Price:₹{{ order.price }}</p>
+      </div>
+      <div class="col-md-2 mt-2 p-2">₹{{ order.totalAmount }}</div>
+      <div class="col-md-3 mt-2 p-2">
+        <!-- <h6>{{order.status}} on {{ changeDateFormat(order.dateOfOrder) }}</h6> -->
+        <h6>{{order.status}} on {{ order.dateOfOrder | date }}</h6>
+      </div>
+    </div>
+  </div>
+</div>
