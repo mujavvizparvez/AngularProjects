@@ -26,5 +26,22 @@ export class ProductCategoriesComponent implements OnInit {
         this.categories = categories.filter((f) => f.type == type);
       });
   }
-
 }
+  //  this.cartService.getCarts(userDetails.userId).subscribe((data) => {
+  //    if (data.length == 0) {
+  //      this.cartService
+  //        .addCart(cart, userDetails.userId)
+  //        .subscribe((data) => {});
+  //    } else {
+  //      let d = data.filter((p) => {
+  //        return p.productId == cart.productId;
+  //      });
+  //      if (d.length != 0) {
+  //        alert('Product is already cart');
+  //      } else {
+  //        this.cartService
+  //          .addCart(cart, userDetails.userId)
+  //          .subscribe((data) => {});
+  //      }
+  //    }
+  //  });

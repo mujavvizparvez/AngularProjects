@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
+import { MessageService } from 'src/app/Auth/services/message.service';
 
 @Component({
   selector: 'app-add-category',
@@ -17,6 +18,7 @@ export class AddCategoryComponent implements OnInit {
   });
   constructor(
     private categoryService: CategoryService,
+    private messageService: MessageService,
     private router: Router
   ) {}
 
@@ -26,6 +28,7 @@ export class AddCategoryComponent implements OnInit {
     category.createdBy = 1;
     category.createdDate = new Date();
     this.categoryService.addCategory(category).subscribe((data) => {
+      this.messageService.setSuccessMessage('Category added successfully');
       this.router.navigate(['admin/category/details']);
       console.log(data);
     });

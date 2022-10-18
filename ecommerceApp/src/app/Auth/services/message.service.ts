@@ -4,14 +4,23 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class MessageService {
-  // sendMessage = new EventEmitter<any>
-
-  // giveSendMessage(message:string) {
-  //     this.sendMessage.emit(message)
-  // }
-
   successMessageEvent = new EventEmitter<string>();
+  errorMessageEvent = new EventEmitter<string>();
+
   setSuccessMessage(message: string) {
     this.successMessageEvent.emit(message);
+    this.removeMessageTimer();
+  }
+
+  setErrorMessage(message: string) {
+    this.errorMessageEvent.emit(message);
+    this.removeMessageTimer();
+  }
+
+  removeMessageTimer() {
+    setTimeout(() => {
+      this.successMessageEvent.emit('');
+      this.errorMessageEvent.emit('');
+    },5000)
   }
 }

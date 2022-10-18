@@ -100,7 +100,7 @@
         >
           <div class="accordion-body">
             <div class="container">
-              <h5>Add Adress here....</h5>
+              <h5>Add Adress here...</h5>
               <div>
                 <textarea
                   name="address"
@@ -339,10 +339,11 @@
                     <label for="cardNumber mb-0"> </label>
                     <div class="input-group">
                       <input
-                        type="text"
+                        type="number"
                         name="cardNumber"
                         placeholder="Valid card number"
                         class="form-control"
+                        [(ngModel)]="cardNumber"
                         required
                       />
                       <div class="input-group-append">
@@ -363,6 +364,8 @@
                           name="start"
                           min="2022-10"
                           class="exp-date-input form-control"
+                        [(ngModel)]="expDate"
+
                           required
                         />
                       </div>
@@ -381,6 +384,8 @@
                           required
                           class="form-control"
                           placeholder="CVV"
+                        [(ngModel)]="cvv"
+
                         />
                       </div>
                     </div>

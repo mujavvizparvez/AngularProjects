@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'src/app/Auth/services/message.service';
 import { DeliveryStatus } from 'src/app/Dashboard/models/DeliveryStatus';
 import { IOrderDetails } from 'src/app/Dashboard/models/IOrderDetails';
 import { IUserPayment } from 'src/app/Dashboard/models/IUserPayment';
@@ -20,14 +21,18 @@ import { UserService } from '../../../Dashboard/services/users.service';
 export class UserPaymentComponent implements OnInit {
   userPayment: IUserPayment[] = [];
   carts: ICartDetails[] = [];
+  userDetails!: IUserDetais;
   userId: string = '';
-  id: string = '';
+  productId!: string;
   isPaymentButtonDisabled: boolean = true;
   isPaymentProcessDisabled: boolean = true;
   grandTotal: number = 0;
   paymentOption: string = '';
   showRadioButton = false;
   isDisabled: boolean = false;
+  cardNumber: number = 0;
+  expDate: number = 0;
+  cvv: number = 0;
   userAddress: string = '';
   user?: IUser = {
     fullName: '',
@@ -47,10 +52,16 @@ export class UserPaymentComponent implements OnInit {
     private userService: UserService,
     private paymentService: PaymentService,
     private orderService: OrderService,
-    private router: Router
+    private messageService: MessageService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    debugger;
+    this.productId = this.route.snapshot.params['productId'];
+
+    // console.log(new Date().getTime());
     let userDetails = this.authService.userDetails;
     if (userDetails) {
       this.userId = userDetails.userId;
@@ -60,6 +71,12 @@ export class UserPaymentComponent implements OnInit {
       this.userService.getUser().subscribe((data) => {
         this.user = data.find((s) => s.userId == this.userId);
       });
+
+      if (this.productId) {
+        this.cartService.getCarts(this.userId).subscribe((data) => {
+          this.carts = data.filter((p) => p.productId == this.productId);
+        });
+      }
     }
   }
 
@@ -118,6 +135,14 @@ export class UserPaymentComponent implements OnInit {
   }
 
   onPayFinalAmount() {
+    debugger;
+    if (this.productId) {
+      debugger;
+      this.cartService.getCarts(this.userId).subscribe((data) => {
+        this.carts = data.filter((p) => p.productId == this.productId);
+      });
+    }
+
     let payment: IUserPayment = {
       dateOfPayment: new Date(),
       amount: this.getGrandTotal(this.carts) + 50,
@@ -126,12 +151,13 @@ export class UserPaymentComponent implements OnInit {
     this.paymentService
       .addPaymentDetails(payment, this.userId)
       .subscribe((data) => {});
-    console.log(DeliveryStatus.booked);
+
     for (let cart of this.carts) {
       let order: IOrderDetails = {
+        userName: this.user?.fullName ?? '',
         productId: cart.productId,
         brand: cart.brand,
-        name: cart.name,
+        productName: cart.name,
         image: cart.photoUrl,
         price: cart.price,
         quantity: cart.quantity,
@@ -145,9 +171,21 @@ export class UserPaymentComponent implements OnInit {
         .addOrderDetails(order, this.userId)
         .subscribe((data) => {});
     }
-    this.onDeleteAllCarts();
+
+    if (this.productId) {
+      debugger;
+      this.cartService;
+      this.cartService
+        .deleteCart(this.carts[0].id ?? '', this.userId)
+        .subscribe((data) => {
+          this.getCarts();
+        });
+    } else {
+      debugger;
+      this.onDeleteAllCarts();
+    }
     this.router.navigate(['/']);
-    console.log('order succesfully booked');
+    this.messageService.setSuccessMessage('Your order booked successfully');
   }
   onEnableButton() {
     this.isPaymentButtonDisabled = false;

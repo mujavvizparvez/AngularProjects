@@ -38,10 +38,14 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let product of products| paginate: { itemsPerPage: 10, currentPage: page,
+            *ngIf="searchText === '' || product.name.toLowerCase().includes(searchText)"
+      <tbody 
+      
+      >
+        <tr *ngFor="let product of products|  paginate: { itemsPerPage: 10, currentPage: page,
               totalItems:totalLength
-          }" class="text-center">
+          }" class="text-center"
+          >
           <td data-label="Brand">{{ product.brand }}</td>
            <td data-label="Category">{{ product.categoryName }}</td>
            <td data-label="SubCategory">{{product.subCategoryName}}</td>

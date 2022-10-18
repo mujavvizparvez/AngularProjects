@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUserDetais } from 'src/app/Auth/models/IUserDeatails';
 import { IProduct } from '../../../Admin/product/models/IProduct';
@@ -13,11 +13,14 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./product-view.component.css'],
 })
 export class ProductViewComponent implements OnInit {
+  @ViewChild('form') selectSizeForm!: NgForm;
   product!: IProduct;
+  btnText: string = 'ADD TO CART';
+  showCartBtn = true;
   productId: string = '';
   size: string = '';
-  quantity!: number;
-
+  quantity: number = 1;
+  isSizeSelected = true;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -34,11 +37,16 @@ export class ProductViewComponent implements OnInit {
     //   Object.assign(a, {  total: a.price });
     // });
   }
-
+  onSizeClicked() {
+    console.log(this.selectSizeForm.value);
+  }
   onSizeChange(event: any) {
     this.size = event.target.value;
+    this.isSizeSelected = false;
   }
+  
   onAddToCart() {
+    
     let cart: ICartDetails = {
       productId: this.productId,
       brand: this.product.brand,
@@ -49,13 +57,102 @@ export class ProductViewComponent implements OnInit {
       size: this.size,
       photoUrl: this.product.photoUrl,
     };
-
+   
+  
     let userDetailsJson = localStorage.getItem('userDetails');
     let userDetails!: IUserDetais;
     if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
+    
+    // this.cartService.addCart(cart, userDetails.userId).subscribe((data) => {
+    //   console.log(data);
+    // });
+    // this.cartService.getCarts(userDetails.userId).subscribe((data) => {
+    //   if(data.length==0){
+    //       this.cartService
+    //         .addCart(cart, userDetails.userId)
+    //         .subscribe((data) => {
+    //         });
+        
+    //   }
+    // });
+    // if (this.productId.length!=0) {
+    //      alert('Cart is present')
+    // } else {
+    //         this.cartService
+    //           .addCart(cart, userDetails.userId)
+    //           .subscribe((data) => {
+    //             console.log(data);
+    //           });
+    //    }
+      this.cartService.getCarts(userDetails.userId).subscribe((data) => {
+     if (data.length == 0) {
+       this.cartService
+         .addCart(cart, userDetails.userId)
+         .subscribe((data) => {});
+     } else {
+       let d = data.filter((p) => {
+         return p.productId == cart.productId;
+       });
+       
+       if (d.length != 0) {
+         alert('Cart is already present')
+       } else {
+         this.cartService
+           .addCart(cart, userDetails.userId)
+           .subscribe((data) => {});
+       }
+     }
+      
+   });
+    this.showCartBtn = false;
 
-    this.cartService.addCart(cart, userDetails.userId).subscribe((data) => {
-      console.log(data);
-    });
+    //this.btnText = 'GO TO CART';
   }
+  
+  onGOToCart() {
+    this.router.navigate(['/products/cartItems']);
+  }
+  onGoToBuy(productId:string) {
+    this.onAddToCart();
+    this.router.navigate(['/payment',productId]);
+  }
+
 }
+  //  this.cartService.getCarts(userDetails.userId).subscribe((data) => {
+  //    if (data.length == 0) {
+  //      this.cartService
+  //        .addCart(cart, userDetails.userId)
+  //        .subscribe((data) => {});
+  //    } else {
+  //      let d = data.filter((p) => {
+  //        return p.productId == cart.productId;
+  //      });
+  //      if (d.length != 0) {
+  //        alert('Product is already cart');
+  //      } else {
+  //        this.cartService
+  //          .addCart(cart, userDetails.userId)
+  //          .subscribe((data) => {});
+  //      }
+  //    }
+  //  });
+
+
+
+    // console.log(new Date().getTime());
+    // let userDetails = this.authService.userDetails;
+    // if (userDetails) {
+    //   this.userId = userDetails.userId;
+    //   this.cartService.getCarts(this.userId).subscribe((data) => {
+    //     this.carts = data;
+    //   });
+    //   this.userService.getUser().subscribe((data) => {
+    //     this.user = data.find((s) => s.userId == this.userId);
+    //   });
+
+    //   if (this.productId) {
+    //     this.cartService.getCarts(this.userId).subscribe((data) => {
+    //       this.carts = data.filter((p) => p.productId == this.productId);
+    //     });
+    //   }
+    // }

@@ -6,6 +6,7 @@ import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
 import { ISubCategory } from 'src/app/Admin/sub-category/models/ISubCatetogory';
 import { SubCategoryService } from 'src/app/Admin/sub-category/services/sub-category.service';
+import { MessageService } from 'src/app/Auth/services/message.service';
 import { IProduct } from '../../models/IProduct';
 import { ProductService } from '../../services/product.service';
 
@@ -40,6 +41,7 @@ export class AddProductComponent implements OnInit {
     private router: Router,
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService,
+    private messageService:MessageService,
     private route: ActivatedRoute
   ) {}
 
@@ -61,6 +63,7 @@ export class AddProductComponent implements OnInit {
     let product = this.productForm.value;
     console.log(this.productForm.value);
     this.productService.addProduct(product).subscribe((data) => {
+      this.messageService.setSuccessMessage('Product added successfully')
       this.router.navigate(['/admin/product/details']);
     });
   }

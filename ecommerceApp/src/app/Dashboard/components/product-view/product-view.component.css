@@ -41,5 +41,7 @@ label.radio input:checked + span {
   color: white;
   font-weight: 500;
 }
-
+/* .size{
+  font-size: 11px;
+} */
 

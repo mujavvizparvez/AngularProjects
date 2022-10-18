@@ -6,13 +6,30 @@
         <img [src]="order.image" width="40%" class="p-2" alt="" />
       </div>
       <div class="col-md-4 p-2">
-        <h6 class="mt-2">{{ order.name }}</h6>
+        <h6 class="mt-2">{{ order.productName }}</h6>
         <p>Quantity:{{ order.quantity }} &nbsp; Price:₹{{ order.price }}</p>
       </div>
       <div class="col-md-2 mt-2 p-2">₹{{ order.totalAmount }}</div>
       <div class="col-md-3 mt-2 p-2">
-        <!-- <h6>{{order.status}} on {{ changeDateFormat(order.dateOfOrder) }}</h6> -->
-        <h6>{{order.status}} on {{ order.dateOfOrder | date }}</h6>
+        <h6>{{ order.status }} on {{ order.dateOfOrder | date: 'short' }}</h6>
+        <select
+          name=""
+          id=""
+          [(ngModel)]="order.status"
+          (change)="onChangeStatus($event)"
+          class="drpdown"
+        >
+          <option value="Cancelled">Cancel</option>
+          <option value="Return">Return</option>
+        </select>
+        <div>
+          <button
+            class="btn btn-sm btn-warning text-center text-white my-2"
+            (click)="onUpdateStatus(order, userId)"
+          >
+            Update Status
+          </button>
+        </div>
       </div>
     </div>
   </div>

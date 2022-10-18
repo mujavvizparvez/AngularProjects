@@ -23,6 +23,7 @@ import { UserProfileComponent } from './User/components/user-profile/user-profil
 import { UserPaymentComponent } from './User/components/user-payment/user-payment.component';
 import { MyOrdersComponent } from './User/components/my-orders/my-orders.component';
 import { UserHomeComponent } from './User/components/user-home/user-home.component';
+import { OrderDetailsComponent } from './Admin/orders/order-details/order-details.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -31,7 +32,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminHomeComponent,
-    // canActivate: [AuthGuard],
+   // canActivate: [AuthGuard],
     children: [
       { path: '', component: LandingComponent },
       { path: 'category/add', component: AddCategoryComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'subcategory/add', component: AddSubCategoryComponent },
       { path: 'subcategory/details', component: SubCategoryDetailsComponent },
       { path: 'subcategory/:name/edit', component: EditSubCategoryComponent },
+     { path: 'order/details', component: OrderDetailsComponent },
     ],
   },
   { path: 'login', component: LoginComponent },
@@ -50,8 +52,12 @@ const routes: Routes = [
   { path: 'products/filter', component: ProductsCatalogComponent },
   { path: 'products/catalog', component: ProductsCatalogComponent },
   { path: 'products/:id/view', component: ProductViewComponent },
-  { path: 'products/cartItems', component: CartItemsComponent },
-  { path: 'payment', component: UserPaymentComponent },
+  {
+    path: 'products/cartItems',
+    component: CartItemsComponent,
+    // canActivate: [AuthGuard]
+  },
+  { path: 'payment/:productId', component: UserPaymentComponent },
 
   {
     path: 'user',

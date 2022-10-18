@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/Admin/product/models/IProduct';
 import { ProductService } from 'src/app/Admin/product/services/product.service';
 import { IUserDetais } from 'src/app/Auth/models/IUserDeatails';
@@ -16,13 +16,17 @@ export class CartItemsComponent implements OnInit {
   carts: ICartDetails[] = [];
   id: string = '';
   userId: string = '';
+  productId: string = '';
   constructor(
     private cartService: CartService,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    // this.productId = this.route.snapshot.params['id'];
+
     let userDetailsJson = localStorage.getItem('userDetails');
     let userDetails!: IUserDetais;
     if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
@@ -30,6 +34,10 @@ export class CartItemsComponent implements OnInit {
     this.getCarts();
   }
 
+  onProductView(id: any) {
+    console.log(id);
+    this.router.navigate(['/products', id, 'view']);
+  }
   getCarts() {
     this.cartService
       .getCarts(this.userId)
@@ -87,6 +95,6 @@ export class CartItemsComponent implements OnInit {
     return finalTotal;
   }
   onGoToCheckout() {
-    this.router.navigate(['/payment']);
+    this.router.navigate(['/payment',this.productId]);
   }
 }

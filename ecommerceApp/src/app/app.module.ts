@@ -38,6 +38,8 @@ import { UserPaymentComponent } from './User/components/user-payment/user-paymen
 import { MyOrdersComponent } from './User/components/my-orders/my-orders.component';
 import { UserHomeComponent } from './User/components/user-home/user-home.component';
 import { UserSidebarComponent } from './User/components/user-sidebar/user-sidebar.component';
+import { OrderDetailsComponent } from './Admin/orders/order-details/order-details.component';
+import { MyWishlistComponent } from './User/components/my-wishlist/my-wishlist.component';
 //import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
@@ -73,6 +75,8 @@ import { UserSidebarComponent } from './User/components/user-sidebar/user-sideba
     MyOrdersComponent,
     UserHomeComponent,
     UserSidebarComponent,
+    OrderDetailsComponent,
+    MyWishlistComponent,
     //MatExpansionModule,
   ],
   imports: [
@@ -85,9 +89,6 @@ import { UserSidebarComponent } from './User/components/user-sidebar/user-sideba
     ReactiveFormsModule,
     NgxPaginationModule,
     NgImageSliderModule,
-  Ng2SearchPipeModule,
-    
-   
   ],
   providers: [],
   bootstrap: [AppComponent],

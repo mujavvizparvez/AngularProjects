@@ -1,119 +1,77 @@
-<!-- 
+<div class="carosl-men">
+  <h3 class="trend-prod py-5">TRENDING MEN PRODUCTS</h3>
+  <ngx-slick-carousel
+    class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig"
+  >
+    <div
+      class="card slide"
+      *ngFor="let product of menProducts"
+      ngxSlickItem
+      
+    >
+      <div class="text-end mx-2 my-2">
+        <i class="fa-regular fa-heart" (click)="goToWishlist()"></i>
+      </div>
+      <div (click)="onProductView(product.id)">
+        <div class="image-wrapper">
+          <img [src]="product.photoUrl" alt="..." />
+        </div>
 
-<div
-  id="carouselExampleControls"
-  class="carousel slide carousel-dark"
-  data-bs-ride="carousel"
->
-  <div class="carousel-inner">
-    <h3>TRENDING WOMEN PRODUCTS</h3>
-    <div class="carousel-item active">
-      <div class="cards-wrapper">
-        <div class="card" *ngFor="let product of womenProducts">
-          <div class="image-wrapper">
-            <img [src]="product.photoUrl" alt="..." />
+        <div class="card-body text-center">
+          <p>
+            {{ product.name }}
+          </p>
+          <div class="rating-star fs-5">
+            <i class="fa-solid fa-star text-warning"></i
+            ><i class="fa-solid fa-star text-warning"></i
+            ><i class="fa-solid fa-star text-warning"></i
+            ><i class="fa-solid fa-star text-warning"></i
+            ><i class="fa-solid fa-star text-secondary"></i>
           </div>
-
-          <div class="card-body">
-            <p>
-              {{ product.name }}
-            </p>
-            <div>
-              <i class="fa-solid fa-star text-warning"></i
-              ><i class="fa-solid fa-star text-warning"></i
-              ><i class="fa-solid fa-star text-warning"></i
-              ><i class="fa-solid fa-star text-warning"></i
-              ><i class="fa-solid fa-star text-secondary"></i>
-            </div>
-             <h5>Rs 500 <span>50% OFF</span></h5> -->
-            <!-- <h5>{{ product.price }}</h5>
-          </div>
+          <!-- <h5>Rs 500 <span>50% OFF</span></h5> -->
+          <h5>{{ product.price }}</h5>
         </div>
       </div>
     </div>
-  </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleControls"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleControls"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>  -->
-
-
-  <div class="carosl-men">
-      <h3 class="trend-prod py-5">TRENDING MEN PRODUCTS</h3>
-<ngx-slick-carousel
-  class="carousel"
-  #slickModal="slick-carousel"
-  [config]="slideConfig"
->
-  <div class="card slide" *ngFor="let product of menProducts" ngxSlickItem>
-    <div class="image-wrapper">
-      <img [src]="product.photoUrl" alt="..." />
-    </div>
-
-    <div class="card-body text-center">
-      <p>
-        {{ product.name }}
-      </p>
-      <div class="rating-star fs-5">
-        <i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-secondary"></i>
-      </div>
-      <!-- <h5>Rs 500 <span>50% OFF</span></h5> -->
-      <h5>{{ product.price }}</h5>
-    </div>
-  </div>
-</ngx-slick-carousel>
+  </ngx-slick-carousel>
 </div>
 
-  <div class="carosl-men">
-      <h3 class="trend-prod py-5">TRENDING WOMEN PRODUCTS</h3>
-<ngx-slick-carousel
-  class="carousel"
-  #slickModal="slick-carousel"
-  [config]="slideConfig"
->
-  <div class="card slide" *ngFor="let product of womenProducts" ngxSlickItem>
-    <div class="image-wrapper">
-      <img [src]="product.photoUrl" alt="..." />
-    </div>
-
-    <div class="card-body text-center">
-      <p>
-        {{ product.name }}
-      </p>
-      <div class="rating-star">
-        <i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-warning"></i
-        ><i class="fa-solid fa-star text-secondary"></i>
+<div class="carosl-men">
+  <h3 class="trend-prod py-5">TRENDING WOMEN PRODUCTS</h3>
+  <ngx-slick-carousel
+    class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig"
+  >
+    <div
+      class="card slide"
+      *ngFor="let product of womenProducts"
+      ngxSlickItem
+      (click)="onProductView(product.id)"
+    >
+      <div class="image-wrapper">
+        <img [src]="product.photoUrl" alt="..." />
       </div>
-      <!-- <h5>Rs 500 <span>50% OFF</span></h5> -->
-      <h5>{{ product.price }}</h5>
-    </div>
-  </div>
-</ngx-slick-carousel>
-</div>
-   
 
+      <div class="card-body text-center">
+        <p>
+          {{ product.name }}
+        </p>
+        <div class="rating-star">
+          <i class="fa-solid fa-star text-warning"></i
+          ><i class="fa-solid fa-star text-warning"></i
+          ><i class="fa-solid fa-star text-warning"></i
+          ><i class="fa-solid fa-star text-warning"></i
+          ><i class="fa-solid fa-star text-secondary"></i>
+        </div>
+        <!-- <h5>Rs 500 <span>50% OFF</span></h5> -->
+        <h5>{{ product.price }}</h5>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div>
 
 <!-- 
 <section style="background-color: #eee;">
@@ -158,4 +116,3 @@
    </ngx-slick-carousel> 
     </div>
 </section> -->
-

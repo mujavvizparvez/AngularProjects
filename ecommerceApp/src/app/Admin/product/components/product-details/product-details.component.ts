@@ -18,18 +18,22 @@ export class ProductDetailsComponent implements OnInit {
   products: IProduct[] = [];
   totalLength!: number;
   page: number = 1;
+ // searchText:string='';
   constructor(
     private productService: ProductService,
     private router: Router,
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService
   ) {}
-
+  // searchText: string = '';
   ngOnInit(): void {
     this.getProduct();
     this.totalLength = this.products.length;
   }
-
+  // OnSerchTextEntered(searchValue:string) {
+  //   this.searchText = searchValue;
+  //   console.log(this.searchText)
+  //   }
   onDeleteProduct(id: any) {
     if (confirm('Are you sure you want to delete product')) {
       this.productService.deleteProduct(id).subscribe((data) => {
@@ -67,22 +71,7 @@ export class ProductDetailsComponent implements OnInit {
                 }
 
                 console.log(this.products);
-                // for (let category of categories) {
-                //   for (let subCategory of subCategories) {
-                //     for (let product of products) {
-                //       if (
-                //         category.id == product.categoryId &&
-                //         subCategory.id === product.subCategoryId
-                //       ) {
-                //         this.products.push({
-                //           ...product,
-                //           categoryName: category.name,
-                //           subCategoryName: subCategory.name,
-                //         });
-                //       }
-                //     }
-                //   }
-                // }
+               
               });
           });
       });

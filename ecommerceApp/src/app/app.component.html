@@ -2,5 +2,13 @@
 <app-admin-home *ngIf="isAdmin"></app-admin-home> -->
 
 <app-header></app-header>
+<div class="container">
+<div class="row">
+    <div class="">
+        <div class="alert alert-danger msg p-4"   *ngIf="errorMessage">{{errorMessage}}</div>
+        <div class="alert alert-success msg p-4" *ngIf="successMessage">{{successMessage}}</div>
+    </div>
+</div>
+</div>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

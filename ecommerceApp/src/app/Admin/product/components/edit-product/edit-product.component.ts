@@ -5,6 +5,7 @@ import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
 import { ISubCategory } from 'src/app/Admin/sub-category/models/ISubCatetogory';
 import { SubCategoryService } from 'src/app/Admin/sub-category/services/sub-category.service';
+import { MessageService } from 'src/app/Auth/services/message.service';
 import { IProduct } from '../../models/IProduct';
 import { ProductService } from '../../services/product.service';
 
@@ -37,7 +38,8 @@ export class EditProductComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private categoryService: CategoryService,
-    private subCategoryService: SubCategoryService
+    private subCategoryService: SubCategoryService,
+    private messageService:MessageService
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +78,7 @@ export class EditProductComponent implements OnInit {
     this.productService
       .updateProduct(this.productForm.value, this.productId)
       .subscribe((data) => {
+        this.messageService.setSuccessMessage('Product updated successfully')
         this.router.navigate(['admin/product/details']);
         console.log(data);
       });

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
+import { MessageService } from 'src/app/Auth/services/message.service';
 import { ISubCategory } from '../../models/ISubCatetogory';
 import { SubCategoryService } from '../../services/sub-category.service';
 
@@ -25,6 +26,7 @@ export class EditSubCategoryComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private subCategoryService: SubCategoryService,
+    private messageService:MessageService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -51,6 +53,7 @@ export class EditSubCategoryComponent implements OnInit {
     this.subCategoryService
       .updateSubcategory(this.subCategoryForm.value as ISubCategory, this.subCategoryId)
       .subscribe((data) => {
+      this.messageService.setSuccessMessage('Subcategory updated successfully');
         this.router.navigate(['admin/subcategory/details']);
         console.log(data);
       });

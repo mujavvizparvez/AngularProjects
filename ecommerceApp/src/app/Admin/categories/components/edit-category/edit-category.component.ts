@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/Admin/categories/models/ICategory';
 import { CategoryService } from 'src/app/Admin/categories/services/category.service';
+import { MessageService } from 'src/app/Auth/services/message.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -19,6 +20,7 @@ export class EditCategoryComponent implements OnInit {
   });
   constructor(
     private categoryService: CategoryService,
+    private messageService:MessageService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -41,6 +43,7 @@ export class EditCategoryComponent implements OnInit {
       this.categoryForm.value,
       this.categoryId
     ).subscribe((data) => {
+      this.messageService.setSuccessMessage('Category updated successfully');
       this.router.navigate(['admin/category/details']);
     });
   }

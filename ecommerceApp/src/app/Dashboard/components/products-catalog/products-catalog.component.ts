@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { bufferToggle } from 'rxjs';
+import { IUserDetais } from 'src/app/Auth/models/IUserDeatails';
 import { IProduct } from '../../../Admin/product/models/IProduct';
 import { ProductService } from '../../../Admin/product/services/product.service';
 import { MessageService } from '../../../Auth/services/message.service';
+import { IWishlist } from '../../models/IWishlist';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
   selector: 'app-products-catalog',
@@ -11,30 +15,58 @@ import { MessageService } from '../../../Auth/services/message.service';
 })
 export class ProductsCatalogComponent implements OnInit {
   products: IProduct[] = [];
-
+  product!: IProduct;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
+    private wishlistService: WishlistService,
     private router: Router // private messageService: MessageService
   ) {}
   categoryId: string = '';
   productId: string = '';
   id: string = '';
+  // heartColor = 'black';
+  color = 'blue';
+  err = true;
+  searchText: string = '';
+
   ngOnInit(): void {
+    this.productId = this.route.snapshot.params['id'];
+    this.productService.getProductById(this.productId).subscribe((data) => {
+      this.product = data;
+      console.log(data);
+    });
     this.categoryId = this.route.snapshot.queryParams['catogoryId'];
-    // this.route.queryParams.subscribe((params) => {
-    //   this.categoryId = params['catogoryId'];
-    // });
     this.getProductByCategoryId(this.categoryId);
-    // this.productService.getProducts().subscribe((products: IProduct[]) => {
-    //   this.products = products;
-    // });
+
+    this.productService.searchTextChanged.subscribe((searchedText) => {
+      this.searchText = searchedText;
+      console.log(this.searchText);
+    });
   }
 
+  onAddWIshlist(id: any) {
+    debugger;
+    let wishlist: IWishlist = {
+      productId: this.productId,
+      image: this.product.photoUrl,
+      productName: this.product.name,
+      price: this.product.price,
+    };
+    debugger;
+    let userDetailsJson = localStorage.getItem('userDetails');
+    let userDetails!: IUserDetais;
+    if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
+    this.wishlistService
+      .addWishlist(wishlist, userDetails.userId)
+      .subscribe((data) => {
+        debugger;
+        console.log(data);
+      });
+    this.err = !this.err;
+  }
   onProductView(id: string) {
-    console.log(id);
     this.router.navigate(['/products', id, 'view']);
-
   }
   getProductByCategoryId(categoryId: string) {
     this.productService.getProducts().subscribe((products: IProduct[]) => {

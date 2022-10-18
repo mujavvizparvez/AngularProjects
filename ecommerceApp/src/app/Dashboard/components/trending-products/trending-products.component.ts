@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from 'src/app/Admin/product/models/IProduct';
 import { ProductService } from 'src/app/Admin/product/services/product.service';
 
@@ -10,10 +11,19 @@ import { ProductService } from 'src/app/Admin/product/services/product.service';
 export class TrendingProductsComponent implements OnInit {
   menProducts: IProduct[] = [];
   womenProducts: IProduct[] = [];
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProductByType();
+  }
+  onProductView(id: string) {
+    console.log(id);
+    this.router.navigate(['/products/catalog']);
+  }
+  // addEvent(x:any) {
+  //   x.select = x.select;
+  // }
+  goToWishlist() {
   }
   getProductByType() {
     this.productService.getProducts().subscribe((products: IProduct[]) => {

@@ -25,85 +25,112 @@
         <div for="" class="col-md-1 my-3">Quantity</div>
         <div class="col-md-6 my-3 qtity">
           <!-- <input type="number" min="1" value="1" [(ngModel)]="quantity" /> -->
-          <input type="number" value="1" min="1" [(ngModel)]="quantity">
+          <input type="number" value="1" min="1" [(ngModel)]="quantity" />
         </div>
       </div>
 
-      <div class="row">
-        <div for="" class="col-md-1 my-4">Size</div>
-        <div class="col-md-9 my-3 d-flex">
-          <div style="margin-left: 10px">
-            <label class="radio">
-              <input
-                type="radio"
-                name="size"
-                value="S"
-                checked
-                (change)="onSizeChange($event)"
-              />
-              <span>S</span>
-            </label>
-          </div>
+      <form action="" (ngSubmit)="onSizeClicked()" #form="ngForm">
+        <div class="row">
+          <div for="" class="col-md-1 my-4">Size</div>
+          <div class="col-md-9 my-3 d-flex">
+            <div style="margin-left: 10px">
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="size"
+                  value="S"
+                  ngModel
+                  required
+                  S
+                  checked
+                  (change)="onSizeChange($event)"
+                />
+                <span>S</span>
+              </label>
+            </div>
 
-          <div class="mx-2">
-            <label class="radio">
-              <input
-                type="radio"
-                name="size"
-                value="M"
-                (change)="onSizeChange($event)"
-              />
-              <span>M</span>
-            </label>
+            <div class="mx-2">
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="size"
+                  value="M"
+                  ngModel
+                  required
+                  M
+                  (change)="onSizeChange($event)"
+                />
+                <span>M</span>
+              </label>
+            </div>
+            <div>
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="size"
+                  value="L"
+                  ngModel
+                  required
+                  L
+                  (change)="onSizeChange($event)"
+                />
+                <span>L</span>
+              </label>
+            </div>
+            <div class="mx-2">
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="size"
+                  value="XL"
+                  ngModel
+                  required
+                  XL
+                  (change)="onSizeChange($event)"
+                />
+                <span>XL</span>
+              </label>
+            </div>
+            <div>
+              <label class="radio">
+                <input
+                  type="radio"
+                  name="size"
+                  value="XXL"
+                  ngModel
+                  required
+                  XXL
+                  (change)="onSizeChange($event)"
+                />
+                <span>XXL</span>
+              </label>
+            </div>
+             <div class="my-4 mx-4 text-danger size" *ngIf="isSizeSelected">
+              <p>Please first select size</p>
+            </div>
           </div>
-          <div>
-            <label class="radio">
-              <input
-                type="radio"
-                name="size"
-                value="L"
-                (change)="onSizeChange($event)"
-              />
-              <span>L</span>
-            </label>
-          </div>
-          <div class="mx-2">
-            <label class="radio">
-              <input
-                type="radio"
-                name="size"
-                value="XL"
-                (change)="onSizeChange($event)"
-              />
-              <span>XL</span>
-            </label>
-          </div>
-          <div>
-            <label class="radio">
-              <input
-                type="radio"
-                name="size"
-                value="XXL"
-                (change)="onSizeChange($event)"
-              />
-              <span>XXL</span>
-            </label>
-          </div>
+          
         </div>
-      </div>
 
-      <div>
-        <h3>Product Details</h3>
-        <p>
-          {{ product.description }}
-        </p>
-      </div>
-      <div class="my-5">
-        <button class="btn btn-cart p-3" (click)="onAddToCart()">
-          ADD TO CART
-        </button>
-        <button class="btn btn-buy p-3 mx-3">BUY NOW</button>
-      </div>
+        <div>
+          <h3>Product Details</h3>
+          <p>
+            {{ product.description }}
+          </p>
+        </div>
+        <div class="my-5">
+          <!-- <button class="btn btn-cart p-3" (click)="onAddToCart()" [disabled]="!form.valid">
+            {{btnText}}
+          </button> -->
+          <button class="btn btn-cart p-3" (click)="onAddToCart()" [disabled]="!form.valid" *ngIf="showCartBtn">
+            ADD TO CART
+          </button>
+          <button class="btn btn-cart p-3" (click)="onGOToCart()" *ngIf="!showCartBtn">
+            GO TO CART
+          </button>
+          <a class="btn btn-buy p-3 mx-3" (click)="onGoToBuy(productId)">BUY NOW</a>
+        </div>
+      </form>
     </div>
   </div>
 </div>

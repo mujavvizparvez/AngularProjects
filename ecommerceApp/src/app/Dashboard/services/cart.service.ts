@@ -10,6 +10,9 @@ import { ICartDetails } from '../models/ICartDetails';
 })
 export class CartService {
   public carts: ICartDetails[] = [];
+  //public cartsl=new BehaviorSubject<any>([])
+  public cartQuantity = new BehaviorSubject<number>(0);
+
   baseUrl = environment.firebaseBaseUrl;
 
   constructor(private http: HttpClient) {}
@@ -50,10 +53,16 @@ export class CartService {
   deleteCart(id: string, userId: string) {
     return this.http.delete(`${this.baseUrl}carts/${userId}/${id}.json`);
   }
+  deleteSelectedCart(userId: string, productId: string) {
+    return this.http.delete(`${this.baseUrl}carts/${userId}/${productId}.json`);
+  }
 
-  deleteAllCart( userId: string) {
+  deleteAllCart(userId: string) {
     this.carts = [];
     return this.http.delete(`${this.baseUrl}carts/${userId}.json`);
+  }
+  getCartQuantity(value:number) {
+    return this.cartQuantity.next(value);
   }
 
   // getTotalPrice(): number {

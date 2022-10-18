@@ -9,6 +9,7 @@ import {
 import { IUser } from 'src/app/Dashboard/models/IUser';
 import { UserService } from 'src/app/Dashboard/services/users.service';
 import { AuthService } from '../../services/auth.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-register',
@@ -31,7 +32,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private messageService:MessageService
   ) {}
 
   ngOnInit(): void {}
@@ -42,6 +44,7 @@ export class RegisterComponent implements OnInit {
 
     if (user.email && user.password) {
       this.authService.register(user.email, user.password).subscribe((data) => {
+        this.messageService.setSuccessMessage('Registered successfully Completed')
         console.log(data);
       });
     }

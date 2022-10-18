@@ -1,8 +1,9 @@
 export interface IOrderDetails {
   id?: string;
+  userName: string;
   productId: string;
   brand: string;
-  name: string;
+  productName: string;
   price: number;
   image: string;
   quantity: number;
@@ -14,3 +15,9 @@ export interface IOrderDetails {
   dateOfShipped?: Date;
   dateOfDelivered?: Date;
 }
+
+export interface IUserOrderDetails {
+  userId: string;
+  orders: IOrderDetails[];
+}
+

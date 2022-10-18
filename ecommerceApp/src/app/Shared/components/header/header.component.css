@@ -46,6 +46,7 @@
 }
 .dropdown-item{
   text-decoration: none;
+  cursor: pointer;
 }
 @media screen and (min-width: 576px) {
   .hidden-icon {

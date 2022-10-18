@@ -12,6 +12,8 @@ import { DatePipe, formatDate } from '@angular/common';
 export class MyOrdersComponent implements OnInit {
   orders: IOrderDetails[] = [];
   userId: string = '';
+  statusChange: string = '';
+
   constructor(
     private orderService: OrderService,
     private authService: AuthService
@@ -19,7 +21,7 @@ export class MyOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     let userDetails = this.authService.userDetails;
-    if (userDetails) {
+    if (userDetails) {  
       this.userId = userDetails.userId;
       this.orderService
         .getOrderDetails(this.userId)
@@ -28,6 +30,21 @@ export class MyOrdersComponent implements OnInit {
         });
     }
   }
+    onChangeStatus(event: any) {
+    this.statusChange = event.target.value;
+    console.log(this.statusChange);
+  }
+
+  onUpdateStatus(order: IOrderDetails, userId: string) {
+   order.status = this.statusChange;
+    order.dateOfOrder = new Date();
+    this.orderService
+      .updateOrderDetails(order, order.id ?? '', userId)
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
+}
   // changeDateFormat(date: Date) { 
   //   debugger
   //   let pipe = new DatePipe('en-US');
@@ -42,4 +59,4 @@ export class MyOrdersComponent implements OnInit {
   //       this.orders = orders;
   //     });
   // }
-}
+
