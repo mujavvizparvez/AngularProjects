@@ -69,9 +69,7 @@ export class ProductDetailsComponent implements OnInit {
                     subCategoryName: subCategory?.name ?? '',
                   });
                 }
-
                 console.log(this.products);
-               
               });
           });
       });

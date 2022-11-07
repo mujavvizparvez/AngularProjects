@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  firebaseBaseUrl: `https://ecommerceproject-7981f-default-rtdb.firebaseio.com/`,
+  // firebaseBaseUrl: `https://ecommerceproject-7981f-default-rtdb.firebaseio.com/`,
+  firebaseBaseUrl: `https://e-commerce-website-f6420-default-rtdb.firebaseio.com/`,
 };
 
 /*

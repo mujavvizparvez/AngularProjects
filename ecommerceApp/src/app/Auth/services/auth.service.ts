@@ -15,7 +15,7 @@ export class AuthService {
   userDetails: IUserDetais | null = null;
   loggedInEvent = new EventEmitter<boolean>();
   // apiKey = `AIzaSyAwqNYRnLOnXbLXrOjRwtnSXYS9C4VvedY`;
-  apiKey = `AIzaSyBHolW4m54wiNw3U4jtmNX2FjSQ7krNYJM`;
+  apiKey = `AIzaSyD4QidNiBb0GlSwh-HJXqDNekY8MuS8_To`;
 
   constructor(private http: HttpClient, private userService: UserService) {}
 

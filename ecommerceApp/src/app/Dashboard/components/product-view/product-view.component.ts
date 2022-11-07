@@ -33,9 +33,7 @@ export class ProductViewComponent implements OnInit {
       this.product = data;
       console.log(data);
     });
-    // this.products.forEach((a: any) => {
-    //   Object.assign(a, {  total: a.price });
-    // });
+  
   }
   onSizeClicked() {
     console.log(this.selectSizeForm.value);
@@ -63,27 +61,7 @@ export class ProductViewComponent implements OnInit {
     let userDetails!: IUserDetais;
     if (userDetailsJson) userDetails = JSON.parse(userDetailsJson);
     
-    // this.cartService.addCart(cart, userDetails.userId).subscribe((data) => {
-    //   console.log(data);
-    // });
-    // this.cartService.getCarts(userDetails.userId).subscribe((data) => {
-    //   if(data.length==0){
-    //       this.cartService
-    //         .addCart(cart, userDetails.userId)
-    //         .subscribe((data) => {
-    //         });
-        
-    //   }
-    // });
-    // if (this.productId.length!=0) {
-    //      alert('Cart is present')
-    // } else {
-    //         this.cartService
-    //           .addCart(cart, userDetails.userId)
-    //           .subscribe((data) => {
-    //             console.log(data);
-    //           });
-    //    }
+  
       this.cartService.getCarts(userDetails.userId).subscribe((data) => {
      if (data.length == 0) {
        this.cartService
@@ -112,9 +90,9 @@ export class ProductViewComponent implements OnInit {
   onGOToCart() {
     this.router.navigate(['/products/cartItems']);
   }
-  onGoToBuy(productId:string) {
+  onGoToBuy() {
     this.onAddToCart();
-    this.router.navigate(['/payment',productId]);
+    this.router.navigate(['/payment',this.productId]);
   }
 
 }
@@ -139,20 +117,3 @@ export class ProductViewComponent implements OnInit {
 
 
 
-    // console.log(new Date().getTime());
-    // let userDetails = this.authService.userDetails;
-    // if (userDetails) {
-    //   this.userId = userDetails.userId;
-    //   this.cartService.getCarts(this.userId).subscribe((data) => {
-    //     this.carts = data;
-    //   });
-    //   this.userService.getUser().subscribe((data) => {
-    //     this.user = data.find((s) => s.userId == this.userId);
-    //   });
-
-    //   if (this.productId) {
-    //     this.cartService.getCarts(this.userId).subscribe((data) => {
-    //       this.carts = data.filter((p) => p.productId == this.productId);
-    //     });
-    //   }
-    // }

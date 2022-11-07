@@ -10,6 +10,7 @@ import { UserService } from 'src/app/Dashboard/services/users.service';
   styleUrls: ['./user-sidebar.component.css'],
 })
 export class UserSidebarComponent implements OnInit {
+  componentName="user-sidebar"
   user!: IUser;
   constructor(private userService: UserService, private authService: AuthService
   , private router:Router) { }
@@ -21,5 +22,8 @@ export class UserSidebarComponent implements OnInit {
   onlogout() {
     this.authService.logout();
     this.router.navigate(['/login'])
+  }
+  sum(a:number,b:number) {
+    return a+b
   }
 }

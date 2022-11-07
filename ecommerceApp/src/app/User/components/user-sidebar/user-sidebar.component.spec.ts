@@ -20,4 +20,11 @@ describe('UserSidebarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('check component name', () => {
+    expect(component.componentName).toBe('user-sidebar')
+  })
+
+   it('check component function', () => {
+     expect(component.sum(30,20)).toBe(50);
+   });
 });
